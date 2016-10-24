@@ -108,6 +108,7 @@ def main():
 # #                                 print help(recrd.features.append)
 #     #                             for index, feature in enumerate(recrd.features):
                                 gb_record.features.append(recrd)
+                                #got the feature, now break for next gene
                                 break
 #     print gb_record.format('genbank')
                                 #feature.location
