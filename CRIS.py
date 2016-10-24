@@ -50,7 +50,9 @@ def main():
     seqn = readseq(ARGS.seq_infile, 'genbank')
     for gb_record in seqn:
 #         print dir(gb_record)
+#         print gb_record.format('gb')
 #         sys.exit()
+
         whole_gb_record_seq = gb_record.seq
         print whole_gb_record_seq
         whole_gb_record_seq_rev = gb_record.seq.reverse_complement()
@@ -97,19 +99,26 @@ def main():
 
 #                                 print pos[0][0]
     #                             print dir(SeqRecord.SeqFeature())
-                                recrd = SeqRecord(Seq(potential_CRISPR_seq, alphabet=generic_dna), name = locus_name+'_'+potential_CRISPR_seq, description='CRISPR site', id=potential_CRISPR_seq)
-                                recrd.features.append(SeqFeature(FeatureLocation(pos[0][0], pos[0][1]), type='CRISPR'))
-                                for feature in recrd.features:
-                                    print feature.location
+#                                 recrd = SeqRecord(Seq(potential_CRISPR_seq, alphabet=generic_dna), name = locus_name[0:5]+'CRISPR', description='CRISPR site', id=potential_CRISPR_seq)
+#                                 recrd.features.append(SeqFeature(FeatureLocation(pos[0][0], pos[0][1]), type='CRISPR'))
+                                recrd = SeqFeature(FeatureLocation(pos[0][0], pos[0][1]), type='misc_binding')
+
+#                                 for feature in recrd.features:
+#                                     print feature.location
 # #                                 print help(recrd.features.append)
 #     #                             for index, feature in enumerate(recrd.features):
-                                gb_record.features.append(recrd)#feature.location
-#         print(gb_record.format("gb"))
+                                gb_record.features.append(recrd)
+                                break
+#     print gb_record.format('genbank')
+                                #feature.location
+#             print(gb_record.format("gb"))
     # #  
 #                                 print pos
 #                                 break
-#         with open(ARGS.seq_infile+'edit.gbk', 'w') as outhandle:
-#             SeqIO.write(gb_record, outhandle, 'genbank')
+#         print dir(SeqFeature)
+
+    with open(ARGS.seq_infile+'edit.gbk', 'w') as outhandle:
+        SeqIO.write(gb_record, outhandle, 'genbank')
                             
 #                         if len(fwd_hits) == 1 and len(rev_hits):
                         
