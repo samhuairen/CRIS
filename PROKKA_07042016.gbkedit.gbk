@@ -1,0 +1,1951 @@
+LOCUS       IMP4_plsmd             95458 bp    DNA              UNK 04-JUL-2016
+DEFINITION  Genus species strain strain.
+ACCESSION   IMP4_plsmd
+VERSION     IMP4_plsmd
+KEYWORDS    .
+SOURCE      Genus species
+  ORGANISM  Genus species Unclassified.
+            .
+COMMENT     Annotated using prokka 1.12-beta from
+            https://github.com/tseemann/prokka.
+FEATURES             Location/Qualifiers
+     source          1..95458
+                     /mol_type="genomic DNA"
+                     /organism="Genus species"
+                     /strain="strain"
+     gene            61..390
+                     /locus_tag="LDMHOHEE_00001"
+     mRNA            61..390
+                     /locus_tag="LDMHOHEE_00001"
+                     /product="hypothetical protein"
+     CDS             61..390
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00001"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKWQIPRFINTDKAPAYGRALALLKREGRCPSDVEHRQIKYRNN
+                     VIECDHGKLKRIIGATLGFKSMKTAYATIKGIEVMRALRKGQASAFYYGDPLGEMRLVS
+                     RVFEM"
+     gene            complement(424..915)
+                     /locus_tag="LDMHOHEE_00002"
+     mRNA            complement(424..915)
+                     /locus_tag="LDMHOHEE_00002"
+                     /product="hypothetical protein"
+     CDS             complement(424..915)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00002"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MAAPWISSPEMAMRDPGQGGRHRQTWRWSTPARIVGCGDASSRSV
+                     ATAGDLVPSSAMAMLQLDVRGLVVSASSDAAMLERGEKKPPRGVRGGKSACGSGRKKPR
+                     RRSGRKTARPDVQLGHFSRIFRLIRCERPAVGAARSAVAFSRRASAPGAAARRAALLQS
+                     "
+     gene            1022..1759
+                     /gene="bin3"
+                     /locus_tag="LDMHOHEE_00003"
+     mRNA            1022..1759
+                     /gene="bin3"
+                     /locus_tag="LDMHOHEE_00003"
+                     /product="hypothetical protein"
+     CDS             1022..1759
+                     /codon_start=1
+                     /gene="bin3"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P20384"
+                     /locus_tag="LDMHOHEE_00003"
+                     /product="Putative transposon Tn552 DNA-invertase bin3"
+                     /transl_table=11
+                     /translation="MRRTKPVAAPMVARVYLRVSTDAQDLERQEAITTAAKAAGYYVAG
+                     IYREKASGARADRPELLRMIGDLQPGEVVIAEKIDRISRLPLPEAERLVASIQAKGARL
+                     AVPGVVDLSDLAAEAQGVAKIVLEAVQIMLFRLALQMARDDYEDRRERQRQGIELARQA
+                     GRYKGRRADPKRRAQVVALRKSGYSINKTAELAGYSAAQVKRIWAEVSQAEAKQHGAFV
+                     EDALTEADALAAVGQDERQEERA"
+     gene            1756..1980
+                     /locus_tag="LDMHOHEE_00004"
+     mRNA            1756..1980
+                     /locus_tag="LDMHOHEE_00004"
+                     /product="hypothetical protein"
+     CDS             1756..1980
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00004"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKPNQDDEPFFITEEIAAEMIAGGYEFELPPIPCTIRLRDVLER
+                     MTDAELALQPGEIADQERERCRRKPCSTS"
+     gene            2079..2390
+                     /locus_tag="LDMHOHEE_00005"
+     mRNA            2079..2390
+                     /locus_tag="LDMHOHEE_00005"
+                     /product="hypothetical protein"
+     CDS             2079..2390
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00005"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDAKELNHMIAEAYSRDLQKPELVSFKEVSRWGRKYGFPVVCTLA
+                     DESEEKQIHWAASLLIQVAGTWPREDMPELLTPERGSALFNDAMQLLANGLGAANQLR"
+     gene            2564..3349
+                     /gene="soj"
+                     /locus_tag="LDMHOHEE_00006"
+     mRNA            2564..3349
+                     /gene="soj"
+                     /locus_tag="LDMHOHEE_00006"
+                     /product="hypothetical protein"
+     CDS             2564..3349
+                     /EC_number="3.6.-.-"
+                     /codon_start=1
+                     /gene="soj"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P37522"
+                     /locus_tag="LDMHOHEE_00006"
+                     /product="Sporulation initiation inhibitor protein Soj"
+                     /transl_table=11
+                     /translation="MAKVISFANQKGGVGKSTLCIQQAFYLALQKKKKVLVLDMDGQGN
+                     TSSRLAPRRELEDGDYEPILTGTKTAELFAYELDGIEVMHCPCGADLIHTPKNDPDLFE
+                     MEAVPLDQAMNPARHLAELFENYDYVLIDCPPSLGRKLVAALVMSTHVACPVKLSGFAV
+                     DGVEGLLNTIIGVREAYNQDLEILGIVINDMDRSVNHDKALKSLENTVPDLLFENKIMH
+                     RPPLDTATTDGIPVWELRYGHVAAKEVEAVLEELLEKVG"
+     gene            3353..4534
+                     /gene="korB"
+                     /locus_tag="LDMHOHEE_00007"
+     mRNA            3353..4534
+                     /gene="korB"
+                     /locus_tag="LDMHOHEE_00007"
+                     /product="hypothetical protein"
+     CDS             3353..4534
+                     /codon_start=1
+                     /gene="korB"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P07674"
+                     /locus_tag="LDMHOHEE_00007"
+                     /product="Transcriptional repressor protein KorB"
+                     /transl_table=11
+                     /translation="MALNNLKGLSELAKAAKGKKGKEVLTVPVDDVVSKVQVRKRFRNI
+                     EELAATLLTEGQQSPIIVFPKNEEGKFVIQKGERRWRACKHAGIETIDLVVNDKVQNNL
+                     DETAGELIENIQRDDLTPVEIAEALNLFIEEGWKQKDIADRLGKNITFVSTHLSLLKLP
+                     DCVRELYDNEVCSDTETLNNLRLLFDLNEERCRAVCAVAMSDGITRKQSRELLNDAKRI
+                     KDEMEKGPLTGSHQNDELGAGNTDEQSLNSGGDGTSEQTGNDDLNLAQEELEGGKNSNG
+                     QDDDDEDPLRDEEGEHKDPVKQPDNSGKDKDEEGGDALPPLPKDKEWKNVRADSLIFAV
+                     NVNLDGETKRGVIMTDRVALVPSTVWVKTLDGEGKEKHVHVPVSDIELLSVEG"
+     gene            4583..4855
+                     /locus_tag="LDMHOHEE_00008"
+     mRNA            4583..4855
+                     /locus_tag="LDMHOHEE_00008"
+                     /product="hypothetical protein"
+     CDS             4583..4855
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00008"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKISQDMKRKFALVNALSKTEKPSLQDLHKATNIPESTIKRQLSA
+                     LRDEFGMNILFVRESTGERGATGYYMLTDWGILDRSSFLNRYGKL"
+     gene            complement(4908..5543)
+                     /locus_tag="LDMHOHEE_00009"
+     mRNA            complement(4908..5543)
+                     /locus_tag="LDMHOHEE_00009"
+                     /product="hypothetical protein"
+     CDS             complement(4908..5543)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00009"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSPETQQLTSKALSLIEQSRYRMGTSRFVEAFIDQWAYLQTGLYP
+                     AKEEIPEELQPVAFELSHVLSAAIKRDPTSDVLGYVLSMSGFHKKGTNYFPTPPEIGRL
+                     MSLIVGSQSSADFYEPCCGSGINAIHWMENLIENHGPEALREASIYLEDIDPLMVKCCM
+                     IQLFHYFESRNTTPKTLSIVGIDTLSRRTKNIAYYAEKPPATAATVAA"
+     gene            complement(5635..5778)
+                     /locus_tag="LDMHOHEE_00010"
+     mRNA            complement(5635..5778)
+                     /locus_tag="LDMHOHEE_00010"
+                     /product="hypothetical protein"
+     CDS             complement(5635..5778)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00010"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MLQGNTNTNKRIPLAAFMKWPLAKRQDFIDREMSGCPDFIKTSLL
+                     RH"
+     gene            6097..6474
+                     /locus_tag="LDMHOHEE_00011"
+     mRNA            6097..6474
+                     /locus_tag="LDMHOHEE_00011"
+                     /product="hypothetical protein"
+     CDS             6097..6474
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00011"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MPKQANHLRLKKPCANCPFRKEGAIELVPGRLEGIINDIVENDMT
+                     TFHCHKTVHSKSGGEWDEEGNYAPSGQESMCAGAAAYLMKIGRPTVAMRIAFAFGDAKV
+                     SDWDEAQELVVEPLVQGDRNE"
+     gene            6467..6748
+                     /locus_tag="LDMHOHEE_00012"
+     mRNA            6467..6748
+                     /locus_tag="LDMHOHEE_00012"
+                     /product="hypothetical protein"
+     CDS             6467..6748
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00012"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSKRYAVVPHPKLKREYKGRLVRTTRVLKNGWGVIPLGAVATVTH
+                     QSPKGSELTFEPCDCCGLKAIISHVSMDSIEFIEPITEEEDGREQAQH"
+     gene            6723..7397
+                     /locus_tag="LDMHOHEE_00013"
+     mRNA            6723..7397
+                     /locus_tag="LDMHOHEE_00013"
+                     /product="hypothetical protein"
+     CDS             6723..7397
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00013"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDENKLNIETVDGHNELVVSFLSRMVSLSDEEKQTVLSCLPGTGK
+                     QTITQLYEALRSQGHQDLAEKVEPYLQQGVFGPIFDNAKSKVFVRDEAPFFLMDENPLN
+                     WDDAKAFNRLRMSTTCVLGRGGWTIGERFDDRFDTEVGGTQLIVTQSLNEKGEIEGGLP
+                     TSMSLNDFAEFPKQPRPPQIVDYQEDKRYTLEEAEAIPELAPVVQRLKERIEEYEERRA
+                     HD"
+     gene            7390..7896
+                     /locus_tag="LDMHOHEE_00014"
+     mRNA            7390..7896
+                     /locus_tag="LDMHOHEE_00014"
+                     /product="hypothetical protein"
+     CDS             7390..7896
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00014"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MIDMTCRLCAGSGVYDFSPSKETCGMCQGHGKFADAKAMLVAAIE
+                     LAKKQREPVIEVVMGLVLQGVDVRGKEPGERFKAAQAFNAPGHNLLRYGWDAWELYALH
+                     EGVSPELASLGRSVMREWHSHSWGRFSGEVGFNAAEIMIKQAKDNPEKAEERWAFLLSE
+                     EWMVE"
+     gene            7902..8213
+                     /locus_tag="LDMHOHEE_00015"
+     mRNA            7902..8213
+                     /locus_tag="LDMHOHEE_00015"
+                     /product="hypothetical protein"
+     CDS             7902..8213
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00015"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MTEQTNKKLMLDESPDMPLQFKWRKFGGAIFTATQTMEHVKEGRK
+                     LGPTPAGMLPQEVWLNRLIAMEETLPRGKFFDRFRRRDKNEQYDLAADHLRLVGQKKR"
+     gene            8222..8722
+                     /locus_tag="LDMHOHEE_00016"
+     mRNA            8222..8722
+                     /locus_tag="LDMHOHEE_00016"
+                     /product="hypothetical protein"
+     CDS             8222..8722
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00016"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKAQAYPPSVIRKGAVLYAALYYISDDDKAKVEVTEWIVRSIQKR
+                     RNSTSDQRYVNLAQKLDGITWGKRSRKNGDFGWLPSIPSWCLKQFREGGELPFGVYTTR
+                     LAALKFAKVSLQEEVQYCEAELKKPQTEEDTQELQEELAENQRLLKAAGAMVKREQNKK
+                     KRG"
+     gene            8726..10153
+                     /gene="ydiO"
+                     /locus_tag="LDMHOHEE_00017"
+     mRNA            8726..10153
+                     /gene="ydiO"
+                     /locus_tag="LDMHOHEE_00017"
+                     /product="hypothetical protein"
+     CDS             8726..10153
+                     /EC_number="2.1.1.37"
+                     /codon_start=1
+                     /gene="ydiO"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:O34939"
+                     /locus_tag="LDMHOHEE_00017"
+                     /product="putative BsuMI modification methylase subunit
+                     YdiO"
+                     /transl_table=11
+                     /translation="MLPIVSPSVVTKQLAFNRVGDKRKVRVSSNFLDVMGFKPGMGIAV
+                     EPGEGMGGFSVIPATDELQTHQVYQRRYQPKSRSNNPLETVIEFSGQGLIDKCFPRYTE
+                     RFHVEMRKGRVVFTPVANRAFAIADRFRKTSPFRAFVALTGGVDIHVMEALGWKAEIVL
+                     EHRPVEARDRASGRNLSEVHALNTLVNSSPRILLNEDIHHLELDRLGALLAECPPIGLA
+                     HYSLGCDDHSNAKSPRDKERSLEDLSTMLDMVYPALKQIEVVNPAVVLVENVPNFKASG
+                     AGAMMGTTLRRMGYFLTEMVLNGLDFGAYQGRERYYMVASVFPGFVPPKPEQRAGGRLW
+                     PVIEKHLGDCADVTVLKSIQARESTSRRMPAFLTRESTSCPTILKSQDRGVKDAVYIQD
+                     GGRIYKPSVDLVQELMSIPDSFDVSWMAKEQATETLGQSVDYRLHSAVMAAVRDHLNVN
+                     CGRHTVVQHGIRSKEGR"
+     gene            10153..10809
+                     /locus_tag="LDMHOHEE_00018"
+     mRNA            10153..10809
+                     /locus_tag="LDMHOHEE_00018"
+                     /product="hypothetical protein"
+     CDS             10153..10809
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00018"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MAVIYYGEGTHDAGFVGFRVARTVGVADDYRQEYFSLREYSYATA
+                     HRLAYSLDRKWEAEAEEVKRQNKTCKRRRNSGPNIIAEGLRAYISIENRSRMGVKRTYF
+                     APCFLVTKPGYGNGDIAFRISTHGYAEAYEKAVEKYCEIHDLTDEQYVELLDRMPSTEV
+                     FTGYLLNALLMRGHRATKAEILSKLGAEKNEEDIANGKGKSGQNRVRCPEYRWAQ"
+     gene            10748..11011
+                     /locus_tag="LDMHOHEE_00019"
+     mRNA            10748..11011
+                     /locus_tag="LDMHOHEE_00019"
+                     /product="hypothetical protein"
+     CDS             10748..11011
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00019"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MAKGKAARTECVAQSIGGRNNSATSFWDRILTVEETATLIGVRIS
+                     ELKDAVRYQKLLKGKAAPEVHSVSGTGKLFFDGRSIKSFIED"
+     gene            11015..11233
+                     /locus_tag="LDMHOHEE_00020"
+     mRNA            11015..11233
+                     /locus_tag="LDMHOHEE_00020"
+                     /product="hypothetical protein"
+     CDS             11015..11233
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00020"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDLDQKQEPWISVNDKMPVVGVPVHCQLKGCWSGKIVEYDLIHVQ
+                     EDDCSWRTADDNSEVSYDFDVITWRPI"
+     gene            11327..11944
+                     /locus_tag="LDMHOHEE_00021"
+     mRNA            11327..11944
+                     /locus_tag="LDMHOHEE_00021"
+                     /product="hypothetical protein"
+     CDS             11327..11944
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00021"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MFFDNKVESHSLVMGASGKGKSVLSEQVRKNARLRGDLLVDTEMY
+                     REGRGLKPYEHEYARRLVLGLSGPLPRELRGKPVTVISDVSRPKKVKRQPKQFVKTVNG
+                     VTLERQLVADARDQLEMQTGVWLKQPQLIELMEESGIDETLADFGEAETQIREMLADAL
+                     AMKLVGRSWPKCGALYNAAEKSDVNFSSELDAAAKKAGYMVR"
+     gene            12156..12455
+                     /locus_tag="LDMHOHEE_00022"
+     mRNA            12156..12455
+                     /locus_tag="LDMHOHEE_00022"
+                     /product="hypothetical protein"
+     CDS             12156..12455
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00022"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MGYQVVIMKKRILHLPVKKIYFDQIKSGEKPDEYRLVTDYWIKRL
+                     EGREYDEVHVKCGYPKAGDMSRIEIRPWRGFSRSVITHPHFGDCPVEVFAIHVN"
+     gene            complement(12547..13035)
+                     /locus_tag="LDMHOHEE_00023"
+     mRNA            complement(12547..13035)
+                     /locus_tag="LDMHOHEE_00023"
+                     /product="hypothetical protein"
+     CDS             complement(12547..13035)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00023"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MFGTIILTAMLTTSSATAEDAGKNIASGLAAASASQMGQAVMPTL
+                     ATSSAIAKSAGKGMVSGLAAATASYIPQDELSFTRSYKNSEAVDMAKGLGTLKEAPEFL
+                     YVVTDVNANMAVKCKRVWEPQSLALSPVIVELVELRKTNNKDSYEQALSHLDCSMFTD"
+     gene            complement(13050..15242)
+                     /gene="topB"
+                     /locus_tag="LDMHOHEE_00024"
+     mRNA            complement(13050..15242)
+                     /gene="topB"
+                     /locus_tag="LDMHOHEE_00024"
+                     /product="hypothetical protein"
+     CDS             complement(13050..15242)
+                     /EC_number="5.99.1.2"
+                     /codon_start=1
+                     /gene="topB"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P14294"
+                     /locus_tag="LDMHOHEE_00024"
+                     /product="DNA topoisomerase 3"
+                     /transl_table=11
+                     /translation="MDLYICEKPSQAKDLAGVMKASQRGDGFLHDGGNRVITWAFGHLL
+                     ELYMPDDYDERYKSWSLETLPIAPESWRYNVRKSAFKQYKIVEGLVKKASTIYISTDYD
+                     REGEAIARSLLDRFRYSGPIRRVCLTALDESSIKKALNNVKDGKDTVSLYYAALARQRA
+                     DWLVGMNVSRLYTVLARDVGFNHTLHVGRVITPTVALVCQRDREIAGFTPSPYWTLGVN
+                     VSVQNGQFAAQWIPPEECSDEQGRCVNKAYAEQVASQVNGANAVISKAETKPGKESAPL
+                     PFDLTSLQQYASKRWGYTAQQVLDAAQALYETHKATTYPRTDSRYLPESQKEDIPDILQ
+                     ALILSDQNVSGLVAGADPHRKARVFNDAKVTAHHAIIPTPARTDISAMSEIEFNLYDAI
+                     RRFYIAQFYSEFEFTKTSIEVQCGRHLFAASGKTPAKQGWKVLFASDSESSPKDEGEDT
+                     DAPVEQEKLPRVSQGEPALLNGAELANKMTRPAPHFTEATLLAAMENIARFVTEEKFKQ
+                     ILKDTAGLGTPATRASIIQGAVDKGYFKRQKKVLLATDKAHALIAVLPPAIKSPGMTAA
+                     WEQELEKVASGSGNMSVFMKQISTWICQMVEQLKVPAPVLTKEGGAMAKAFEGAKPPSH
+                     ECFNCGGEMHRIKGKNGFFWGCQNEACKKTFPDNRGKPEKRIAAEDCPDCPDCGSPMRL
+                     RKGKAPGKKRASKFWGCTAYPDCKGTMPFKKSDFMD"
+     gene            complement(15242..15475)
+                     /locus_tag="LDMHOHEE_00025"
+     mRNA            complement(15242..15475)
+                     /locus_tag="LDMHOHEE_00025"
+                     /product="hypothetical protein"
+     CDS             complement(15242..15475)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00025"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MQSSEIRNQTEPSRKAELFDALSIMLQEAGSRGNSREAAYVISGV
+                     LENLSRDYPEVKGLAQSWAELANLESKMRGAA"
+     gene            complement(15457..16074)
+                     /locus_tag="LDMHOHEE_00026"
+     mRNA            complement(15457..16074)
+                     /locus_tag="LDMHOHEE_00026"
+                     /product="hypothetical protein"
+     CDS             complement(15457..16074)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00026"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MRQLIAILGVAILAGCASNAPEQKPQPQTAPAENDKPARVSRELS
+                     MAWDNMGRGGAALRQPGYIHVLGDGNVSATMNKVKDDSAGSDKTPAGIKQHGDVNEAIN
+                     TFKSMNKGKGYSLYELSRWERYCDGGKGMDEHDWRFVEAEGTTNIPKDVVTGCIPPTHT
+                     YQDYLNAWTHFCTSQAVTDADRRIVRESVRPYSVVNPCKALK"
+     gene            16242..19220
+                     /locus_tag="LDMHOHEE_00027"
+     mRNA            16242..19220
+                     /locus_tag="LDMHOHEE_00027"
+                     /product="hypothetical protein"
+     CDS             16242..19220
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF07514.5"
+                     /locus_tag="LDMHOHEE_00027"
+                     /product="Putative helicase"
+                     /transl_table=11
+                     /translation="MLKALNKLFGGRSGVIETAPSARVLPLKDVEDEEIPRYPPFAKGL
+                     PVAPLDKILATQAELIEKVRNSLGFTVDDFNRLVLPVIQRYAAFVHLLPASESHHHRGA
+                     GGLFRHGLEVAFWAAQASESVIFSIEGTPRERRDNEPRWRLASCFSGLLHDVGKPLSDV
+                     SITDKDGSITWNPYSESLHDWAHRHEIDRYFIRWRDKRHKRHEQFSLLAVDRIIPAETR
+                     EFLSKSGPSIMEAMLEAISGTSVNQPVTKLMLRADQESVSRDLRQSRLDVDEFSYGVPV
+                     ERYVFDAIRRLVKTGKWKVNEPGAKVWHLNQGVFIAWKQLGDLYDLISHDKIPGIPRDP
+                     DTLADILIERGFAVPNTVQEKGERAYYRYWEVLPEMLQEAAGSVKILMLRLESNDLVFT
+                     TEPPAAVAAEVVGDVEDAEIEFVDPEEADDGDDQEEGEAALNDDMLAAEQEAEKALAGL
+                     GFGDAMEMLKSTSDAVEEKPEQKDAGPTESSKPDAGKKGKPQSKPGKAKPKSDTEKQPH
+                     KPEAKEDLSPQDIAKNAPPLANDNPLQALKDVGGGLGDIDFPFDAFNASAETTSTDATN
+                     SEIPDVAMPGKQEEQPKQDFVPQEQNSLQGDDFPMFGGSDEPPSWAIEPLPMLTDAPEQ
+                     PTHTPEMPHTDNVNQHEKDAKTLLVEMLSGYGEASALLEQAIMPVLEGKTTLGEVLCLM
+                     KGQAVILYPDGARSLGAPSEVLSKLSHANAIVPDPIMPGRKVRDFSGVKAIVLAEQLSD
+                     AVVAAIKDAEASMGGYQDAFELVSPPGLDASKNKSAPKQQSRKKAQQQKPEVNAGKASP
+                     EQKAKGKDSQPQPKEKKVDVTSPVEEQQRKPVQEKQNVARLPKREAQPVAPEPKVEREK
+                     ELGHVEVREREDPEVREFEPPKAKTNPKDINAEDFLPSGVTPQKALQMLKDMIQKRSGR
+                     WLVTPVLEEDGCLVTSDKAFDMIAGENIGISKHILCGMLSRAQRRPLLKKRQGKLYLEV
+                     NET"
+     gene            19217..21082
+                     /locus_tag="LDMHOHEE_00028"
+     mRNA            19217..21082
+                     /locus_tag="LDMHOHEE_00028"
+                     /product="hypothetical protein"
+     CDS             19217..21082
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF12846.1"
+                     /locus_tag="LDMHOHEE_00028"
+                     /product="AAA-like domain protein"
+                     /transl_table=11
+                     /translation="MTMSYDPLAYEMPWRPNYEKNAVAGWLAASGAALAVEQVSTMPPE
+                     PFYWMTGICGVMAMARLPKAIKLHLLQKHLKGRDLEFISIAELQKYIKDTPDDMWLGSG
+                     FLWENRHAQRVFEILKRDWTSIVGRESTVKKVVRKIQGKKKELPIGQPWIHGVEPKEEK
+                     LMQPLKHTEGHSLIVGTTGSGKTRMFDILISQAILRGEAVIIIDPKGDKEMRDNARRAC
+                     EAMGQPERFVSFHPAFPEESVRIDPLRNFTRVTEIASRLAALIPSEAGADPFKSFGWQA
+                     LNNIAQGLVITHDRPNLTKLRRFLEGGAAGLVIKAVQAYSERVMPDWEAEAAAYLEKAK
+                     NGSREKIAFALMKFYYDIIQPEHPNSDLEGLLSMFQHDQTHFSKMVANLLPIMNMLTSG
+                     ELGPLLSPDSSDLSDERQITDSAKIINNAQVAYLGLDSLTDNMVGSAMGSIFLSDLTAV
+                     AGDRYNYGVNNRPVNIFVDEAAEVINDPFIQLLNKGRGAKLRLFVATQTFADFAARLGS
+                     KDKALQVLGNINNTFALRIVDGETQEYIADNLPKTRLKYVMRTQGQNSDGKEPIMHGGN
+                     QGERLMEEEADLFPAQLLGMLPNLEYIAKISGGTIVKGRLPILTQ"
+     gene            21093..21677
+                     /locus_tag="LDMHOHEE_00029"
+     mRNA            21093..21677
+                     /locus_tag="LDMHOHEE_00029"
+                     /product="hypothetical protein"
+     CDS             21093..21677
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00029"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MCDKKYRDYEVAIMVDVNPFDRVMNELKSRGRKNAHILSILQFDW
+                     PASEAIIEKLSCYITDGIKANQEPVIYPIIEEALHRYSQLVFHEQREKYEDPARIGAFL
+                     ETLITETCRALEVQIVDSGGDSWSVDSGESFSLWLSSHPGELSINPQPHEDETSLRGLL
+                     YELITCESVKTVLRRTDYEEAVVAGRMAAGY"
+     gene            21634..22263
+                     /locus_tag="LDMHOHEE_00030"
+     mRNA            21634..22263
+                     /locus_tag="LDMHOHEE_00030"
+                     /product="hypothetical protein"
+     CDS             21634..22263
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00030"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKPWLLVAWLLVIELLAILLLIPGDWTDRAIKRESVLVEQSLGV
+                     EARDWIQNKASTWFRSSVIDSGFYEGMYQTLIPSEEERQKSKGMQDMGKGWFVWVKGRM
+                     EAFVNVIYQFYTRLALLAAWAPYMLILFVPAVYDGMMTWRIKRTNFDYASPVLHRYSVR
+                     GTMYLMAGLFIAFFIPIALDPVVIPMTMMTCCVLVGLTFGNLQKRV"
+     gene            22273..22719
+                     /locus_tag="LDMHOHEE_00031"
+     mRNA            22273..22719
+                     /locus_tag="LDMHOHEE_00031"
+                     /product="hypothetical protein"
+     CDS             22273..22719
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00031"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSYSVINQDGVHLCDIPLNVYQVIRRQSLSALWLYWAQSLNLVKV
+                     LIACVGKMIFVMPVMWFWVLVVCRLVEPERISDVPGLISPDVIGWAAGAAITLIIYSVF
+                     TRPALYGYHNFFKQHICSRVKQVTPELRTVTGPLFFYRNEIGTI"
+     gene            22729..23106
+                     /locus_tag="LDMHOHEE_00032"
+     mRNA            22729..23106
+                     /locus_tag="LDMHOHEE_00032"
+                     /product="hypothetical protein"
+     CDS             22729..23106
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00032"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKVTNKLKLLALGLCMAGTAIAAPDVLNDDAKLKNLEKVCPDCKM
+                     VAKDVLNLRVENCQLKDTSSAMMIGTMQNDPMFSFMLAVHTAAGSEAYKTVVGAAGNHV
+                     DCENPLNWIKLTQQAIKGGKV"
+     gene            23106..23768
+                     /locus_tag="LDMHOHEE_00033"
+     mRNA            23106..23768
+                     /locus_tag="LDMHOHEE_00033"
+                     /product="hypothetical protein"
+     CDS             23106..23768
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00033"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MRKRDFFFGEVYEGGAGATLRLSDMEPLARKVSAEFFTAQLNRML
+                     KEHDGQLTLSDGTSYPSFWSFIDKVVPEQVGFVEIYARQDVNDNVEATLACDIVLVNGV
+                     ITVKPHWCAYKDIRADEVISTLLVPLHLKALQGKAYIRWDDGETEPLLQNDDYQAELEN
+                     VFSVSKYPSAMSWGDTADQKVKQYKMDLECATDVGCRGVSSEQAWDAYRELRYNRTV"
+     gene            23949..24092
+                     /locus_tag="LDMHOHEE_00034"
+     mRNA            23949..24092
+                     /locus_tag="LDMHOHEE_00034"
+                     /product="hypothetical protein"
+     CDS             23949..24092
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00034"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSAQAHVRESESSSGSFISWQFLVWQVMFVIGVVAGMNLEHAFNF
+                     LG"
+     gene            24104..24469
+                     /locus_tag="LDMHOHEE_00035"
+     mRNA            24104..24469
+                     /locus_tag="LDMHOHEE_00035"
+                     /product="hypothetical protein"
+     CDS             24104..24469
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00035"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNLNKQFFWFLMNAVLMCIFIVPVAVAFWLSAFAAGFDWSQWVKL
+                     AADTANRAASDPAKALGTVQTYWGILSFFLLAAYSLMFKFKANANKEVKTLGVARPANE
+                     VSVAASEKHSEAVPQNQ"
+     gene            24614..24895
+                     /locus_tag="LDMHOHEE_00036"
+     mRNA            24614..24895
+                     /locus_tag="LDMHOHEE_00036"
+                     /product="hypothetical protein"
+     CDS             24614..24895
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF07178.5"
+                     /locus_tag="LDMHOHEE_00036"
+                     /product="TraL protein"
+                     /transl_table=11
+                     /translation="MKPVKIPRRVDEPPHLLLWSADELAPMLLGLTIGVIIGKALICFL
+                     GGLLVTNLYRRFRDNHPDGYLLHMIYWAGFIMTKAKSLKNPFVRRYLP"
+     gene            24892..25518
+                     /locus_tag="LDMHOHEE_00037"
+     mRNA            24892..25518
+                     /locus_tag="LDMHOHEE_00037"
+                     /product="hypothetical protein"
+     CDS             24892..25518
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF05309.5"
+                     /locus_tag="LDMHOHEE_00037"
+                     /product="TraE protein"
+                     /transl_table=11
+                     /translation="MNLKKYLKTWEGTQTENKWGRIFQGGLIAIVFLLVVQVFSKETIV
+                     TIQPFTLTEEAWVTKNNASQSYKEAWGFAFAQLLGNVTPGTVDFVKERITPLLSPSIYQ
+                     DVIDAIEIQAQQIKNDRVTMRFEPRFVEYEPKSDKVFVYGYSYVKGASSNEERSERSYE
+                     FAIKISNYAPVLDYIDTYVGKPRTKTVLEQLQRKEENRRKHEEQR"
+     gene            25502..26419
+                     /locus_tag="LDMHOHEE_00038"
+     mRNA            25502..26419
+                     /locus_tag="LDMHOHEE_00038"
+                     /product="hypothetical protein"
+     CDS             25502..26419
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF06586.5"
+                     /locus_tag="LDMHOHEE_00038"
+                     /product="TraK protein"
+                     /transl_table=11
+                     /translation="MKNNAKLSLLALSLALGTSMAYASDDIPVVPASVMKKDVPAPVTS
+                     GQSSHEVVGSMNENPLLTMKPGVNQIIPIAVGHPNRIVTPFSNPEIVSTSLTGATDNGQ
+                     CGEVCIKENVVYVATDKQYPVTMFITEKGSEAQALSLTMVPRRIPPREVFLKLDGGVGI
+                     TGAFANTKAETWEQSQPYVETIRSVFRKIALGEVPQGYTLNRIPAGAAVPSCAHPGVKV
+                     DFSKGQYMMGHHLNVFIGVALNVSDQPIEFKEALCGSWDVAAVTTWPLNVLEPGQKTEI
+                     YVAKKQKRGLAPTSKRPSLLGGAQ"
+     gene            26416..27732
+                     /locus_tag="LDMHOHEE_00039"
+     mRNA            26416..27732
+                     /locus_tag="LDMHOHEE_00039"
+                     /product="hypothetical protein"
+     CDS             26416..27732
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF03743.8"
+                     /locus_tag="LDMHOHEE_00039"
+                     /product="Bacterial conjugation TrbI-like protein"
+                     /transl_table=11
+                     /translation="MIKRFWTQLDPNKKRWVSIAGGVFVLFAVVTMFSGEPKKEEKRGR
+                     QETIKHVLTDKNTREIGIDSLSADVKMVSRENSDLKKELERVKKELEETKTTAGKSSDV
+                     GREMTRLRQDLDRLTQKNMELAKKVETGAAGGKTSSSSEDARADVNGASGGDGQFMEKK
+                     LDYKDPASFFRDAPLPDSKGGAPATGKGDGRDATKPGIQIVSYSQKAPEVEEKDNKDDE
+                     SIYLPSGSILTGVLINGMDAPTSQGARRDPFPSTLRIQKEAILPNRFRADVRECFLIVS
+                     GYGDLSSERAYLRGETFSCVRDDGGVIEAKLDSYAVGEDGKAGVRGRVVSKQGQIIAKS
+                     LMAGFLGGVSEAFDVNPVPVVSTNPGSNTQYQSVFSDQMLQGAAVKGASKALDRIAQFY
+                     IDMAEGIFPVIEVDAGRQVDIIVTKGTKLQIRSTGGTKK"
+     gene            27729..28307
+                     /locus_tag="LDMHOHEE_00040"
+     mRNA            27729..28307
+                     /locus_tag="LDMHOHEE_00040"
+                     /product="hypothetical protein"
+     CDS             27729..28307
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF09676.4"
+                     /locus_tag="LDMHOHEE_00040"
+                     /product="Type IV conjugative transfer system lipoprotein
+                     (TraV)"
+                     /transl_table=11
+                     /translation="MKNLNILTRKGSSRGEAQKEQAVRSAKMLGVGAALLILSGCSTFN
+                     IGKDEYSCPGMPNGVQCMSARDVYAATNDGNVPRPMKPEEVEAKAEADGEGSSNVSANS
+                     SSSGDPVIDNYVAPRLPDRPIPIRTPAQVMRIWVAPWEDTNGDLIVTGYVYTEIEPRRW
+                     VIGDGTPQSEPVLRPLQTVQHEPKSETTK"
+     gene            28320..28703
+                     /locus_tag="LDMHOHEE_00041"
+     mRNA            28320..28703
+                     /locus_tag="LDMHOHEE_00041"
+                     /product="hypothetical protein"
+     CDS             28320..28703
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00041"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNANQLANASSKNNALFLFLGLMVVAFLLVPDQAHAGTGGTAFDD
+                     VWVTLKDWTQGTLGRIVAGAMILVGVVGGIARQSLMAFAMGIGGGMGLYNSPTVVESIM
+                     SATLEHAEKVIPAVVQLSNGLGV"
+     gene            28904..34435
+                     /locus_tag="LDMHOHEE_00042"
+     mRNA            28904..34435
+                     /locus_tag="LDMHOHEE_00042"
+                     /product="hypothetical protein"
+     CDS             28904..34435
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00042"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MINFKPKIPAMLGALAVLTAGAAHAELLEYTFKAPDGTQRSLTPN
+                     ANYANPTGNISFALSAGIDRKVKISVIRSDGTVVSTATSHLLGATDRITVGGKSYYGAE
+                     LQLPAPSEGVYKLRAEILASDGSSVQTDEYPLQVDTTAPSLANVTVKGEWNRALSDGTL
+                     LRGPNRFSGIDVSASDAGSSVSSIQAYAVDSKGKRSPVVSVNYANGQGQLLNWSTVFPN
+                     GEDLYTLHFEALDKAGNKGSIAYPIAWDSVGAKSGENPEPVAVYDPKNPQASTFKVNGQ
+                     ALSGFAPYQNGMTIYSDTYRVLYRIPKTNSYPSSPYGAQSGNWCDYKNCIEGNIIAEDG
+                     TYDYRQTQADVFQQHGTKTKSFIIYDWVMNSLGNTSVSVKADPSVSLAPIGKYVEYLRD
+                     DGQWVRGETINMSSVNHYKKLRFHVEPRPYAQELWGSWLPTTKIPANASYAEVDTDISF
+                     SGRSCSWPGYWSRPEGKPELPSDRIGATFCYDLNPPEIAGLERNGRIFKAHFREPDSFD
+                     GWGVNQWVISNNSSASAITSTGEERPLSRTEVLRSSTNDWFFTFSAENLSEGTYTGISL
+                     VAKDAFGNEVKQVFTGSQYAMSIDNSAPTLTVSISDGAPIQSLDDVVITLTDTADPSPK
+                     LTSIALVGGPADDKVQLSWREESKGRFRLEYPVMFPSLKEGESYTLTVSGEDAQGNAVQ
+                     KAVGFEYKPRQVMLADGMDGKVMVPAVTHEFVHADGKRIIETKPLTLSDGAVVTGSYDV
+                     FATLRSDAKVPLVVNGVRIEPGQTMGIMSQHDFGASGGRLSIPVKPAVPDVVGSSSLLV
+                     MTSAPNSPILVVDINTWKGTAKLSAESWTIRQVIDPVKIYALPESGVPCRFTTKEDVAM
+                     AADPIRDPVCLLQWDRTPDEAEQTTQDNNGMKVAGLVGQAVSIGEQPVEYSLYLFSGDG
+                     SKVKVGSGSQNLTVTTAYGSVGYTPIDDIAQVNRVIEDFDVNFKQSKGPDCSITLSADR
+                     AKNEAANKAVGSASRTCLFEWQQIPDGLVQDPLSESPSLSGSLAENGDHPLGWRVSIFT
+                     RNGTRVTLNDETFNVEAVDPPAPTVELASDYNFKDNIYLVPMTGNYLGDAIINSERADL
+                     DIAISRNSDVLESETFTPGWGATNKVYRRINTDERALWEETTYKVNAAYNKVPDVKTEV
+                     VYRAISAPSDSIRPIVEVKGDTAIDTQALPVRVLIRDQYKPDGDYDANTMGVWKVRLIQ
+                     QKAYNETVALTDYAEASNGEAQFSVDLSGVDTSSVRIAAEAVLESPVEGYNRTELSIRP
+                     AFLTVLRGGAIGAGVEARKLSGEAPFTAVFKLSLDDRQDLRATGQVVWETSKDDGKTWE
+                     QFIPEDRYKYQLVKTFDKGEYQVRAKVVNVNSGAEKYTEAVSVVAYDKPDIAVIGPTTL
+                     FVGSEGKYTANLTLNDEPISGGNAIVEWSTDGGKTYAQTGDSITLSSDEETRYRLWARV
+                     RSATAPADDGYAYEVAKTAVDFRAVKAPRPYVTGPRVIETGKKYVFKAETSLPYRGMDV
+                     KLNGFFTLPDGSIVQGDTAEYVPSDTDLNQATVETKYTTWIEGYRDQGAEASHSLRSRV
+                     WQYVWPSFGMQVRKNADVAPATITASVRPIAFNGKLEEPTYEWELPEGAVIQDQRQDIV
+                     RSFVINEPGDYNIKVTVRDARGHETVIEQPLKIGQAEPYAIDLQYSGSNKYEREPLDVL
+                     LRPYISGGHPRDRISTRVYSVDGTPLESSGYYGRATLGAGEHSIKLKITSEMGHEAEGE
+                     VNINVAENKLPACSLSSRETVGSWIVYANCEDTDGRMKSYEWTIAGELQSISSDRVTIS
+                     KGTYETMPTISLVGVDDSGGKSEAVTMN"
+     gene            34584..35291
+                     /gene="dsbC"
+                     /locus_tag="LDMHOHEE_00043"
+     mRNA            34584..35291
+                     /gene="dsbC"
+                     /locus_tag="LDMHOHEE_00043"
+                     /product="hypothetical protein"
+     CDS             34584..35291
+                     /codon_start=1
+                     /gene="dsbC"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P55890"
+                     /locus_tag="LDMHOHEE_00043"
+                     /product="Thiol:disulfide interchange protein DsbC"
+                     /transl_table=11
+                     /translation="MRTKLLGALMVFGIITGTAHASSKLEITDPRAAKIEDIVELPIKG
+                     VRAVQSDGQIMFLSENGRFVISGQIYDLWSKKPLNTMSQMRDVAERIHFKSMGMDVDTL
+                     NTVSMGRGDKEVVVFVDPRCAVCHQLMGDAKSLVDDYTFKFIVIPALGAESNRLAKNLY
+                     CAKDKTHALDALMNNTLGSLPSKETCDPGQYDQTLLTAHFIGIEGVPFVVAPDGRVSKG
+                     RPKNLKSWLESVE"
+     gene            35288..37735
+                     /locus_tag="LDMHOHEE_00044"
+     mRNA            35288..37735
+                     /locus_tag="LDMHOHEE_00044"
+                     /product="hypothetical protein"
+     CDS             35288..37735
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF11130.2"
+                     /locus_tag="LDMHOHEE_00044"
+                     /product="F pilus assembly Type-IV secretion system for
+                     plasmid transfer"
+                     /transl_table=11
+                     /translation="MIVTIKKKLEETLIPEHLRAAGIIPVLAYDEDDHVFLMDDHSAGF
+                     GFMCEPLCGADEKVQERMNGFLNQEFPSKTTLQFVLFRSPDINQEMYRMMGLRDGFRHE
+                     LLTSVIKERINFLQHHTTERIFAKTNKGIYDNGLIQDLKLFVTCKVPIKNNNPTESELQ
+                     QLAQLRTKVESSLQTVGLRPRTMTAVNYIRIMSTILNWGPDASWRHDSVDWEMDKPICE
+                     QIFDYGTDVEVSKNGIRLGDYHAKVMSAKKLPDVFYFGDALTYAGDLSGGNSSIKENYM
+                     VVTNVFFPEAESTKNTLERKRQFTVNQAYGPMLKFVPVLADKKESFDTLYESMKEGAKP
+                     VKITYSVVLFAPTKERVEAAAMAARNIWRESRFELMEDKFVALPMFLNCLPFCTDRDAV
+                     RDLFRYKTMTTEQVAVVLPVFGEWKGTGTYHAALISRNGQLMSLSLHDSNTNKNLVIAA
+                     ESGSGKSFLTNELIFSYLSEGAQVWVIDAGKSYQKLSEMLNGDFVHFEEGTHVCLNPFE
+                     LIQNYEDEEDAIVSLVCAMASAKGLLDEWQISALKQVLSRLWEEKGKEMKVDDIAERCL
+                     EEENDQRLKDIGQQLYAFTSKGSYGKYFSRKNNVSFQNQFTVLELDELQGRKHLRQVVL
+                     LQLIYQIQQEVFLGERNRKKVVIVDEAWDLLKEGEVSVFMEHAYRKFRKYGGSVVIATQ
+                     SINDLYENAVGRAIAENSASMYLLGQTEETVESVKRSGRLTLSEGGFHTLKTVHTIQGV
+                     YSEIFIKSKSGMGVGRLIVGDFQKLLYSTDPVDVNAIDQFVKQGMSIPEAIKAVMRSRQ
+                     QAA"
+     gene            37750..38067
+                     /locus_tag="LDMHOHEE_00045"
+     mRNA            37750..38067
+                     /locus_tag="LDMHOHEE_00045"
+                     /product="hypothetical protein"
+     CDS             37750..38067
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00045"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDIKSIAIAAILGAAGGFGGSYYVMSEQTASIHQRLNQTPPVVVV
+                     DFAKVASAYPAGASQEEVERLMVKTNDAILKLKDAGYLVLDASAVVGAPSDVYLPDEVL
+                     K"
+     gene            38064..38594
+                     /locus_tag="LDMHOHEE_00046"
+     mRNA            38064..38594
+                     /locus_tag="LDMHOHEE_00046"
+                     /product="hypothetical protein"
+     CDS             38064..38594
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF10502.3"
+                     /locus_tag="LDMHOHEE_00046"
+                     /product="Peptidase S26"
+                     /transl_table=11
+                     /translation="MNFPLKKYFVKKESWKRFGVKAGVTLLVLWAAGAAFASRYRIGID
+                     PQQEKCLPGYTFFLIDLNDQTLERGAVYAFQAKNMQPFYKDGTRMVKILTGMPGDKVEI
+                     NDKWKITVNGDVVGEGLQLAGKLHLPESHFYGKTTLKENNYWFMGKSPFSFDSRYWGTV
+                     KNDQIIGRAYPLF"
+     gene            38557..39822
+                     /locus_tag="LDMHOHEE_00047"
+     mRNA            38557..39822
+                     /locus_tag="LDMHOHEE_00047"
+                     /product="hypothetical protein"
+     CDS             38557..39822
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF09673.4"
+                     /locus_tag="LDMHOHEE_00047"
+                     /product="Type-F conjugative transfer system pilin assembly
+                     protein"
+                     /transl_table=11
+                     /translation="MIRSLAAHIPCSKSVLVALIFSVAGGAYAQESPLTEQDKALIEKG
+                     KQIAQKAQKMEMPSLLQNQHMDEAQAEAKAFFKQLQTTNPTLKEMHRKQAEKGIYSDHR
+                     ILVFASLSLGEQGLDDVLTAVSGQPDSVIVFRGIPEGMNLGQGVKAIQALAAKKDPVPN
+                     IIINPTLFKTYNITAVPTIVMLEDEPLPGEQPNVVAQVSGLSDPVWLAREVDNGEKGDL
+                     GVKGPVEKISEPDLIDVAKKRLANIDWEEKKKQAIERFWTKQNFNELPRAPKSRTREID
+                     PSVMITSDISTPDGTVFAHAGDVINPLCDPKEVCKPGTRPFTQAVVVFDPLDKKQMELL
+                     AKKLPEIKQEPGVQRITYIATEFDKDKGWDSYKSVTDNFDAPVYLLTPDLITRFELEHT
+                     PSVITARGKKFVVRELAEEGGE"
+     gene            39819..40490
+                     /gene="yfgF"
+                     /locus_tag="LDMHOHEE_00048"
+     mRNA            39819..40490
+                     /gene="yfgF"
+                     /locus_tag="LDMHOHEE_00048"
+                     /product="hypothetical protein"
+     CDS             39819..40490
+                     /EC_number="3.1.4.52"
+                     /codon_start=1
+                     /gene="yfgF"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P77172"
+                     /locus_tag="LDMHOHEE_00048"
+                     /product="Cyclic di-GMP phosphodiesterase YfgF"
+                     /transl_table=11
+                     /translation="MIFAPAFQPIKDVGTGSFVAAEVLARWYDEGRVLTPSSLSSPPYW
+                     GLVDMEMARFIQDNLHYCLDLYPALFLNVSEHTLQSDVIFKAWWRVVRDIAKNHSSRLV
+                     IEITEGIQDASLALRWEALTEIGVELALDDYGDKNSSLERLSRYDWHYCKFDARRLRSL
+                     EDYSAILHCRRKGIQLIAEQVESFPLGESAKLLGLSWQQGFYHGKPAVMEKHLNYVKAL
+                     P"
+     gene            40487..41494
+                     /locus_tag="LDMHOHEE_00049"
+     mRNA            40487..41494
+                     /locus_tag="LDMHOHEE_00049"
+                     /product="hypothetical protein"
+     CDS             40487..41494
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF06834.5"
+                     /locus_tag="LDMHOHEE_00049"
+                     /product="TraU protein"
+                     /transl_table=11
+                     /translation="MMQKILRVIAVSAVFWVRSVSADPGCQNAEVIGGKLITDICWSCI
+                     FPIKVAGVPISGGGGSFPSEAVSNPLCMCEDNLGVPRPGVTTSMWEPARLVEFQRVPGC
+                     SSVLNGVRFPFDRTNQGHHGMGDMDGGDGSFMHYHYYAFPLLVMLDLFIKQTCNADGYM
+                     DLDIMYMSELDPTWNNDELAFFTNPEAAAVANPIAAAACTADAVSSTAGKPLKQLFWCA
+                     GSWGTLYPFSGNQNGGKGVIRDSSLLSTRVLAALHRRGLAWKTMGSEAMCRGVISPTLP
+                     KTQYKFTLLHPVPETNSSHVIGESTLTWGLARTIPAIGQDPIYTIWRWNDCCNN"
+     gene            41610..44408
+                     /locus_tag="LDMHOHEE_00050"
+     mRNA            41610..44408
+                     /locus_tag="LDMHOHEE_00050"
+                     /product="hypothetical protein"
+     CDS             41610..44408
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:CDD:PRK12355"
+                     /locus_tag="LDMHOHEE_00050"
+                     /product="conjugal transfer mating pair stabilization
+                     protein TraN"
+                     /transl_table=11
+                     /translation="MRSHNYFMKAVASLLTVTMSALPIHSYANGSQDQDITAVGKEAQA
+                     FGQNLSNSFKSSSGTVQDGTISMPTLKDGQFQMNGGSQINVNDLFPGTSGTNNKPDSYY
+                     FPDANKPDVGGLQGIYDSGDDMDSVGNNAKGSLWSDANSANPSISGAAYKVLLDASNRS
+                     RPDFSNDPVLNLSKKTYEDMDLIAGGFGDCSAETTINQNTINAHIPEYERCQRVVDQSA
+                     DCEVVHDYDASVVKHYDGPYNLKSCGEGCTELWIGRVGNDYWSGNCSIYEEYTRVQVSN
+                     PDAIVSATLEYAKWDDYMQVWVGKSGQETKVWSGPDGNFPPETAGRCELSTSWERNPNI
+                     DVTPYFKNVKDGDVVTFKIRVSVTGAGEGFGRIKLRYDPSKAITKDEWAPQSCMDSAKG
+                     VVDGFAEGEITCIDDPTDATGCTVINGIKVCESQLKPSPLPGIPKLCKKVRVKADYDFY
+                     KGQMDCWTDPQGETHCPVNTGGNLDSCQKYEENPQCGFISSKCVDGAQGSSGTCYVHED
+                     TYDCGTDVSVPTLEKETEYQCGGPIRCMGDDCLDLTKTQSTDFARATALLNAAQFMTQD
+                     MSCTGQDGDDNPTGDENVICSAFAGEAGECKIAVGGVSDCCEKPTNISLADYLNLIMAV
+                     PKLDGAVMGLTDGNALKGAYQVLREPALQGWTEVTKPFTSYIENVSGAVDSFFQPVEQF
+                     VDQLIDQLKEQVKEVMMDVMKSAGQDAATEQAAAAASEQAAEAMMETATTWLSTAMTIY
+                     TVYVVAMVMIQMIYKCEEEEFTMNAKRALKNCTYVGSYCKSKVLGACIEKREAYCCFNS
+                     PLSRIIQEQVRPQLGQNFGDPKNPQCEGIPLDKIAEIDWSKINLDEWLGILQQNGKFPD
+                     PASINLDSLTGAGNDFNIDGTRKNAQERALERLEGIDIDAKRKEATNSIDPQTGAPTGG
+                     GG"
+     gene            complement(44447..45307)
+                     /locus_tag="LDMHOHEE_00051"
+     mRNA            complement(44447..45307)
+                     /locus_tag="LDMHOHEE_00051"
+                     /product="hypothetical protein"
+     CDS             complement(44447..45307)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00051"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKALITTVALAVAALSGCASTSSYEPTAYKTNHSRAYNIAEAGG
+                     LVTGIQDASVPRDKLERLTDTKTFGAAYVLSGYMSPQLGMTDWQGGLVNLANWAIGPKQ
+                     HGARNSLIAWMPANEAVSPADAQAKFLSHVKVSIESALTDLGANFTLLYDKDGRLTYQF
+                     YKNEWGCPTWVNGQSKVADMCSVKVKIVEPRLGSAPNFVSGVQGTAYAFTSGHETAYNF
+                     VNVGNGAASHAPQQAIYAAISKQLPAWAYLYLAPKSVELDNGEKVAFPYLLDQGKAELF
+                     VYPEA"
+     gene            complement(45430..46071)
+                     /locus_tag="LDMHOHEE_00052"
+     mRNA            complement(45430..46071)
+                     /locus_tag="LDMHOHEE_00052"
+                     /product="hypothetical protein"
+     CDS             complement(45430..46071)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00052"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MAEAQVALDTNNDRSNHYSRPVFKQVLKVNSLQAQRVMERSFERV
+                     SNSLFSIDVILRIIGEQDEIDQVETVILEHISKVSEDLDKATAQLNKLMEDNGIDMMPG
+                     YTNPNEYTIEINSPQVAQFAHLIRKLDTLMGIVDTLWLNTVLTSKQRTDATYQWQQRLI
+                     KLAGRIIGIEKRARISAHSKGKEGEVAEAAPESATGDKEIADEAEKTKAA"
+     gene            46365..46685
+                     /locus_tag="LDMHOHEE_00053"
+     mRNA            46365..46685
+                     /locus_tag="LDMHOHEE_00053"
+                     /product="hypothetical protein"
+     CDS             46365..46685
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00053"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MHIITFIVVLLASLGALYVGAKAFAFSFIVLAKVFQRIGLFLWNK
+                     FAVPAMRSVQAVIKERAAKAEQAKAVVEPEVTQVQEVAKQEPDWDYLEIPTYLRKGKEL
+                     VW"
+     gene            46780..46872
+                     /locus_tag="LDMHOHEE_00054"
+     mRNA            46780..46872
+                     /locus_tag="LDMHOHEE_00054"
+                     /product="hypothetical protein"
+     CDS             46780..46872
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00054"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MEIAIIALCIPTGWAISRPFVRIAESFGYC"
+     gene            46989..47174
+                     /locus_tag="LDMHOHEE_00055"
+     mRNA            46989..47174
+                     /locus_tag="LDMHOHEE_00055"
+                     /product="hypothetical protein"
+     CDS             46989..47174
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00055"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MQQNLHVYDDHAGIIYLADGREVKFDPKLYSSSYQAHSEAVKWAK
+                     ETGVIGQNDDVVMFVH"
+     gene            47394..48362
+                     /gene="cobS"
+                     /locus_tag="LDMHOHEE_00056"
+     mRNA            47394..48362
+                     /gene="cobS"
+                     /locus_tag="LDMHOHEE_00056"
+                     /product="hypothetical protein"
+     CDS             47394..48362
+                     /EC_number="6.6.1.2"
+                     /codon_start=1
+                     /gene="cobS"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P29933"
+                     /locus_tag="LDMHOHEE_00056"
+                     /product="Aerobic cobaltochelatase subunit CobS"
+                     /transl_table=11
+                     /translation="MSQYSQFSVSKVFGMPSIPEKVTAIGYADGSNPFIPATDTNYVFR
+                     KEFLREVLAYLKEPGGDALFVTGPTGSGKTSGITEIAGRLNWPVQQITAHGRMELTDLI
+                     GHHALVAEKPGQPPVMKFMYGPLAVAMREGHLLLINEVDLADPAELAGLNDVLEGRPLV
+                     IAQNGGEIIKPHPMFRVVVTGNSTGSGDASGLYQGVMMQNLAAMDRYRFTKVGYADEEA
+                     ELSILGRVTPKLPENVRKGMVRIANQVRKLFLGENGEDGQISVTMSTRTLVRWAKLSLA
+                     FRGAPNALEYALDQALLIRAAKEEREAILRVAKDVFGDQWR"
+     gene            48373..49281
+                     /locus_tag="LDMHOHEE_00057"
+     mRNA            48373..49281
+                     /locus_tag="LDMHOHEE_00057"
+                     /product="hypothetical protein"
+     CDS             48373..49281
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00057"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKNDCLCRRYTAKEWGNDETTIEVFIGYKLLREPSSSEPGQFTM
+                     VELRRTVTDGKAENWSETKLEGPFEANGPDTIPMSYKDKESQYVSQFLSQGYTFLDEVL
+                     VNAETQTVLEGGNVSAGQTASLGSLNWLLSPPSELPPGDINLFKGFVAGVFAKGAGLIG
+                     FEVARSEGSNDLLPSVLMRTDSGYELGVSTGLGENTIHPATLEGAGELRPEHGHKPLLM
+                     LVYLQQRFADDFSNVEKPLVAFCDEQGDTFDYERFDSLKPLIERFGFSYDEVRADAERL
+                     GLVSELIRLAEIDAEQEDHFF"
+     gene            49345..49872
+                     /gene="ssb"
+                     /locus_tag="LDMHOHEE_00058"
+     mRNA            49345..49872
+                     /gene="ssb"
+                     /locus_tag="LDMHOHEE_00058"
+                     /product="hypothetical protein"
+     CDS             49345..49872
+                     /codon_start=1
+                     /gene="ssb"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P25762"
+                     /locus_tag="LDMHOHEE_00058"
+                     /product="Single-stranded DNA-binding protein"
+                     /transl_table=11
+                     /translation="MSKGVNKVILVGNLGSDPEIRYMPSGTAVANFNVATTDTWRDKQS
+                     GEQREHTEWHRIVLKGRLAEVAGEYLKKGSQVYLEGSNRTRKWTDSQQIERYTTEVHCV
+                     EMQMLGGRGNAPQDNSQRAAPQKGQRTGAGTQSAPVQQSAPQGGMGGGYGPAPDGWDDD
+                     IPFMRLHHLAGG"
+     gene            49925..50956
+                     /locus_tag="LDMHOHEE_00059"
+     mRNA            49925..50956
+                     /locus_tag="LDMHOHEE_00059"
+                     /product="hypothetical protein"
+     CDS             49925..50956
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF03837.8"
+                     /locus_tag="LDMHOHEE_00059"
+                     /product="RecT family protein"
+                     /transl_table=11
+                     /translation="MVSSNRSFVNWRNTMSDNKSLVTRIASRFGVDTRKFYETLKATAF
+                     KQRDGSAPTDEQMMTLLIVAEQYGLNPFTREIYAFPDKQNGIIPVVGVDGWSRIINEHP
+                     QYDGVEFVYSDKMVRMQGAKVDCPEWIECVIYRKDRSRPIRIKEFIDEVYREPFQGQGR
+                     NGAYTVDGPWQTHTKRQLRHKSLIQCSRVAFGFSGIYDQDEAERIREMEQASAINPAIA
+                     NLPSPSQVQSQEPLAIEHKELDPILTKLANRAIAENAWSAAHEYVKGRYEGSELQYATQ
+                     FLRDKEMDQMEPPKPDYQEAHEQESAAGGSANAEPGAEEMPPLSDEDMIPVTEEEGAEG
+                     SYY"
+     gene            51019..52029
+                     /locus_tag="LDMHOHEE_00060"
+     mRNA            51019..52029
+                     /locus_tag="LDMHOHEE_00060"
+                     /product="hypothetical protein"
+     CDS             51019..52029
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF09588.4"
+                     /locus_tag="LDMHOHEE_00060"
+                     /product="YqaJ-like viral recombinase domain protein"
+                     /transl_table=11
+                     /translation="MKIVNLSQREEDWLDWRRQGVTATDAAILLNRSPYKTRWRLWAEK
+                     TGYAREVDLSLNPLVRRGIENEDAARRAFEEKYDDMLLPACVESVQYPLMRASLDGLRD
+                     NGEPVELKSPSATVWEDVCAEKANSKAYQLYYPQVQHQLLVTGAKQGWLVFYFEGQIQE
+                     FPILRDEAMIQEILAEAKKFWQQVVDKKEPDKDPERDLYIPQGEEVNRWIAAAEEYRLY
+                     DAEIQELKQRLSELQERQKPHLDTMKSLMGEYFHADYCGVMVTRYKAAGRVDYKKLLAD
+                     KASGVKPEDVDQYREKSSERCRVTVTGSVKPRYIVDEDVLAPLDDLPEEVETFYW"
+     gene            52229..53506
+                     /locus_tag="LDMHOHEE_00061"
+     mRNA            52229..53506
+                     /locus_tag="LDMHOHEE_00061"
+                     /product="hypothetical protein"
+     CDS             52229..53506
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00061"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MTKVNHLQSLCVIHVDFDIWSGQTRLSASDLKLGEGGEIPPEKVA
+                     QLGSKKICDPAKLKGFHRLKTETRRLLLKFGMPFMNGFAVPVSKTDEICNKLNDINFQF
+                     NQLKQDFIKGYNKAVDEWCQENPEYERAIRAGALPKETVEERIGFEYQVFMIQPVNEDE
+                     ANAKRLNRKVERLGDDLISEVVQEANKFYMERLAGRDQCAVTTRQTLRNIRDKVDGLSF
+                     LNSAFNPLVKLLDQTLRGYEQHADGRNIVAPFFYQVVAAVLIMSERDRIEQYANGSITV
+                     EGMANDIGGSGAQMGDRSKDEKAEQKSDKAGELIPATEGGETKQQQVGGTESVQSEQTN
+                     SGGNAVDLDEDIDNFFKSFAERGEGESEDESNAGDVVREERVDVEDEPVLPEETPVEQE
+                     PVQEEPTEEPLNQELPKTDDDGDYFF"
+     gene            53591..55387
+                     /locus_tag="LDMHOHEE_00062"
+     mRNA            53591..55387
+                     /locus_tag="LDMHOHEE_00062"
+                     /product="hypothetical protein"
+     CDS             53591..55387
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF00092.22"
+                     /locus_tag="LDMHOHEE_00062"
+                     /product="von Willebrand factor type A domain protein"
+                     /transl_table=11
+                     /translation="MSKKRTIYSALPIVAAAYGEKLGVKVAIGNDDAYTDGKTIVVPNI
+                     PDDYPHMDAVWGYLAHEAAHVRFTDFGVERRRGLHAELSNVLEDCRIERAMMELFPGTS
+                     QTLNEVARYMAQAGHYEHVTDKEAPASILTGFCLYWLQTKAVGQSVLQPYLDSATPVFE
+                     RVFPQGVVVRLNALLRKAVNTKSTAEVTSLADQIIKMIEEEKEKEEQKPLNGQDGNNQQ
+                     NAGGNQPQNSQGGSGNDQNQGPDANGGDQQGKDQKQDDANGKSDPKGQGDQGKSDTDGG
+                     SKAGQSQAGGNSDAAKQDAAKMLQQVLNAGAGDLRGDAHDALKAELNRVAQDKGDSSYM
+                     TVRSAVNTQDNPAVGKSLVGDVKSTTSKIRTQLYGLVQASQRVAHRNQRSGKRVDARKL
+                     HRVVTGDTRVFLKPEAKKRPNTAVHILVDMSSSMAYKAANGKERQDIAREASLAISMAL
+                     EAIPGVNPAVTFFGGNRNQPVFSVVKHGDTVQNRAGRFGFKATGGTPMAEAMWYAAFEL
+                     TKTREERKMLIVVTDGQPQSAPACRSVIDLCERSDVEVIGIGVETTAVSGLFQKNIVID
+                     DAAALQRTLFKLMERSLTAFAA"
+     gene            55449..55784
+                     /locus_tag="LDMHOHEE_00063"
+     mRNA            55449..55784
+                     /locus_tag="LDMHOHEE_00063"
+                     /product="hypothetical protein"
+     CDS             55449..55784
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00063"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNQFHSSLDLYHRNKGRRATVPETPFLLLAKRIPPMYWRLFQGVT
+                     LDSRMGYTGRRQFHSLGQAIDWAKSSVGDSWSNKRFHKPVGLDVLLACTASKVPEHLVE
+                     ELKRRGS"
+     gene            56049..56588
+                     /locus_tag="LDMHOHEE_00064"
+     mRNA            56049..56588
+                     /locus_tag="LDMHOHEE_00064"
+                     /product="hypothetical protein"
+     CDS             56049..56588
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00064"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSHLNNLKSVMISLAAEHKLPEIYQDDITTDVESLDRFDGLRLVW
+                     LLRSCGSVLVPAEVGVNPIYITHWLWSNHGQQVVPFSVDTRTGLIEKIDFEQAEKLIMQ
+                     MPCNLSSLQNKEYLVDQVNRVLQRGCEMRIWGIFESPSSVESVGGWKEWQSYFSSTGNR
+                     LMADFVGKAIRFTNPR"
+     gene            56679..57179
+                     /locus_tag="LDMHOHEE_00065"
+     mRNA            56679..57179
+                     /locus_tag="LDMHOHEE_00065"
+                     /product="hypothetical protein"
+     CDS             56679..57179
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00065"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKNLSALEAVLDYDKPSRRFLDELNENQMKDLSGEIFAKLYWSKR
+                     NPQWYEKDTNRLFARLRWVQRIIKKRLKTGKVKPELTENGSVMERFNFPYGDTLDFFHR
+                     YLRHPKWEVVYQESGCSAFWKNEATLELCTYCEGDVVMMKAPDEATFFRDCNRLSWWYA
+                     DNA"
+     gene            57253..58137
+                     /locus_tag="LDMHOHEE_00066"
+     mRNA            57253..58137
+                     /locus_tag="LDMHOHEE_00066"
+                     /product="hypothetical protein"
+     CDS             57253..58137
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF01555.12"
+                     /locus_tag="LDMHOHEE_00066"
+                     /product="DNA methylase"
+                     /transl_table=11
+                     /translation="MFKSSVCSYENRGPYGNNKYRGNCSGFIVKDFIESYMRKPNGLVA
+                     DPSVGGGSSIDVANELGVRFKGTDLHQGFNLLRDDFLSFLGEPAHLIWWHPPYWDMIQY
+                     SGKQWGEPNKWDMSRMNLPEFVEALELAVMNIHDACERGGHYGILMGNLRRDGDYFNLS
+                     SLVERIAPGKLVDEIIKTQHNCVSDRTQYSGKLVRIAHEKLLVFRRNDVASSLCLLAAV
+                     HRRATNMVSTTWKAAIRRTLQGKTLKLEQIYKEIEPYAKHRENNHWQAKVRQVLQDARF
+                     FIRIEVGVYALAE"
+     gene            58203..58427
+                     /gene="ascD"
+                     /locus_tag="LDMHOHEE_00067"
+     mRNA            58203..58427
+                     /gene="ascD"
+                     /locus_tag="LDMHOHEE_00067"
+                     /product="hypothetical protein"
+     CDS             58203..58427
+                     /EC_number="1.17.1.-"
+                     /codon_start=1
+                     /gene="ascD"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:Q66DP5"
+                     /locus_tag="LDMHOHEE_00067"
+                     /product="CDP-6-deoxy-L-threo-D-glycero-4-hexulose-3-
+                     dehydrase reductase"
+                     /transl_table=11
+                     /translation="MNVQLQASNNVLLAQIESKGLTVETHCRSGFCGMCRVRLLEGQVA
+                     YDETPIAFVKEGEVLVCCAKAKTDVTLEI"
+     gene            58489..58878
+                     /locus_tag="LDMHOHEE_00068"
+     mRNA            58489..58878
+                     /locus_tag="LDMHOHEE_00068"
+                     /product="hypothetical protein"
+     CDS             58489..58878
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00068"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSINTKVEQIAYGHATALVLSELGQQENWCKAYEYLSECVERGDE
+                     PEDLVVWQPFEHWEWKDILEQIESEAESLLSTIKSVLGLAHKGIIQSAIDCSLDSDMTQ
+                     LDLIGMVELGSEIEDGECAGGGYAA"
+     gene            58868..59320
+                     /locus_tag="LDMHOHEE_00069"
+     mRNA            58868..59320
+                     /locus_tag="LDMHOHEE_00069"
+                     /product="hypothetical protein"
+     CDS             58868..59320
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00069"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MQLNRYTARESDKSRILRTIGWCKRNHLTLAGLPYEDNLAGSDGI
+                     SIEIITPPGMSREMLEQAVREGYSERDVVRHRILECPVGWFMEADGKAFDHEVFHDYVV
+                     AHGYGEPSSEAYELAERWFWQGNDYALIAAEIVARDLCVRDDEDED"
+     gene            59325..59600
+                     /locus_tag="LDMHOHEE_00070"
+     mRNA            59325..59600
+                     /locus_tag="LDMHOHEE_00070"
+                     /product="hypothetical protein"
+     CDS             59325..59600
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00070"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDAVAHIAADNLVPACGGAEKPFTVSGRQWLYCYHPASGRHCYLD
+                     LDNDRPVWHRGFHPAFHPELEFADEAELLRPVERKPDHEELEDFYF"
+     gene            59658..59849
+                     /locus_tag="LDMHOHEE_00071"
+     mRNA            59658..59849
+                     /locus_tag="LDMHOHEE_00071"
+                     /product="hypothetical protein"
+     CDS             59658..59849
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00071"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKDHSQTIVFPGNNVESLAEANAMLSAVSEDARKASNTEDKRDLE
+                     SLQGWLEENINSQLAGVK"
+     gene            59918..60271
+                     /locus_tag="LDMHOHEE_00072"
+     mRNA            59918..60271
+                     /locus_tag="LDMHOHEE_00072"
+                     /product="hypothetical protein"
+     CDS             59918..60271
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00072"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNAVKMIQKENQLELPLFFLDEEPKTAEVIPFEPKPEWTDDEVRQ
+                     LRDGLLWHSLRVLADGRAGSEIKQETMAWVMSDEVHPFSFVVCCDEAGYDPSGVREGVK
+                     SILNRLARVKAGG"
+     gene            60463..60807
+                     /locus_tag="LDMHOHEE_00073"
+     mRNA            60463..60807
+                     /locus_tag="LDMHOHEE_00073"
+                     /product="hypothetical protein"
+     CDS             60463..60807
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00073"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MTTLASFANPISVIQRSPTSGVFGTNQFVGDKEGFVQKVLGKWYC
+                     NPGNTIPVESMSHLEQAEKLYDFYVKYLQVKEKISVNLGRVLHKLYSTGSIKEAEIVLE
+                     AIKAQAGVTA"
+     gene            60885..61187
+                     /locus_tag="LDMHOHEE_00074"
+     mRNA            60885..61187
+                     /locus_tag="LDMHOHEE_00074"
+                     /product="hypothetical protein"
+     CDS             60885..61187
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00074"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MEKHNLKSGFSIYFADVHFEKQVYAFGSGLGFTSVIYAYSLGRDP
+                     EEAEKLALEKYDSDETKVKKVHVNLARSQDINRYTFPEQMAGFANAIQSHGIAVN"
+     gene            61265..62890
+                     /gene="hhaIM"
+                     /locus_tag="LDMHOHEE_00075"
+     mRNA            61265..62890
+                     /gene="hhaIM"
+                     /locus_tag="LDMHOHEE_00075"
+                     /product="hypothetical protein"
+     CDS             61265..62890
+                     /EC_number="2.1.1.37"
+                     /codon_start=1
+                     /gene="hhaIM"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P05102"
+                     /locus_tag="LDMHOHEE_00075"
+                     /product="Modification methylase HhaI"
+                     /transl_table=11
+                     /translation="MATIVNTKLGEHRGKKRVWLEGQKLLREGYYPGMKYDLELKDSQV
+                     VLRVKEEGKFTISKRERNGRVSPIIDLTVQELATVFDGVEMLRVFIRNGAIVISAHHQQ
+                     ERVIERVNRLISKLENGESLSVCSLFHGGGVLDKAIHAGFHKAGIASAISVAVEMEGKY
+                     LDSSLANNPELWNEDSIVIESPIQAVNLSKRPPQVDVLMGGIPCTGASKSGRSKNKLEF
+                     AESHEAAGAMFFNFLQFVEALNPAVVLIENVPEYQNTASMEVIRSVLSSLGYSLQERIL
+                     DGNEFGVIERRKRLCVVALSHGIDGFELEKVQPVRTKESRIQDILEPVPLDSERWKSFD
+                     YLAEKELRDKAAGKGFSRQLLTGDDEFCGTIGKDYAKCRSTEPFIVHPEQPELSRIFTP
+                     TEHCRVKGIPEELIQGLSDTIAHQILGQSVVFPAFEALALALGNSLWSWVGMMPIMVEV
+                     VDESQPVIGGEDFHWATALVDAKGTLKLSPAAKKQGMPFNIMDGQLAVYSPNGTKKSCG
+                     HEPCEYLPVMMSGDAIMVTSSLVH"
+     gene            62951..63382
+                     /locus_tag="LDMHOHEE_00076"
+     mRNA            62951..63382
+                     /locus_tag="LDMHOHEE_00076"
+                     /product="hypothetical protein"
+     CDS             62951..63382
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00076"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKIETVVPLPPEDSGLQHCIARFHNRNMDSKRKDKTRFFRREPVM
+                     IVNPETKAKVLRYAMGNPGNLSITKLAVALDYDAVDALGVRFKDTVNLEVRRARRWEVW
+                     QWFWNHPDQSVQLSIKLGVVGAVLGVMGFLTGVAPYLLG"
+     gene            63456..64010
+                     /locus_tag="LDMHOHEE_00077"
+     mRNA            63456..64010
+                     /locus_tag="LDMHOHEE_00077"
+                     /product="hypothetical protein"
+     CDS             63456..64010
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00077"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNTLEQLVNQRVLEEGLKKAKPLAAQMGLESVPDEMLEMICPNLN
+                     YSGQFTPALYARFQSVKRLLKELSEQTSPKHGHIVKFTNQYGSYDESALLFKEGDVRNQ
+                     NLVACVGGKTLNLGELELRDYGLNMHIGCGGPFEPISEAQIQSLSEFDFYETTYRFWGQ
+                     NPCGNGMIDITVPMKRWFLTV"
+     gene            64243..64629
+                     /locus_tag="LDMHOHEE_00078"
+     mRNA            64243..64629
+                     /locus_tag="LDMHOHEE_00078"
+                     /product="hypothetical protein"
+     CDS             64243..64629
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00078"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSKNVNDVFSNRTSLECTVNAALDRRIGLRVGFPHYREGANGVVC
+                     EIEAEYPLLNTHSSVAWPLLDELNSYTIQKNQSLIDHIDNAVAELLKHKARLQLDIQKL
+                     QDGDIDLVKQAKQQYEDNQMSSSS"
+     gene            64717..67170
+                     /locus_tag="LDMHOHEE_00079"
+     mRNA            64717..67170
+                     /locus_tag="LDMHOHEE_00079"
+                     /product="hypothetical protein"
+     CDS             64717..67170
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:CDD:PRK06850"
+                     /locus_tag="LDMHOHEE_00079"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MQQTLNFDLSEQPIPVLLRGDKWDSVWSELTDNEDLNFVDASRGT
+                     SLSSLITSSVESIHTALIDGWTMMIGYSSGKDSETVLHLFLMALIRAVRSGATISQHHF
+                     ILHTDTLIESPEVRWLADQKLAELERFIAKENLPLTIVLAKPGISQSWTGRILTGRGLP
+                     TFSNSTARQCSQDLKITSAKRAKAAYMRELPKEVRQKVCLLLGSRDAESTIRAANIAKQ
+                     RGSSDRVIKTKDGGELYVVKNWLASDVWEFLLSAGMGSAYPLPSYLESNVTTAELYKAA
+                     TGECVWSATEKKASDACGARFGCWACQAVGLDKSMETLLATDPERHGYMSGLNRIQRYL
+                     AKRRYAWEDRHPVGRTIYEGGYIKIQPDVYSPVFLERLLHVCCSMDYMEQKRADELAYK
+                     LATGQAEDNDWNRRMAEPQFRIISEEALVHIDFMWAFHHFNDKPFHALEIYHRVWSMGD
+                     LDLLEDEPQCETVPQSPIPKPLWLKVGRWGDGSLSDGLADPLAEMAYFDGGDDPLAAQV
+                     INTADGKRRVVCFAEDDEVKVDPDSAAFIIWNEYPRLRESVLKGHYTPGSAAQFYLRFG
+                     AIQLAKGKGALYHRMMQRGQTYHQMGLTGLQTMEGIQQRKDVKVLSDAKYKDLVKRKIK
+                     GRLATVRWWVNLHLTFKYHLHHRTPTGLFIEKQLDQEAMEEQKRHQERWFNYVTDAMLC
+                     YSSAFCMSVMEGREGSGNANIRRYMAATRRKAYTALCELLDNTDAQWVNDVVQSAVGQY
+                     EAIQAALTEGSALAIYLDWINLLSKRHPASLERHVRTMIKAVQRLHRRDDTELQRGQQG
+                     LSLAA"
+     gene            67372..67575
+                     /locus_tag="LDMHOHEE_00080"
+     mRNA            67372..67575
+                     /locus_tag="LDMHOHEE_00080"
+                     /product="hypothetical protein"
+     CDS             67372..67575
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00080"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSLDKLSRLVDQQRKTQDEIDNEIILAVKEVLATNSVGLARELVG
+                     GVPQDHPFHPFLLAIAKQLDPR"
+     gene            67647..68252
+                     /gene="yfbR"
+                     /locus_tag="LDMHOHEE_00081"
+     mRNA            67647..68252
+                     /gene="yfbR"
+                     /locus_tag="LDMHOHEE_00081"
+                     /product="hypothetical protein"
+     CDS             67647..68252
+                     /EC_number="3.1.3.89"
+                     /codon_start=1
+                     /gene="yfbR"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P76491"
+                     /locus_tag="LDMHOHEE_00081"
+                     /product="5'-deoxynucleotidase YfbR"
+                     /transl_table=11
+                     /translation="MSNSNFGFLALALRQRLIKRWSLMHSVQPESVLEHSAVVTLLSYL
+                     AGNIAIQQGKSVDLAVMLAHASLHDAAEVLCSDVVTPVKKANAVLQREFERLEKAAEDK
+                     LIQTLPEELQDAVAIAFAPGGYEQSLVKACDTYSAYIKCKLEVAAGNGLEFQDALSKME
+                     RVVAQVKSDFPEIDALDKWFGNGLGHSVDKLLAGGNDD"
+     gene            68245..68514
+                     /locus_tag="LDMHOHEE_00082"
+     mRNA            68245..68514
+                     /locus_tag="LDMHOHEE_00082"
+                     /product="hypothetical protein"
+     CDS             68245..68514
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00082"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MTNPIPGDIKIKDFGRDRKFRSVDELQSTLSEQYKGQHVSIVYPA
+                     KPSGLLRTVFVSVDDAGGVNRTYGDQSPVDFSAIKDDLYVPSDL"
+     gene            68528..68746
+                     /locus_tag="LDMHOHEE_00083"
+     mRNA            68528..68746
+                     /locus_tag="LDMHOHEE_00083"
+                     /product="hypothetical protein"
+     CDS             68528..68746
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00083"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MVVIIVNTGHYEFIGLGETHGQATEGLLKRWDEHCERNPDAESGY
+                     MQELIEEGSAQVVEMEPGSAVIYGLDG"
+     gene            68820..69377
+                     /locus_tag="LDMHOHEE_00084"
+     mRNA            68820..69377
+                     /locus_tag="LDMHOHEE_00084"
+                     /product="hypothetical protein"
+     CDS             68820..69377
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00084"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MSNFEQALERTDGKTLILSNGSKWAGQDPDSIQTLLDVLGDNVLD
+                     PMFEQYHCYRPYPFEPMVRTGRNGEMFQPWLGAACFFGNFLTVSHVFNIITKDDGVVEA
+                     LTEAIRKNMATEQYQQNAYERYAGWFYAETSEGLRLVSPSEAADIRAGAVSKLRYPRNF
+                     EVMKTAVLKGPRFDTELNRKAS"
+     gene            69452..70303
+                     /locus_tag="LDMHOHEE_00085"
+     mRNA            69452..70303
+                     /locus_tag="LDMHOHEE_00085"
+                     /product="hypothetical protein"
+     CDS             69452..70303
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00085"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MIKQHFQNELVKCGYPDDLTIEYSLGYCQGDGVAFYGDLSVDDVK
+                     ALMNRLFSTEPGQVDAVSRVKNLMAQKDIENMLSVLREYGSCDLSITRNSHGHHYSHWN
+                     CMNIDDNVDFTGIFPDDDSMIGTGIEGINQDMVERWQDLWERFVLELADDVKSLSKKLE
+                     ADGYSLIEASPCEDEVVWERATENYLVRVTELPERDFDMGHWDDEVRDQTICSILEGKE
+                     RVLGLRVEVLSRENEIVLGEESLHGLTVASDDKSYAGYRRELLRGAIQQTRDFFSRHLK
+                     AA"
+     gene            70508..70654
+                     /locus_tag="LDMHOHEE_00086"
+     mRNA            70508..70654
+                     /locus_tag="LDMHOHEE_00086"
+                     /product="hypothetical protein"
+     CDS             70508..70654
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00086"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNKFQDFKLVYRQGGRRLERVFKDTLYANVKRVADSFPPTVLWRI
+                     QPA"
+     gene            70761..71147
+                     /locus_tag="LDMHOHEE_00087"
+     mRNA            70761..71147
+                     /locus_tag="LDMHOHEE_00087"
+                     /product="hypothetical protein"
+     CDS             70761..71147
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00087"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MNQVAKLDLAQIRQQAINDGLLVDQSSIGKQAGFLTNVAVTPAIV
+                     DGVFGADGKHSVEDFLFMFLQLCVAQTKVAFTDNKNWGKIRLYYPMPTVDGFFKPTEVV
+                     IKSDPVTADVTIMMASEDGTHLCL"
+     gene            71325..73052
+                     /locus_tag="LDMHOHEE_00088"
+     mRNA            71325..73052
+                     /locus_tag="LDMHOHEE_00088"
+                     /product="hypothetical protein"
+     CDS             71325..73052
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF08273.6"
+                     /locus_tag="LDMHOHEE_00088"
+                     /product="Zinc-binding domain of primase-helicase"
+                     /transl_table=11
+                     /translation="MSYYKADTVREAANGNWLFILAALAPHLEPALRKPGRHVSCPIHG
+                     GKDGFRLFKDAHLTGGGVCNTCGANHDGFELLMWLNNWDFKQCLSEVGDYLGVEKEQPQ
+                     YQQAAAPTRAPVQAKAPVQQEPMKVNNKVLDSKNRKKSIAGTLIAHGKAPYEHNEDNEL
+                     SYFAFIRDKSGLERTIWGVDLERAIGESEAKYGDEIVMTNLGREPVTVVVEVKDEQGNV
+                     VREQPMQTHRNTWLVERRGATVTQFRARSNGGVEPVSHHVESAPVVNRTVEAPAPQVQH
+                     AATQPEEQSSENKPKVVPMFREQPKPWLLELQEEMEKRMERERAYSARLREKIEKVWNE
+                     CLPFSSHVTEPMRLYFKNRELLFKVDEVEKTDCLRFNPAMAYYDEDGNEVGKFPAIVCA
+                     IRDVEGNLVTLHRTYLTQNGKKAKVGNAKKMMPIPDGLDVNGAAIRLGEPTEGILGVAE
+                     GLETALSAYRVTQIPVWSTVNATLMESFEVPEGVHTVLIWADKDKSVTGEKSANVLKAK
+                     LEKRGIRVYVLLPKLPIPPRAKGIDWNDVLMSQGSLGFPNARYLRDFIARRRAEYGRH"
+     gene            73039..73317
+                     /locus_tag="LDMHOHEE_00089"
+     mRNA            73039..73317
+                     /locus_tag="LDMHOHEE_00089"
+                     /product="hypothetical protein"
+     CDS             73039..73317
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00089"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MAVIDVSKVDTTPGNDAVCPFSPPEGWEGDSAAYVELMRSRYRHL
+                     MHGQRMMVTASFARREPIQVTGPFADEATKIINSMKMNKAKPTALSA"
+     gene            73390..73629
+                     /locus_tag="LDMHOHEE_00090"
+     mRNA            73390..73629
+                     /locus_tag="LDMHOHEE_00090"
+                     /product="hypothetical protein"
+     CDS             73390..73629
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00090"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MKKFLRIKTWFVRLFSPDKKTLGAIGEDLRKVAVTAIGVGIVGLA
+                     VSGDTITVKEAGLVLVIGVILWIYGIILTKVSNS"
+     gene            73639..73755
+                     /locus_tag="LDMHOHEE_00091"
+     mRNA            73639..73755
+                     /locus_tag="LDMHOHEE_00091"
+                     /product="hypothetical protein"
+     CDS             73639..73755
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00091"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDAFTLGMLGLLIFFTVVTGGSLYLYHEKQKEKKHHNA"
+     gene            74364..75089
+                     /locus_tag="LDMHOHEE_00092"
+     mRNA            74364..75089
+                     /locus_tag="LDMHOHEE_00092"
+                     /product="hypothetical protein"
+     CDS             74364..75089
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00092"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MMTLTTVSKKTSNNSALVFWRVGTKRKGILDVRIDFDNEEADLLA
+                     ELVAIRYLALDKQVFCREPGAGAGYKLVVSKGAIKKLALGKSTKEFAFKFAACLTGRLK
+                     GATIEVSQSMEFMDEPGEGNVELLDVDKQAYTQTHDEISTPAIGPVLVTQHAIDQYQAR
+                     ITSGDPKKPWASLVGRLQHPELQVQPFDEKVARHKARKYGRVDNVEVWGHRDSKFKYLM
+                     VINDDNQKRVLVTVFERNE"
+     gene            75222..78695
+                     /gene="rhsC"
+                     /locus_tag="LDMHOHEE_00093"
+     mRNA            75222..78695
+                     /gene="rhsC"
+                     /locus_tag="LDMHOHEE_00093"
+                     /product="hypothetical protein"
+     CDS             75222..78695
+                     /EC_number="3.1.-.-"
+                     /codon_start=1
+                     /gene="rhsC"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:E0SGL7"
+                     /locus_tag="LDMHOHEE_00093"
+                     /product="Putative deoxyribonuclease RhsC"
+                     /transl_table=11
+                     /translation="MRSRPSLLLMRNLRSLAVVVLATLPCVAFAQWRVVAVSTEVDKMR
+                     FNTIIDAHSFMKNYRSGEEQGKGTPVGDALYPVASYGDGRYVSRICFKYLGATGDYDPT
+                     TCTGDPATVYWRSTYVLPGEMDKTPFLDRDLGLPTTTMCVGNPIHLGTGNKFQAELDYQ
+                     SGGSDPFTFTRYYNSHLPDEELGGWRHTYSRSVEVNASKYGENMVVLHRPEGQQLAFYN
+                     SSSVWVPTWKTDDTLTKDATGWRYTQSDGVVEAYDETGRLTGIEKPNGNHITLSYLNGE
+                     LSSITDGFGRNIQFQHQDGRMVSVTDPAGGSIQYQYNSAGKLAEVIYQDNTSRSYLYDD
+                     PNAPGLLSGLVDENGNRFATWGYDAQGMAVLSEHAGGAEKTQVSYNADGSVSVTNALGH
+                     VQRYTYSRHNGMLKPDVVEGAPCTGFVGGKETYVYDSKGLVSSITDRAGQKRTFTHNDR
+                     GLETTQIDQDGGKVTTDWLPSKSLPAKITEPTRITELTYDTHLRVISRKVTDRSSGASR
+                     TWTYTYAPVGTGKPSLLASVDGPRTDVSDVTTFDYDDQGNLIRTTNALGQVMQFGDYDA
+                     NGRAGTIQGVNGVTQTLTYDARGRLVSSTGPEGTTAYNYDAVGLLSSLTKPNGATVSYE
+                     YDAAHRLVAETDAQGNRRELELNDLGNPVEERLLDALGQTRWIERRIFNEIGWLSSVSD
+                     AYSNQSSFSYDVVANLIQETSPSGNTHSYKYDGFHHRTQTTDPLGKVTQVLYKDTGDVY
+                     RVSDPRSRLTYYSYNGFGEVTQVRSPDTGTTDITYDEAGNVATRKTAKGQTTSYSYDAL
+                     NRIIEASSGVAGESPILYGYDEATSPYGMGRLTSVDDGNGVRRYGYTPEGWLAYETWET
+                     HGQSLTTQYQYDGAGLITKITYPSGREVSYTRDLAGDVIEVATTQAGTTTSLASQIERA
+                     PFGPVTSMVRWNGISESRSLDLNYRVTGIDATRVHSLVYRYTPDSLISAIDDNLSSSVN
+                     QSLGYDAVGRITSAEGLYGVLGYGYDATGNRTSITTDGLSQSYTINYMNNWLVKTGQTS
+                     RSYDANGNLTKQGADTFTYDSQNRLVAATVAGVTAAYTYNHLDQRVTKTLNGQTRLLIY
+                     GLAGNLIEELDAATGDVLAEYIWLDGTPLSFAQSGQTYQGSSQKTENKAR"
+     gene            complement(78692..81664)
+                     /locus_tag="LDMHOHEE_00094"
+     mRNA            complement(78692..81664)
+                     /locus_tag="LDMHOHEE_00094"
+                     /product="hypothetical protein"
+     CDS             complement(78692..81664)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF01526.11"
+                     /locus_tag="LDMHOHEE_00094"
+                     /product="Tn3 transposase DDE domain protein"
+                     /transl_table=11
+                     /translation="MPRRSILSATERESLLALPDAKDELIRHYTFNETDLSVIRQRRGA
+                     ANRLGFAVQLCYLRFPGTFLGVDEPPFPPLLRMVAAQLKMPVESWSEYGQREQTRREHL
+                     VELQTVFGFKPFTMSHYRQAVHTLTELALQTDKGIVLASALVENLRRQSIILPAMNAIE
+                     RASAEAITRANRRIYAALTDSLLSPHRQRLDELLKRKDGSKVTWLAWLRQSPAKPNSRH
+                     MLEHIERLKSWQALDLPAGIERQVHQNRLLKIAREGGQMTPADLAKFEVQRRYATLVAL
+                     AIEGMATVTDEIIDLHDRIIGKLFNAAKNKHQQQFQASGKAINDKVRMYGRIGQALIEA
+                     KQSGSDPFAAIEAVMPWDTFAASVTEAQTLARPADFDFLHHIGESYATQRRYAPQFLGV
+                     LKLRAAPAAKGVLDAIDMLRGMNSDSARKVPADAPTAFIKPRWAKLVLTDDGIDRRYYE
+                     LCALSELKNALRSGDVWVQGSRQFKDFDEYLVPVEKFATLKLASELPLAVATDCDQYLH
+                     DRLELLEAQLATVNRMAAANDLPDAIITTASGLKITPLDAAVPDAAQAMIDQTAMLLPH
+                     LKITELLMEVDEWTGFTRHFTHLKTSDTAKDKTLLLTTILADAINLGLTKMAESCPGTT
+                     YAKLSWLQAWHIRDETYSTALAELVNAQFRQPFAGNWGDGTTSSSDGQNFRTGSKAEST
+                     GHINPKYGSSPGRTFYTHISDQYAPFSAKVVNVGIRDSTYVLDGLLYHESDLRIEEHYT
+                     DTAGFTDHVFGLMHLLGFRFAPRIRDLGETKLFIPKGDAAYDALKPMISSDRLNIKQIR
+                     AHWDEILRLATSIKQGTVTASLMLRKLGSYPRQNGLAVALRELGRIERTLFILDWLQSV
+                     ELRRRVHAGLNKGEARNALARAVFFYRLGEIRDRSFEQQRYRASGLNLVTAAIVLWNTV
+                     YLERATSALRGNGTALDDTLLQYLSPLGWEHINLTGDYLWRSSAKVGAGKFRPLRPLPP
+                     A"
+     gene            complement(81667..82224)
+                     /gene="hin"
+                     /locus_tag="LDMHOHEE_00095"
+     mRNA            complement(81667..82224)
+                     /gene="hin"
+                     /locus_tag="LDMHOHEE_00095"
+                     /product="hypothetical protein"
+     CDS             complement(81667..82224)
+                     /codon_start=1
+                     /gene="hin"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P03013"
+                     /locus_tag="LDMHOHEE_00095"
+                     /product="DNA-invertase hin"
+                     /transl_table=11
+                     /translation="MQGQRIGYVRVSSFDQNPERQLEGVQVARVFTDKASGKDTQRPEL
+                     ERLLAFVREGDTVVVHSMDRLARNLDDLRRIVQGLTQRGVRMEFVKEGLKFTGEDSPMA
+                     NLMLSVMGAFAEFERALIRERQREGIVLAKQRGAYRGRKKSLNSEQIAELKRRVAAGDQ
+                     KTLVARDFGISRETLYQYLRED"
+     gene            complement(82530..83543)
+                     /gene="xerD"
+                     /locus_tag="LDMHOHEE_00096"
+     mRNA            complement(82530..83543)
+                     /gene="xerD"
+                     /locus_tag="LDMHOHEE_00096"
+                     /product="hypothetical protein"
+     CDS             complement(82530..83543)
+                     /codon_start=1
+                     /gene="xerD"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P9WF33"
+                     /locus_tag="LDMHOHEE_00096"
+                     /product="Tyrosine recombinase XerD"
+                     /transl_table=11
+                     /translation="MKTATAPLPPLRSVKVLDQLRERIRYLHYSLPTEQAYVNWVRAFI
+                     RFHGVRHPATLGSSEVEAFLSWLANERKVSVSTHRQALAALLFFYGKVLCTDLPWLQEI
+                     GRPRPSRRLPVVLTPDEVVRILGFLEGEHRLFAQLLYGTGMRISEGLQLRVKDLDFDHG
+                     TIIVREGKGSKDRALMLPESLAPSLREQLSRARAWWLKDQAEGRSGVALPDALERKYPR
+                     AGHSWPWFWVFAQHTHSTDPRSGVVRRHHMYDQTFQRAFKRAVEQAGITKPATPHTLRH
+                     SFATALLRSGYDIRTVQDLLGHSDVSTTMIYTHVLKVGGAGVRSPLDALPPLTSER"
+     gene            83696..84436
+                     /locus_tag="LDMHOHEE_00097"
+     mRNA            83696..84436
+                     /locus_tag="LDMHOHEE_00097"
+                     /product="hypothetical protein"
+     CDS             83696..84436
+                     /EC_number="3.5.2.6"
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P52699"
+                     /locus_tag="LDMHOHEE_00097"
+                     /product="Metallo-beta-lactamase type 2"
+                     /transl_table=11
+                     /translation="MSKLSVFFIFLFCSIATAAEPLPDLKIEKLDEGVYVHTSFEEVNG
+                     WGVVPKHGLVVLVDAEAYLIDTPFTAKDTEKLVTWFVERGYKIKGSISSHFHSDSTGGI
+                     EWLNSQSIPTYASELTNELLKKDGKVQAKNSFGGVNYWLVKNKIEVFYPGPGHTPDNLV
+                     VWLPERKILFGGCFIKPYGLGNLGDANLEAWPKSAKLLISKYGKAKLVVPSHSEAGDAS
+                     LLKLTLEQAVKGLNESKKPSKLSN"
+     gene            84668..85000
+                     /gene="emrE_1"
+                     /locus_tag="LDMHOHEE_00098"
+     mRNA            84668..85000
+                     /gene="emrE_1"
+                     /locus_tag="LDMHOHEE_00098"
+                     /product="hypothetical protein"
+     CDS             84668..85000
+                     /codon_start=1
+                     /gene="emrE_1"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P23895"
+                     /locus_tag="LDMHOHEE_00098"
+                     /product="Multidrug transporter EmrE"
+                     /transl_table=11
+                     /translation="MKNWLFLATSIIFEVIATSALKSSEGFTRLVPSFIVVAGYAAAFY
+                     FLSLTLKSIPVGIAYAVWSGLGIVLVTAIAWVLHGQKLDMWGFVGVGFIISGVAVLNLL
+                     SKASVH"
+     gene            85163..85681
+                     /gene="aacA4"
+                     /locus_tag="LDMHOHEE_00099"
+     mRNA            85163..85681
+                     /gene="aacA4"
+                     /locus_tag="LDMHOHEE_00099"
+                     /product="hypothetical protein"
+     CDS             85163..85681
+                     /EC_number="2.3.1.82"
+                     /codon_start=1
+                     /gene="aacA4"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P20092"
+                     /locus_tag="LDMHOHEE_00099"
+                     /product="Aminoglycoside N(6')-acetyltransferase type 1"
+                     /transl_table=11
+                     /translation="MTEHDLAMLYEWLNRSHIVEWWGGEEARPTLADVQEQYLPSVLAQ
+                     ESVTPYIAMLNGEPIGYAQSYVALGSGDGRWEEETDPGVRGIDQLLANASQLGKGLGTK
+                     LVRALVELLFNDPEVTKIQTDPSPSNLRAIRCYEKAGFERQGTVTTPDGPAVYMVQTRQ
+                     AFERTRSDA"
+     gene            85776..86408
+                     /gene="cat"
+                     /locus_tag="LDMHOHEE_00100"
+     mRNA            85776..86408
+                     /gene="cat"
+                     /locus_tag="LDMHOHEE_00100"
+                     /product="hypothetical protein"
+     CDS             85776..86408
+                     /EC_number="2.3.1.28"
+                     /codon_start=1
+                     /gene="cat"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P26841"
+                     /locus_tag="LDMHOHEE_00100"
+                     /product="Chloramphenicol acetyltransferase"
+                     /transl_table=11
+                     /translation="MTNYFDSPFKGKLLSEQVKNPNIKVGRYSYYSGYYHGHSFDDCAR
+                     YLFPDRDDVDKLIIGSFCSIGSGASFIMAGNQGHRYDWASSFPFFYMQEEPAFSSALDA
+                     FQKAGNTVIGNDVWIGSEAMVMPGIKIGHGAVIGSRSLVTKDVEPYAIVGGNPAKKIKK
+                     RFTDEEISLLLEMEWWNWSLEKIKAAMPMLCSSNIVGLHKYWLEFAV"
+     gene            86565..86912
+                     /gene="emrE_2"
+                     /locus_tag="LDMHOHEE_00101"
+     mRNA            86565..86912
+                     /gene="emrE_2"
+                     /locus_tag="LDMHOHEE_00101"
+                     /product="hypothetical protein"
+     CDS             86565..86912
+                     /codon_start=1
+                     /gene="emrE_2"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P23895"
+                     /locus_tag="LDMHOHEE_00101"
+                     /product="Multidrug transporter EmrE"
+                     /transl_table=11
+                     /translation="MKGWLFLVIAIVGEVIATSALKSSEGFTKLAPSAVVIIGYGIAFY
+                     FLSLVLKSIPVGVAYAVWSGLGVVIITAIAWLLHGQKLDAWGFVGMGLIIAAFLLARSP
+                     SWKSLRRPTPW"
+     gene            86906..87745
+                     /gene="folP_1"
+                     /locus_tag="LDMHOHEE_00102"
+     mRNA            86906..87745
+                     /gene="folP_1"
+                     /locus_tag="LDMHOHEE_00102"
+                     /product="hypothetical protein"
+     CDS             86906..87745
+                     /EC_number="2.5.1.15"
+                     /codon_start=1
+                     /gene="folP_1"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P0AC13"
+                     /locus_tag="LDMHOHEE_00102"
+                     /product="Dihydropteroate synthase"
+                     /transl_table=11
+                     /translation="MVTVFGILNLTEDSFFDESRRLDPAGAVTAAIEMLRVGSDVVDVG
+                     PAASHPDARPVSPADEIRRIAPLLDALSDQMHRVSIDSFQPETQRYALKRGVGYLNDIQ
+                     GFPDPALYPDIAEADCRLVVMHSAQRDGIATRTGHLRPEDALDEIVRFFEARVSALRRS
+                     GVAADRLILDPGMGFFLSPAPETSLHVLSNLQKLKSALGLPLLVSVSRKSFLGATVGLP
+                     VKDLGPASLAAELHAIGNGADYVRTHAPGDLRSAITFSETLAKFRSRDARDRGLDHA"
+     gene            87873..88373
+                     /locus_tag="LDMHOHEE_00103"
+     mRNA            87873..88373
+                     /locus_tag="LDMHOHEE_00103"
+                     /product="hypothetical protein"
+     CDS             87873..88373
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:CDD:PRK03624"
+                     /locus_tag="LDMHOHEE_00103"
+                     /product="putative acetyltransferase"
+                     /transl_table=11
+                     /translation="MDSEEPPNVRVACSGDIDEVVRLMHDAAAWMSAKGTPAWDVARID
+                     RTFAETFVLRSELLVASCSDGIVGCCTLSAEDPEFWPDALKGEAAYLHKLAVRRTHAGR
+                     GVSSALIEACRHAARTQGGAKLRLDCHPNLRGLYERLGFTHVDTFNPGWDPTFIAERLE
+                     LEI"
+     gene            complement(88356..88931)
+                     /locus_tag="LDMHOHEE_00104"
+     mRNA            complement(88356..88931)
+                     /locus_tag="LDMHOHEE_00104"
+                     /product="hypothetical protein"
+     CDS             complement(88356..88931)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:PFAM:PF05621.5"
+                     /locus_tag="LDMHOHEE_00104"
+                     /product="Bacterial TniB protein"
+                     /transl_table=11
+                     /translation="MDEYPIIDLSHLLPAAQGLARLPADERIQRLRADRWIGYPRAVEA
+                     LNRLEALYAWPNKQRMPNLLLVGPTNNGKSMIVEKFRRTHPASSDADQEHIPVLVVQMP
+                     SEPSVIRFYVALLAAMGAPLRPRPRLPEMEQLALALLRKVGVRMLVIVDNLSRNQDIAV
+                     GLQVILKPRARPTPTWTSMPERTLDFEF"
+     gene            complement(88934..90613)
+                     /gene="tnsB"
+                     /locus_tag="LDMHOHEE_00105"
+     mRNA            complement(88934..90613)
+                     /gene="tnsB"
+                     /locus_tag="LDMHOHEE_00105"
+                     /product="hypothetical protein"
+     CDS             complement(88934..90613)
+                     /codon_start=1
+                     /gene="tnsB"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P13989"
+                     /locus_tag="LDMHOHEE_00105"
+                     /product="Transposon Tn7 transposition protein TnsB"
+                     /transl_table=11
+                     /translation="MATDTPRIPEQGVATLPDEAWERARRRAEIISPLAQSETVGHEAA
+                     DMAAQALGLSRRQVYVLIRRARQGSGLVTDLVPGQSGGGKGKGRLPEPVERVIHELLQK
+                     RFLTKQKRSLAAFHREVTQVCKAQKLRVPARNTVALRIASLDPRKVIRRREGQDAARDL
+                     QGVGGEPPAVTAPLEQVQIDHTVIDLIVVDDRDRQPIGRPYLTLAIDVFTRCVLGMVVT
+                     LEAPSAVSVGLCLVHVACDKRPWLEGLNVEMDWQMSGKPLLLYLDNAAEFKSEALRRGC
+                     EQHGIRLDYRPLGQPHYGGIVERIIGTAMQMIHDELPGTTFSNPDQRGDYDSENKAALT
+                     LRELERWLTLAVGTYHGSVHNGLLQPPAARWAEAVARVGVPAVVTRATSFLVDFLPILR
+                     RTLTRTGFVIDHIHYYADALKPWIARRERWPSFLIRRDPRDISRIWVLEPEGQHYLEIP
+                     YRTLSHPAVTLWEQRQALAKLRQQGREQVDESALFRMIGQMREIVTSAQKATRKARRDA
+                     DRRQHLKTSARPDKPVPPDTDIADPQADNLPPAKPFDQIEEW"
+     gene            complement(90797..91102)
+                     /locus_tag="LDMHOHEE_00106"
+     mRNA            complement(90797..91102)
+                     /locus_tag="LDMHOHEE_00106"
+                     /product="hypothetical protein"
+     CDS             complement(90797..91102)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="protein motif:CDD:PRK09416"
+                     /locus_tag="LDMHOHEE_00106"
+                     /product="lineage-specific thermal regulator protein"
+                     /transl_table=11
+                     /translation="MTDKDLYGGLIRLHILHHAAEEPVFGLGIIEELRRHGYEMSAGTV
+                     YPMLHGLEKKGYLTSRHERTGRRERRVYDITEQGRTALADAKTKVKELFGELVEGG"
+     gene            complement(91113..92318)
+                     /gene="srpC"
+                     /locus_tag="LDMHOHEE_00107"
+     mRNA            complement(91113..92318)
+                     /gene="srpC"
+                     /locus_tag="LDMHOHEE_00107"
+                     /product="hypothetical protein"
+     CDS             complement(91113..92318)
+                     /codon_start=1
+                     /gene="srpC"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:Q55027"
+                     /locus_tag="LDMHOHEE_00107"
+                     /product="putative chromate transport protein"
+                     /transl_table=11
+                     /translation="MTNNPTDDSRPWSVFLIFLRLGLTSFGGPIAHLGYFRAEFVTRRR
+                     WLSERSYADLVALCQFLPGPASSQVGIAVGLSRAGYSGALAAWAGFTLPSAIALILFAL
+                     GISSYGDYVSQGALHGLKVVAVAVVAQAVWGMARNLCTDGLRVTIMAIATCVVLLVPSA
+                     WGQVGVIAIAGIAGRLLFKPAKVVEHDPLPITVSHRAGVLWLSLFFVLLIGLPVLAELM
+                     PSQTMAMVDSFYRVGSLVFGGGHVVLPLLQAEVVPSGWVNNESFLAGYGAAQAVPGPLF
+                     TFAAFLGASMNTAPSGWIGGIVCLLAIFAPSFLLVVGSMPFWERLRRNTGIQAALAGIN
+                     AAVVGLLLAALYQPVWTSAIFQPQDFGLALVALVALMFWKLPPWLVVLGSGAAGWLLSV
+                     AL"
+     gene            complement(92474..92677)
+                     /locus_tag="LDMHOHEE_00108"
+     mRNA            complement(92474..92677)
+                     /locus_tag="LDMHOHEE_00108"
+                     /product="hypothetical protein"
+     CDS             complement(92474..92677)
+                     /codon_start=1
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /locus_tag="LDMHOHEE_00108"
+                     /product="hypothetical protein"
+                     /transl_table=11
+                     /translation="MDSEEPPNVRVACSGDIDEVVRLMHDAAAWMSAKGTPAWDVARID
+                     RTFAETFVLRSELLGIASENGK"
+     gene            complement(92805..93644)
+                     /gene="folP_2"
+                     /locus_tag="LDMHOHEE_00109"
+     mRNA            complement(92805..93644)
+                     /gene="folP_2"
+                     /locus_tag="LDMHOHEE_00109"
+                     /product="hypothetical protein"
+     CDS             complement(92805..93644)
+                     /EC_number="2.5.1.15"
+                     /codon_start=1
+                     /gene="folP_2"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P0AC13"
+                     /locus_tag="LDMHOHEE_00109"
+                     /product="Dihydropteroate synthase"
+                     /transl_table=11
+                     /translation="MVTVFGILNLTEDSFFDESRRLDPAGAVTAAIEMLRVGSDVVDVG
+                     PAASHPDARPVSPADEIRRIAPLLDALSDQMHRVSIDSFQPETQRYALKRGVGYLNDIQ
+                     GFPDPALYPDIAEADCRLVVMHSAQRDGIATRTGHLRPEDALDEIVRFFEARVSALRRS
+                     GVAADRLILDPGMGFFLSPAPETSLHVLSNLQKLKSALGLPLLVSVSRKSFLGATVGLP
+                     VKDLGPASLAAELHAIGNGADYVRTHAPGDLRSAITFSETLAKFRSRDARDRGLDHA"
+     gene            complement(93638..93985)
+                     /gene="emrE_3"
+                     /locus_tag="LDMHOHEE_00110"
+     mRNA            complement(93638..93985)
+                     /gene="emrE_3"
+                     /locus_tag="LDMHOHEE_00110"
+                     /product="hypothetical protein"
+     CDS             complement(93638..93985)
+                     /codon_start=1
+                     /gene="emrE_3"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P23895"
+                     /locus_tag="LDMHOHEE_00110"
+                     /product="Multidrug transporter EmrE"
+                     /transl_table=11
+                     /translation="MKGWLFLVIAIVGEVIATSALKSSEGFTKLAPSAVVIIGYGIAFY
+                     FLSLVLKSIPVGVAYAVWSGLGVVIITAIAWLLHGQKLDAWGFVGMGLIIAAFLLARSP
+                     SWKSLRRPTPW"
+     gene            complement(94191..94979)
+                     /gene="ant1"
+                     /locus_tag="LDMHOHEE_00111"
+     mRNA            complement(94191..94979)
+                     /gene="ant1"
+                     /locus_tag="LDMHOHEE_00111"
+                     /product="hypothetical protein"
+     CDS             complement(94191..94979)
+                     /EC_number="2.7.7.47"
+                     /codon_start=1
+                     /gene="ant1"
+                     /inference="ab initio prediction:Prodigal:2.6"
+                     /inference="similar to AA sequence:UniProtKB:P0A0D1"
+                     /locus_tag="LDMHOHEE_00111"
+                     /product="Streptomycin 3''-adenylyltransferase"
+                     /transl_table=11
+                     /translation="MGEFFPAQVFKQLSHARAVIERHLAATLDTIHLFGSAIDGGLKPD
+                     SDIDLLVTVSAAPNDSLRQALMLDLLKVSSPPGDGGTWRPLELTVVARSEVVPWRYPAR
+                     RELQFGEWLRHDILSGTFEPAVLDHDLAILLTKARQHSLALLGPSAATFFEPVPKEHFS
+                     KALFDTIAQWNAESDWKGDERNVVLALARIWYSASTGLIAPKDVAAAWVSERLPAEHRP
+                     LICKARAAYLGSEDDDLAMRVEETAAFVRYAKATIERILR"
