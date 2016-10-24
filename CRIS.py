@@ -69,8 +69,6 @@ def main():
                 #Store the DNA sequence of the feature
                 gene_seq = gb_feature.extract(gb_record.seq).upper()
                 gene_seq_rev = gb_feature.extract(gb_record.seq).upper().reverse_complement()
-                print gene_seq_rev
-
                 #Find the possible CRISPR sites in the gene, stored as a list
                 #SEQS is a regular expression to define the CRISPR rule
                 potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
@@ -86,13 +84,15 @@ def main():
 #                     print whole_gb_record_CRISPR_locs
                     locs_forward = [(i.start(), i.end()) for i in whole_gb_record_CRISPR_locs]
                     locs_reverse = [(i.start(), i.end()) for i in whole_gb_record_rev_CRISPR_locs]
-                    if len(locs_forward) + len(locs_reverse) == 1:
-                        if len(locs_forward) == 1 and locus_strand > 0 and len(locs_reverse) == 0:
-                            loc_start = locs_forward[0][0]
-                            loc_end = locs_forward[0][1]
-                        if len(locs_forward) == 0 and locus_strand < 0 and len(locs_reverse) == 1:
-                            loc_start = locs_reverse[0][0]
-                            loc_end = locs_reverse[0][1]
+                    if len(locs_forward) + len(locs_reverse) != 1:
+                        # get out of loop if there is more than one match
+                        print 'No potential CRISPR sites found.'
+                        break
+#                     if len(locs_forward) == 1:
+#                         
+#                         if len(locs_forward) == 0 and locus_strand < 0 and len(locs_reverse) == 1:
+#                             loc_start = locs_reverse[0][0]
+#                             loc_end = locs_reverse[0][1]
                     
                     
 #                     if len(locs_forward) == 1 and locus_strand > 0 and locus_start<=locs_forward[0][0]<locus_end and locus_start<=locs_forward[0][1]<locus_end:
