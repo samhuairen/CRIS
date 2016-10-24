@@ -65,21 +65,49 @@ def main():
                 locus_start = locus_location.start
                 locus_end = locus_location.end
                 locus_strand = locus_location.strand
-                print locus_location
+                print locus_location, locus_strand
                 #Store the DNA sequence of the feature
                 gene_seq = gb_feature.extract(gb_record.seq).upper()
                 gene_seq_rev = gb_feature.extract(gb_record.seq).upper().reverse_complement()
+                print gene_seq_rev
+
                 #Find the possible CRISPR sites in the gene, stored as a list
                 #SEQS is a regular expression to define the CRISPR rule
                 potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
-                #Find the ones that don't hit elsewhere in the whole_gb_record_seq or its revcomp
+                finalists = []
+                #Check if they hit elsewhere in the whole_gb_record_seq or its revcomp
                 for potential_CRISPR_seq in potential_CRISPR_seqs:
-                    #Store the site location in a list
+                    #Find the location of the potential_CRISPR_seq (list)
+                    #Search forward and reverse
                     whole_gb_record_CRISPR_locs = re.finditer(potential_CRISPR_seq, str(whole_gb_record_seq))
-                    whole_gb_record_CRISPR_locs
-                    print whole_gb_record_CRISPR_locs
-                    for whole_gb_record_CRISPR_loc in whole_gb_record_CRISPR_locs:
-                        print whole_gb_record_CRISPR_loc.start()+locus_start
+                    whole_gb_record_rev_CRISPR_locs = re.finditer(potential_CRISPR_seq, str(whole_gb_record_seq_rev))
+#                     print list(whole_gb_record_CRISPR_locs)
+#                     whole_gb_record_CRISPR_locs
+#                     print whole_gb_record_CRISPR_locs
+                    locs_forward = [(i.start(), i.end()) for i in whole_gb_record_CRISPR_locs]
+                    locs_reverse = [(i.start(), i.end()) for i in whole_gb_record_rev_CRISPR_locs]
+                    if len(locs_forward) + len(locs_reverse) == 1:
+                        if len(locs_forward) == 1 and locus_strand > 0 and len(locs_reverse) == 0:
+                            loc_start = locs_forward[0][0]
+                            loc_end = locs_forward[0][1]
+                        if len(locs_forward) == 0 and locus_strand < 0 and len(locs_reverse) == 1:
+                            loc_start = locs_reverse[0][0]
+                            loc_end = locs_reverse[0][1]
+                    
+                    
+#                     if len(locs_forward) == 1 and locus_strand > 0 and locus_start<=locs_forward[0][0]<locus_end and locus_start<=locs_forward[0][1]<locus_end:
+#                         print potential_CRISPR_seq, locs_forward
+#                     if len(locs_reverse) == 1 and locus_strand < 0:
+#                         print potential_CRISPR_seq, locs_reverse
+#                     print locs_forward, locs_reverse
+#                     for whole_gb_record_CRISPR_loc in whole_gb_record_CRISPR_locs:
+#                         strt = whole_gb_record_CRISPR_loc.start()
+#                         stp = whole_gb_record_CRISPR_loc.end()
+#                         print locus_start
+#                         if strt >= locus_start and stp <= locus_end:
+#                             print potential_CRISPR_seq, strt, stp
+#                     print ''
+#                         print whole_gb_record_CRISPR_loc.start()+locus_start
 #                         recrd = SeqRecord(Seq(site, alphabet=generic_dna), name = locus_name+'_'+site, description='CRISPR site', id=site, location=[1:1])
 #                         print recrd
 #                         CRISPR_site_location = (potential_CRISPR_loc.start(), potential_CRISPR_loc.end())
@@ -97,13 +125,3 @@ if __name__ == '__main__':
     main()
     
     
-#     sites = {locus: 
-#                 [locus_location, {potential_site: 
-#                                     [(start, stop), (start2, stop2)]
-#                                  }
-#                 ]
-<<<<<<< HEAD
-#             }
-=======
-#             }
->>>>>>> ce94fae9717260cc9236b0f87cacb061175f3358
