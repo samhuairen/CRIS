@@ -1950,12 +1950,15 @@ FEATURES             Location/Qualifiers
                      KALFDTIAQWNAESDWKGDERNVVLALARIWYSASTGLIAPKDVAAAWVSERLPAEHRP
                      LICKARAAYLGSEDDDLAMRVEETAAFVRYAKATIERILR"
      misc_binding    74..97
+     misc_binding    complement(906..881)
      misc_binding    1032..1055
      misc_binding    1778..1801
      misc_binding    2092..2115
      misc_binding    2575..2598
      misc_binding    3382..3405
      misc_binding    4599..4622
+     misc_binding    complement(5534..5509)
+     misc_binding    complement(5757..5732)
      misc_binding    6133..6156
      misc_binding    6499..6522
      misc_binding    6730..6753
@@ -1968,6 +1971,10 @@ FEATURES             Location/Qualifiers
      misc_binding    11021..11044
      misc_binding    11346..11369
      misc_binding    12215..12238
+     misc_binding    complement(12995..12970)
+     misc_binding    complement(15233..15208)
+     misc_binding    complement(15454..15429)
+     misc_binding    complement(16074..16049)
      misc_binding    16247..16270
      misc_binding    19235..19258
      misc_binding    21100..21123
@@ -1992,6 +1999,8 @@ FEATURES             Location/Qualifiers
      misc_binding    39836..39859
      misc_binding    40503..40526
      misc_binding    41620..41643
+     misc_binding    complement(45304..45279)
+     misc_binding    complement(46071..46046)
      misc_binding    46384..46407
      misc_binding    46794..46817
      misc_binding    47003..47026
@@ -2033,11 +2042,20 @@ FEATURES             Location/Qualifiers
      misc_binding    73643..73666
      misc_binding    74400..74423
      misc_binding    75240..75263
+     misc_binding    complement(81640..81615)
+     misc_binding    complement(82194..82169)
+     misc_binding    complement(83528..83503)
      misc_binding    83770..83793
      misc_binding    84687..84710
      misc_binding    85175..85198
      misc_binding    85784..85807
      misc_binding    88046..88069
+     misc_binding    complement(88913..88888)
+     misc_binding    complement(90603..90578)
+     misc_binding    complement(91101..91076)
+     misc_binding    complement(92307..92282)
+     misc_binding    complement(92523..92498)
+     misc_binding    complement(94949..94924)
 ORIGIN
         1 ctctcctccc gtcgtaacag caaagctgca taccggtttc tgggtaaaat cctcaacaac
        61 gtgaagaagt ggcagatccc gcgattcatc aacacggata aagcgcccgc ctatggtcgc
