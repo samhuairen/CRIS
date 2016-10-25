@@ -29,17 +29,9 @@ ARGS = PARSER.parse_args()
 SEQS = '[ATGC]{21}GG'
 
 
-
-def readseq(seqinfile, seqinformat):
-    '''
-    Read in the sequence from file.  Return it as a variable.
-    '''
-    gbk_parsed = SeqIO.parse(seqinfile, seqinformat)
-    return gbk_parsed
-
 def gene_locations(gb_record):
     '''
-    From the sequence, extract gene names and coordinates.
+    From the gb_record, extract gene names and coordinates.
     '''
     locus_locations = defaultdict(list)
     for index, feature in enumerate(gb_record.features):
@@ -68,9 +60,19 @@ def main():
     '''
     Get sequence, extract genes and coordinates.
     '''
-    seqn = readseq(ARGS.seq_infile, 'genbank')
+    seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
+    seqs_in_file = [gb_record.seq for gb_record in seqn]
+    seqs_in_file = [str(i) for i in seqs_in_file]
+    seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
+    seqs_in_file_revcomp = [gb_record.seq.reverse_complement() for gb_record in seqn]
+    seqs_in_file_revcomp = [str(i) for i in seqs_in_file_revcomp]
+    all_gb_records_seq = ''.join(seqs_in_file).upper()
+    all_gb_records_seq_rev = ''.join(seqs_in_file_revcomp).upper()
+    seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     for gb_record in seqn:
+        print gb_record
         locus_locs = gene_locations(gb_record)
+        print locus_locs
         gb_record_seq = gb_record.seq
         gb_record_seq_len = len(gb_record_seq)
         gb_record_seq_rev = gb_record.seq.reverse_complement()
@@ -97,10 +99,12 @@ def main():
                     #Find the possible CRISPR sites in the gene, stored as a list
                     #SEQS is a regular expression to define the CRISPR rule
                     potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
-                    #Check if they hit elsewhere in the gb_record_seq or its revcomp
+                    #Check if they hit elsewhere in the all_gb_records_seq or its revcomp
+                    if len(potential_CRISPR_seqs) == 0:
+                        print 'No CRISPR hits.'
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
-                        whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq, str(gb_record_seq))
-                        whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq, str(gb_record_seq_rev))
+                        whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq, str(all_gb_records_seq))
+                        whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq, str(all_gb_records_seq_rev))
                         fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                         rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
                         print fwd_hits, rev_hits
