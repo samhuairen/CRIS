@@ -18,15 +18,15 @@ import sys
 PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites.')
 PARSER.add_argument('-s', '--seq_infile', help='DNA seq to scan.',
                     required=True)
-# PARSER.add_argument('-p', '--PAM_seq', help='5\'to 3\' sequence at the\
-#                      3\' end of the genomic target', default='NGG', required=False)
-# PARSER.add_argument('-t', '--length_target', help='Length of genomic target.',
-#                     required=False)
+PARSER.add_argument('-r', '--regex_site', help='Regular expression to \
+                    define binding site (5\' to 3\') sequence.  \
+                    Default = \'[ATGC]{21}GG\'', default='[ATGC]{21}GG',
+                    required=False)
 
 ARGS = PARSER.parse_args()
 
 #The CRISPR binding site rule
-SEQS = '[ATGC]{21}GG'
+SEQS = ARGS.regex_site
 
 
 def gene_locations(gb_record):
