@@ -26,7 +26,7 @@ PARSER.add_argument('-s', '--seq_infile', help='DNA seq to scan.',
 ARGS = PARSER.parse_args()
 
 #The CRISPR binding site rule
-SEQS = '[ATGC]{22}GG'
+SEQS = '[ATGC]{21}GG'
 
 
 
