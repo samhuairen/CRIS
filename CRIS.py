@@ -34,26 +34,49 @@ def readseq(seqinfile, seqinformat):
     '''
     Read in the sequence from file.  Return it as the variable 'sequence'.
     '''
+    #test if there is more than one record, will raise ValueError if True
+    SeqIO.read(seqinfile, seqinformat)
+    #Continue if not more than one record using parse
     sequence = SeqIO.parse(seqinfile, seqinformat)
     return sequence
 
-def gene_details(sequence):
+def gene_locations(sequence):
     '''
     From the sequence, extract gene names and coordinates.
     '''
-    pass
+    locus_locations = defaultdict(list)
+    for gb_record in sequence:
+        for index, feature in enumerate(gb_record.features):
+            if hasattr(feature, 'type'):
+                if feature.type == 'gene':
+                    #Capture the whole feature in gb_feature.
+                    gb_feature = gb_record.features[index]
+                    #Store a name for the feature if it is a gene
+                    if 'gene' in feature.qualifiers:
+                        locus_name = feature.qualifiers['gene'][0]
+                    else:
+                        locus_name = feature.qualifiers['locus_tag'][0]
+                    print '\n', locus_name
+                    #Store the location of the locus
+                    locus_location = feature.location
+                    print locus_location.start.position
+                    locus_start = locus_location.start.position
+                    locus_end = locus_location.end.position
+                    locus_strand = locus_location.strand
+                    print locus_location, locus_strand
+                    locus_locations[locus_name].append([locus_start, locus_end, locus_strand])
+    return locus_locations
+
 
 def main():
     '''
     Get sequence, extract genes and coordinates.
     '''
     seqn = readseq(ARGS.seq_infile, 'genbank')
-    for gb_record in seqn:
 
-        whole_gb_record_seq = gb_record.seq
-        whole_gb_record_seq_len = len(whole_gb_record_seq)
-#         sys.exit()
-        whole_gb_record_seq_rev = gb_record.seq.reverse_complement()
+    locus_locations = gene_locations(seqn)
+    print locus_locations
+    for gb_record in seqn:
         for index, feature in enumerate(gb_record.features):
             if hasattr(feature, 'type'):
                 if feature.type == 'gene':
@@ -70,7 +93,9 @@ def main():
                     locus_start = locus_location.start
                     locus_end = locus_location.end
                     locus_strand = locus_location.strand
-                    print locus_location, locus_strand
+                    print locus_location #, locus_strand
+                    locus_location[locus_name].append([locus_start, locus_end])
+
                     #Store the DNA sequence of the feature
                     gene_seq = gb_feature.extract(gb_record.seq).upper()
                     gene_seq_rev = gb_feature.extract(gb_record.seq).upper().reverse_complement()
