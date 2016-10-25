@@ -1973,7 +1973,7 @@ FEATURES             Location/Qualifiers
      misc_binding    complement(15232..15208)
      misc_binding    complement(15453..15429)
      misc_binding    complement(16073..16049)
-     misc_binding    16248..16270
+     misc_binding    16310..16332
      misc_binding    19236..19258
      misc_binding    21101..21123
      misc_binding    22279..22301
@@ -1986,7 +1986,7 @@ FEATURES             Location/Qualifiers
      misc_binding    26441..26463
      misc_binding    27737..27759
      misc_binding    28358..28380
-     misc_binding    28909..28931
+     misc_binding    28943..28965
      misc_binding    34592..34614
      misc_binding    35311..35333
      misc_binding    37765..37787
@@ -2030,7 +2030,7 @@ FEATURES             Location/Qualifiers
      misc_binding    69460..69482
      misc_binding    70513..70535
      misc_binding    70797..70819
-     misc_binding    71346..71368
+     misc_binding    71369..71391
      misc_binding    73397..73419
      misc_binding    73644..73666
      misc_binding    74401..74423

@@ -22,6 +22,12 @@ PARSER.add_argument('-r', '--regex_site', help='Regular expression to \
                     define binding site (5\' to 3\') sequence.  \
                     Default = \'[ATGC]{21}GG\'', default='[ATGC]{21}GG',
                     required=False)
+PARSER.add_argument('-l', '--lower_limit', help='Towards the 5\' end, how far \
+                    will you let the unique sites move? Default = 12',
+                    default=12, type=int, required=False)
+#Add option for type selection (gene, cds etc)
+#Add options for PAM site, and total length of CRISPR seq
+#From this extract the total length
 
 ARGS = PARSER.parse_args()
 
@@ -60,14 +66,17 @@ def main():
     '''
     Get sequence, extract genes and coordinates.
     '''
+    #Store these objects as a list.  The file handle moves on accession. 
+    #Can't reset file handle with stdin
     seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     seqs_in_file = [gb_record.seq for gb_record in seqn]
-    seqs_in_file = [str(i) for i in seqs_in_file]
-    seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
+    seqs_in_file_str = [str(i) for i in seqs_in_file]
+    #seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     seqs_in_file_revcomp = [gb_record.seq.reverse_complement() for gb_record in seqn]
     seqs_in_file_revcomp = [str(i) for i in seqs_in_file_revcomp]
-    all_gb_records_seq = ''.join(seqs_in_file).upper()
-    all_gb_records_seq_rev = ''.join(seqs_in_file_revcomp).upper()
+    #Create a super-contig of forward and reverse
+    all_gb_records_seq = 'N'.join(seqs_in_file).upper()
+    all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp).upper()
     seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     for gb_record in seqn:
         print gb_record
@@ -102,14 +111,16 @@ def main():
                     #Check if they hit elsewhere in the all_gb_records_seq or its revcomp
                     if len(potential_CRISPR_seqs) == 0:
                         print 'No CRISPR hits.'
+                    finalists = []
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
-                        whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq, str(all_gb_records_seq))
-                        whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq, str(all_gb_records_seq_rev))
+                        #check firstly for matches at the 12 bases at 3' end
+                        whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.lower_limit:], str(all_gb_records_seq))
+                        whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.lower_limit:], str(all_gb_records_seq_rev))
                         fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                         rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
                         print fwd_hits, rev_hits
 
-                        if len(fwd_hits) + len(rev_hits) == 1:
+                        if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
                             if locus_strand > 0:
                                 CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
                                 pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
