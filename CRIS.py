@@ -20,7 +20,10 @@ import os
 #set up the arguments parser to deal with the command line input
 PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites \
                                  in a genbank file.  Accepts files with \
-                                 multiple genbank records per file.')
+                                 multiple genbank records per file.  \
+                                 Author: dr.mark.schultz@gmail.com.  \
+                                 Acknowledgements: Torsten Seemann, Ian Monk, \
+                                 Timothy P. Stinear.')
 PARSER.add_argument('-s', '--seq_infile', help='DNA seqs (contigs) to scan \
                     (Genbank format)', required=True)
 PARSER.add_argument('-l', '--length_CRISPR_seq', help='Set total length \
@@ -62,7 +65,7 @@ GROUP.set_defaults(feature=True)
 #plot the pairwise SNP distance between the CRISPR seqs
 ARGS = PARSER.parse_args()
 
-
+VERSION = '0.1.1'
 
 #The CRISPR binding site rule, define it as a regex
 PAM = list(ARGS.PAM_seq.upper())
@@ -88,28 +91,24 @@ SITE_LENGTH = ARGS.length_CRISPR_seq+len(PAM)
 
 def gene_locations(gb_record):
     '''
-    From the gb_record, extract gene names and coordinates.
+    From the gb_record, extract locus names, coordinates and strands.
     '''
     locus_locations = defaultdict(list)
+    features = []
     for index, feature in enumerate(gb_record.features):
         if hasattr(feature, 'type'):
             if feature.type == 'gene':
                 #Capture the whole feature in gb_feature.
-                gb_feature = gb_record.features[index]
-                #Store a name for the feature if it is a gene
-                if 'gene' in feature.qualifiers:
-                    locus_name = feature.qualifiers['gene'][0]
-                else:
-                    locus_name = feature.qualifiers['locus_tag'][0]
-#                    print '\n', locus_name
-                #Store the location of the locus
-                locus_location = feature.location
-#                    print locus_location.start.position
-                locus_start = locus_location.start.position
-                locus_end = locus_location.end.position
-                locus_strand = locus_location.strand
-#                    print locus_location, locus_strand
-                locus_locations[locus_name].append([locus_start, locus_end, locus_strand])
+                features.append(gb_record.features[index])
+    for i in features:
+        locus_name = feature.qualifiers.get(ARGS.feature_qualifier)[0]
+        if locus_name == None:
+            locus_name = feature.qualifiers.get('locus_tag')[0]
+        locus_location = feature.location
+        loc_strt = locus_location.start.position
+        loc_end = locus_location.end.position
+        loc_strnd = locus_location.strand
+        locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
     return locus_locations
 
 
@@ -117,21 +116,18 @@ def main():
     '''
     Get sequence, extract genes and coordinates.
     '''
-    #Store these objects as a list.  The file handle moves on accession. 
-    #Can't reset file handle with stdin
     seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
-    in_file_recs = [gb_record for gb_record in seqn]
-    seqs_in_file_str = [str(i.seq) for i in in_file_recs]
-    #seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
-    seqs_in_file_revcomp_str = [str(i.seq) for i in in_file_recs]
+    infile_recs = [gb_record for gb_record in seqn]
+    seqs_infile_str = [str(i.seq) for i in infile_recs]
+    seqs_infile_revcomp_str = [str(i.seq) for i in infile_recs]
     #Create a super-contig of forward and reverse
     #Need to circularise the contigs or not depending on ARGS
-    all_gb_records_seq = 'N'.join(seqs_in_file_str).upper()
-    all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp_str).upper()
+    all_gb_records_seq = 'N'.join(seqs_infile_str).upper()
+    all_gb_records_seq_rev = 'N'.join(seqs_infile_revcomp_str).upper()
     updated_gb_records = []
-    for gb_record in in_file_recs:
-        print gb_record
-
+    for gb_record in infile_recs:
+        if not ARGS.suppress_screen_output:
+            print gb_record
         locus_locs = gene_locations(gb_record)
         gb_record_seq = gb_record.seq
         gb_record_seq_len = len(gb_record_seq)
@@ -143,7 +139,7 @@ def main():
                     n_qualifiers_found.append(1)
                     #Capture the whole feature in gb_feature.
                     gb_feature = gb_record.features[index]
-                    #Store a name for the feature if it is a gene
+                    #Store a name for the feature
                     if ARGS.feature_qualifier in feature.qualifiers:
                         locus_name = feature.qualifiers[ARGS.feature_qualifier][0]
                     else:
@@ -184,6 +180,8 @@ def main():
                                 stp = pos[0][1]
                                 #overlaps will store a value if site overlaps two genes
                                 overlaps = []
+                                #use list comprehension instead of nested dict loop
+                                #k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
                                 for key, value in locus_locs.items():
                                     if key == locus_name:
                                         if len(value) > 1:
@@ -249,6 +247,8 @@ if __name__ == '__main__':
     with open(outfile, 'w') as output_handle:
         for i in gb_data_to_write:
             SeqIO.write(i, output_handle, 'genbank')
-        print '\nWritten data to', output_handle
+    print '\nWritten data to', outfile
     print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
     print 'CRISPR target length was', str(SITE_LENGTH), 'nt'
+    print 'Thank you for using CRIS.py version', VERSION
+    print 'email: dr.mark.schultz@gmail.com; github: \'schultzm\'.'
