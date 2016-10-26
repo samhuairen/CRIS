@@ -113,6 +113,8 @@ def main():
     all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp_str).upper()
     updated_gb_records = []
     for gb_record in in_file_recs:
+        print gb_record
+
         locus_locs = gene_locations(gb_record)
         gb_record_seq = gb_record.seq
         gb_record_seq_len = len(gb_record_seq)
@@ -155,8 +157,8 @@ def main():
                         whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq_rev))
                         fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                         rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
-#                         print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
-
+                        if not ARGS.suppress_screen_output:
+                            print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
                         if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
                             if locus_strand > 0:
                                 CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
@@ -210,28 +212,26 @@ def main():
         if len(n_qualifiers_found) == 0:
             print '\nNo', ARGS.feature_qualifier, 'feature found in genbank record.'
         else:
-            print '\n', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features processed.'
+            print '\n', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features processed.\n'
     return updated_gb_records
 
 
 if __name__ == '__main__':
-    output_handle = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
+    outfile = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
     #Is overwrite True or False? Print the ARGS.feature answer here
-    print 'Overwrite', output_handle, '==', ARGS.feature
+    print '\nOverwrite', outfile, '==', ARGS.feature
     if ARGS.suppress_screen_output:
-        print 'Verbose off ==', ARGS.suppress_screen_output
-        print 'Search is now running ...'
+        print '\nVerbose off ==', ARGS.suppress_screen_output
+        print 'Search is now running ...\n'
     if ARGS.feature == False:
-        if os.path.exists(output_handle):
-            print output_handle, 'already exists. Use \'overwrite\' or move', output_handle
+        if os.path.exists(outfile):
+            print outfile, 'already exists. Use \'overwrite\' or move', outfile
             sys.exit()
     gb_data_to_write = main()
     #As overwrite defaults to true, just overwrite
-    with open(output_handle, 'w') as outhandle:
+    with open(outfile, 'w') as output_handle:
         for i in gb_data_to_write:
             SeqIO.write(i, output_handle, 'genbank')
-        print 'Written data to', output_handle
-    
-
+        print '\nWritten data to', output_handle
     print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
     print 'CRISPR target length was', str(SITE_LENGTH), 'nt'
