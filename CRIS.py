@@ -3,7 +3,7 @@
 '''
 Search for CRISPR binding sites in an annotated genbank sequence.
 email dr.mark.schultz@gmail.com
-20161025_YYYYMMDD
+20161026_YYYYMMDD
 '''
 
 import argparse
@@ -15,30 +15,35 @@ import re
 from collections import defaultdict
 from Bio.SeqFeature import SeqFeature, FeatureLocation
 import sys
+import os
 
 #set up the arguments parser to deal with the command line input
 PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites.')
 PARSER.add_argument('-s', '--seq_infile', help='DNA seqs (contigs) to scan \
                     (Genbank format)', required=True)
-
 PARSER.add_argument('-l', '--length_CRISPR_seq', help='Set total length \
                     of CRISPR binding site sequence NOT including the PAM \
-                    sequence.', default=20, type=int, required=False)
+                    sequence. Default=20.', default=20, type=int,
+                    required=False)
 PARSER.add_argument('-c', '--three_prime_clamp', help='At the 3\' end, how \
                     long do you want the clamp sequence to be? \
-                    Default=\'12\'.', default=12, type=int, required=False)
+                    Default=12.', default=12, type=int, required=False)
 PARSER.add_argument('-p', '--PAM_seq', help='Protospacer Adjacent Motif \
                     (PAM).  Depends on Cas9 species. Default=\'NGG\'.',
                     default='NGG', required=False)
-PARSER.add_argument('-k', '--gb_feature_key', help='Genbank feature key. \
-                    Typically \'gene\', but could be \'CDS\' etc.  Case \
-                    sensitive, exact spelling required.', default='gene',
-                    required=False)
-#Add option for type selection (gene, cds etc)
-#Add options for PAM site, and total length of CRISPR seq
-#From this extract the total length
+PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
+                    qualifier in which to find binding sites. Default is \
+                    \'gene\', but could be \'CDS\', \'mRNA\' etc.  \
+                    Case-sensitive, exact spelling required.',
+                    default='gene', required=False)
+GROUP = PARSER.add_mutually_exclusive_group(required=False)
+GROUP.add_argument('-a', '--append', help='Append to output file (i.e., no overwrite).', dest='feature', action='store_false')
+GROUP.add_argument('-f', '--force', help='Overwrite output file if it exists, otherwise write new.', dest='feature', action='store_true')
+GROUP.set_defaults(feature=True)
 #plot the pairwise SNP distance between the CRISPR seqs
 ARGS = PARSER.parse_args()
+
+
 
 #The CRISPR binding site rule, define it as a regex
 PAM = list(ARGS.PAM_seq.upper())
@@ -60,6 +65,7 @@ IUPAC_DICT = {'A':'A',
 for i in range(0,len(PAM)):
     PAM[i] = IUPAC_DICT[PAM[i]]
 SEQS = '[ATGC]{'+str(ARGS.length_CRISPR_seq)+'}'+''.join(PAM)
+SITE_LENGTH = ARGS.length_CRISPR_seq+len(PAM)
 
 def gene_locations(gb_record):
     '''
@@ -102,6 +108,7 @@ def main():
     #Create a super-contig of forward and reverse
     all_gb_records_seq = 'N'.join(seqs_in_file_str).upper()
     all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp_str).upper()
+    updated_gb_records = []
     for gb_record in in_file_recs:
         print gb_record
         locus_locs = gene_locations(gb_record)
@@ -109,14 +116,16 @@ def main():
         gb_record_seq = gb_record.seq
         gb_record_seq_len = len(gb_record_seq)
         gb_record_seq_rev = gb_record.seq.reverse_complement()
+        n_qualifiers_found = []
         for index, feature in enumerate(gb_record.features):
             if hasattr(feature, 'type'):
-                if feature.type == ARGS.gb_feature_key:
+                if feature.type == ARGS.feature_qualifier:
+                    n_qualifiers_found.append(1)
                     #Capture the whole feature in gb_feature.
                     gb_feature = gb_record.features[index]
                     #Store a name for the feature if it is a gene
-                    if 'gene' in feature.qualifiers:
-                        locus_name = feature.qualifiers['gene'][0]
+                    if ARGS.feature_qualifier in feature.qualifiers:
+                        locus_name = feature.qualifiers[ARGS.feature_qualifier][0]
                     else:
                         locus_name = feature.qualifiers['locus_tag'][0]
                     print '\n', locus_name
@@ -188,10 +197,27 @@ def main():
                                     gb_record.features.append(recrd)
                                     #got the feature, now break for next gene
                                     break
-        with open(gb_record.id+'_CRISPRsites.gbk', 'w') as outhandle:
-            SeqIO.write(gb_record, outhandle, 'genbank')
+        updated_gb_records.append(gb_record)
+        #Tell the user how many features were processed
+        if len(n_qualifiers_found) == 0:
+            print '\nNo', ARGS.feature_qualifier, 'feature found in genbank record.'
+        else:
+            print '\n', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features processed.'
+    return updated_gb_records
 
 
 if __name__ == '__main__':
-    main()
-    print '\nCRISPR binding seq searched for as regex: '+SEQS+'\n'
+    output_handle = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
+    print output_handle
+    if ARGS.feature:
+        if os.path.exists(output_handle):
+            print 'Will overwrite', output_handle
+        
+    sys.exit()
+    gb_data_to_write = main()
+    outfile = seq_infile.replace('.gbk', '_CRISPRsites.gbk')
+    with open(+'_CRISPRsites.gbk', 'w') as outhandle:
+        SeqIO.write(gb_record, outhandle, 'genbank')
+
+    print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
+    print 'CRISPR target length is:', str(SITE_LENGTH)
