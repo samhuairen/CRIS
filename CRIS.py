@@ -89,7 +89,7 @@ for i in range(0,len(PAM)):
 SEQS = '[ATGC]{'+str(ARGS.length_CRISPR_seq)+'}'+''.join(PAM)
 SITE_LENGTH = ARGS.length_CRISPR_seq+len(PAM)
 
-def gene_locations(gb_record):
+def loci_locations(gb_record):
     '''
     From the gb_record, extract locus names, coordinates and strands.
     '''
@@ -97,17 +97,15 @@ def gene_locations(gb_record):
     features = []
     for index, feature in enumerate(gb_record.features):
         if hasattr(feature, 'type'):
-            if feature.type == 'gene':
+            if feature.type == ARGS.feature_qualifier:
                 #Capture the whole feature in gb_feature.
                 features.append(gb_record.features[index])
-    for i in features:
-        locus_name = feature.qualifiers.get(ARGS.feature_qualifier)[0]
-        if locus_name == None:
-            locus_name = feature.qualifiers.get('locus_tag')[0]
-        locus_location = feature.location
-        loc_strt = locus_location.start.position
-        loc_end = locus_location.end.position
-        loc_strnd = locus_location.strand
+    for feature in features:
+        locus_name = feature.qualifiers.get(ARGS.feature_qualifier,
+                                            feature.qualifiers.get('locus_tag'))[0]
+        loc_strt = feature.location.start.position
+        loc_end = feature.location.end.position
+        loc_strnd = feature.location.strand
         locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
     return locus_locations
 
@@ -119,7 +117,7 @@ def main():
     seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     infile_recs = [gb_record for gb_record in seqn]
     seqs_infile_str = [str(i.seq) for i in infile_recs]
-    seqs_infile_revcomp_str = [str(i.seq) for i in infile_recs]
+    seqs_infile_revcomp_str = [str(i.seq.reverse_complement()) for i in infile_recs]
     #Create a super-contig of forward and reverse
     #Need to circularise the contigs or not depending on ARGS
     all_gb_records_seq = 'N'.join(seqs_infile_str).upper()
@@ -128,8 +126,11 @@ def main():
     for gb_record in infile_recs:
         if not ARGS.suppress_screen_output:
             print gb_record
-        locus_locs = gene_locations(gb_record)
+#         sys.exit()
+        locus_locs = loci_locations(gb_record)
+#         print locus_locs
         gb_record_seq = gb_record.seq
+#         print gb_record_seq
         gb_record_seq_len = len(gb_record_seq)
         gb_record_seq_rev = gb_record.seq.reverse_complement()
         n_qualifiers_found = []
@@ -137,8 +138,10 @@ def main():
             if hasattr(feature, 'type'):
                 if feature.type == ARGS.feature_qualifier:
                     n_qualifiers_found.append(1)
+#                     print n_qualifiers_found
                     #Capture the whole feature in gb_feature.
                     gb_feature = gb_record.features[index]
+#                     print gb_feature
                     #Store a name for the feature
                     if ARGS.feature_qualifier in feature.qualifiers:
                         locus_name = feature.qualifiers[ARGS.feature_qualifier][0]
@@ -159,19 +162,23 @@ def main():
                     #Find the possible CRISPR sites in the gene, stored as a list
                     #SEQS is a regular expression to define the CRISPR rule
                     potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
+#                     print potential_CRISPR_seqs
                     #Check if they hit elsewhere in the all_gb_records_seq or its revcomp
                     if not ARGS.suppress_screen_output:
                         if len(potential_CRISPR_seqs) == 0:
                             print 'No CRISPR hits.'
                     finalists = []
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
+                        print potential_CRISPR_seq
                         #check firstly for matches at the 12 bases at 3' end
                         whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq))
                         whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq_rev))
                         fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                         rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
+                        print fwd_hits, rev_hits
                         if not ARGS.suppress_screen_output:
                             print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
+                        print len(fwd_hits) + len(rev_hits)
                         if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
                             if locus_strand > 0:
                                 CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
@@ -181,18 +188,19 @@ def main():
                                 #overlaps will store a value if site overlaps two genes
                                 overlaps = []
                                 #use list comprehension instead of nested dict loop
-                                #k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
-                                for key, value in locus_locs.items():
-                                    if key == locus_name:
-                                        if len(value) > 1:
-                                            if not ARGS.suppress_screen_output:
-                                                print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-                                    if key != locus_name:
-                                        if value[0][0] <= strt <= value[0][1]:
-                                            if not ARGS.suppress_screen_output:
-                                                print 'This binding seq is in two genes. '
-                                                overlaps.append(1)
-                                if len(overlaps) > 0:
+                                k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+#                                 print k
+#                                 for key, value in locus_locs.items():
+#                                     if key == locus_name:
+#                                         if len(value) > 1:
+#                                             if not ARGS.suppress_screen_output:
+#                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+#                                     if key != locus_name:
+#                                         if value[0][0] <= strt <= value[0][1]:
+#                                             if not ARGS.suppress_screen_output:
+#                                                 print 'This binding seq is in two genes. '
+#                                                 overlaps.append(1)
+                                if len(k) > 0:
                                     break
                                 else:
                                     recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
@@ -205,17 +213,19 @@ def main():
                                 strt = gb_record_seq_len - pos[0][0]
                                 stp = gb_record_seq_len - pos[0][1]
                                 overlaps = []
-                                for key, value in locus_locs.items():
-                                    if key == locus_name:
-                                        if len(value) > 1:
-                                            if not ARGS.suppress_screen_output:
-                                                print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-                                    if key != locus_name:
-                                        if value[0][0] <= strt <= value[0][1]:
-                                            if not ARGS.suppress_screen_output:
-                                                print 'This binding seq is in two genes. '
-                                            overlaps.append(1)
-                                if len(overlaps) > 0:
+                                k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+
+#                                 for key, value in locus_locs.items():
+#                                     if key == locus_name:
+#                                         if len(value) > 1:
+#                                             if not ARGS.suppress_screen_output:
+#                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+#                                     if key != locus_name:
+#                                         if value[0][0] <= strt <= value[0][1]:
+#                                             if not ARGS.suppress_screen_output:
+#                                                 print 'This binding seq is in two genes. '
+#                                             overlaps.append(1)
+                                if len(k) > 0:
                                     break
                                 else:
                                     recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
