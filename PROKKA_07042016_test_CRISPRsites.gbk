@@ -13,7 +13,7 @@ FEATURES             Location/Qualifiers
                      /mol_type="genomic DNA"
                      /organism="Genus species"
                      /strain="strain"
-     gene            complement(61..390)
+     gene            complement(1000..5000)
                      /gene="test"
                      /locus_tag="LDMHOHEE_00001"
 ORIGIN

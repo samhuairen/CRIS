@@ -36,6 +36,9 @@ PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
                     \'gene\', but could be \'CDS\', \'mRNA\' etc.  \
                     Case-sensitive, exact spelling required.',
                     default='gene', required=False)
+PARSER.add_argument('-x', '--suppress_screen_output', help='Verbose off',
+                    default=False, action='store_true', required=False)
+
 GROUP = PARSER.add_mutually_exclusive_group(required=False)
 GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file if it exists.', dest='feature', action='store_false')
 GROUP.add_argument('-o', '--overwrite', help='Overwrite output file if it exists, otherwise write new.', dest='feature', action='store_true')
@@ -110,9 +113,7 @@ def main():
     all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp_str).upper()
     updated_gb_records = []
     for gb_record in in_file_recs:
-        print gb_record
         locus_locs = gene_locations(gb_record)
-        print locus_locs
         gb_record_seq = gb_record.seq
         gb_record_seq_len = len(gb_record_seq)
         gb_record_seq_rev = gb_record.seq.reverse_complement()
@@ -128,13 +129,15 @@ def main():
                         locus_name = feature.qualifiers[ARGS.feature_qualifier][0]
                     else:
                         locus_name = feature.qualifiers['locus_tag'][0]
-                    print '\n', locus_name
+                    if not ARGS.suppress_screen_output:
+                        print '\n', locus_name
                     #Store the location of the locus
                     locus_location = feature.location
                     locus_start = locus_location.start
                     locus_end = locus_location.end
                     locus_strand = locus_location.strand
-                    print locus_location #, locus_strand
+                    if not ARGS.suppress_screen_output:
+                        print locus_location #, locus_strand
                     #Store the DNA sequence of the feature
                     gene_seq = gb_feature.extract(gb_record.seq).upper()
                     gene_seq_rev = gb_feature.extract(gb_record.seq).upper().reverse_complement()
@@ -142,8 +145,9 @@ def main():
                     #SEQS is a regular expression to define the CRISPR rule
                     potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
                     #Check if they hit elsewhere in the all_gb_records_seq or its revcomp
-                    if len(potential_CRISPR_seqs) == 0:
-                        print 'No CRISPR hits.'
+                    if not ARGS.suppress_screen_output:
+                        if len(potential_CRISPR_seqs) == 0:
+                            print 'No CRISPR hits.'
                     finalists = []
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
                         #check firstly for matches at the 12 bases at 3' end
@@ -151,7 +155,7 @@ def main():
                         whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq_rev))
                         fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                         rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
-                        print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
+#                         print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
 
                         if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
                             if locus_strand > 0:
@@ -164,11 +168,13 @@ def main():
                                 for key, value in locus_locs.items():
                                     if key == locus_name:
                                         if len(value) > 1:
-                                            print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+                                            if not ARGS.suppress_screen_output:
+                                                print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
                                     if key != locus_name:
                                         if value[0][0] <= strt <= value[0][1]:
-                                            print 'This binding seq is in two genes. '
-                                            overlaps.append(1)
+                                            if not ARGS.suppress_screen_output:
+                                                print 'This binding seq is in two genes. '
+                                                overlaps.append(1)
                                 if len(overlaps) > 0:
                                     break
                                 else:
@@ -185,10 +191,12 @@ def main():
                                 for key, value in locus_locs.items():
                                     if key == locus_name:
                                         if len(value) > 1:
-                                            print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+                                            if not ARGS.suppress_screen_output:
+                                                print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
                                     if key != locus_name:
                                         if value[0][0] <= strt <= value[0][1]:
-                                            print 'This binding seq is in two genes. '
+                                            if not ARGS.suppress_screen_output:
+                                                print 'This binding seq is in two genes. '
                                             overlaps.append(1)
                                 if len(overlaps) > 0:
                                     break
@@ -208,15 +216,21 @@ def main():
 
 if __name__ == '__main__':
     output_handle = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
-    print 'Overwrite', output_handle, ARGS.feature
+    #Is overwrite True or False? Print the ARGS.feature answer here
+    print 'Overwrite', output_handle, '==', ARGS.feature
+    if ARGS.suppress_screen_output:
+        print 'Verbose off ==', ARGS.suppress_screen_output
+        print 'Search is now running ...'
     if ARGS.feature == False:
         if os.path.exists(output_handle):
             print output_handle, 'already exists. Use \'overwrite\' or move', output_handle
             sys.exit()
     gb_data_to_write = main()
+    #As overwrite defaults to true, just overwrite
     with open(output_handle, 'w') as outhandle:
         for i in gb_data_to_write:
             SeqIO.write(i, output_handle, 'genbank')
+        print 'Written data to', output_handle
     
 
     print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
