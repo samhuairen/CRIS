@@ -43,11 +43,14 @@ PARSER.add_argument('-x', '--suppress_screen_output', help='Verbose off.  \
                     required=False)
 PARSER.add_argument('-c', '--circularise_off', help='CRIS.py assumes that \
                     the genbank file contains complete circular contigs from \
-                    chromosomes and/or plasmids.  If the genbank file \
-                    contains only draft assembly contigs, it probably does \
-                    not make sense to treat each contig as circular.  For \
-                    draft assemblies, use this switch.  Default=\'False\'.',
-                    default=False, action='store_true', required=False)
+                    chromosomes and/or plasmids, with the start of the \
+                    contig not artificially duplicated at the end of the \
+                    contig (as sometimes happens with assembly of PacBio \
+                    seqs).  If the genbank file contains only a draft \
+                    assembly, it probably does not make sense to treat each \
+                    contig as circular.  For draft assemblies, use this \
+                    switch.  Default=\'False\'.', default=False,
+                    action='store_true', required=False)
 
 GROUP = PARSER.add_mutually_exclusive_group(required=False)
 GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file \
