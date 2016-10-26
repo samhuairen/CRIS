@@ -18,30 +18,43 @@ import sys
 import os
 
 #set up the arguments parser to deal with the command line input
-PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites.')
+PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites \
+                                 in a genbank file.  Accepts files with \
+                                 multiple genbank records per file.')
 PARSER.add_argument('-s', '--seq_infile', help='DNA seqs (contigs) to scan \
                     (Genbank format)', required=True)
 PARSER.add_argument('-l', '--length_CRISPR_seq', help='Set total length \
                     of CRISPR binding site sequence NOT including the PAM \
                     sequence. Default=20.', default=20, type=int,
                     required=False)
-PARSER.add_argument('-c', '--three_prime_clamp', help='At the 3\' end, how \
+PARSER.add_argument('-t', '--three_prime_clamp', help='At the 3\' end, how \
                     long do you want the clamp sequence to be? \
                     Default=12.', default=12, type=int, required=False)
 PARSER.add_argument('-p', '--PAM_seq', help='Protospacer Adjacent Motif \
                     (PAM).  Depends on Cas9 species. Default=\'NGG\'.',
                     default='NGG', required=False)
 PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
-                    qualifier in which to find binding sites. Default is \
-                    \'gene\', but could be \'CDS\', \'mRNA\' etc.  \
-                    Case-sensitive, exact spelling required.',
+                    qualifier in which to find binding sites. Could be \
+                    \'gene\', \'CDS\', \'mRNA\' etc.  Case-sensitive, exact \
+                    spelling required.  Default=\'gene\'.',
                     default='gene', required=False)
-PARSER.add_argument('-x', '--suppress_screen_output', help='Verbose off',
+PARSER.add_argument('-x', '--suppress_screen_output', help='Verbose off.  \
+                    Default=False', default=False, action='store_true',
+                    required=False)
+PARSER.add_argument('-c', '--circularise_off', help='CRIS.py assumes that \
+                    the genbank file contains complete circular contigs from \
+                    chromosomes and/or plasmids.  If the genbank file \
+                    contains only draft assembly contigs, it probably does \
+                    not make sense to treat each contig as circular.  For \
+                    draft assemblies, use this switch.  Default=\'False\'.',
                     default=False, action='store_true', required=False)
 
 GROUP = PARSER.add_mutually_exclusive_group(required=False)
-GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file if it exists.', dest='feature', action='store_false')
-GROUP.add_argument('-o', '--overwrite', help='Overwrite output file if it exists, otherwise write new.', dest='feature', action='store_true')
+GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file \
+                   if it exists.', dest='feature', action='store_false')
+GROUP.add_argument('-o', '--overwrite', help='Overwrite output file if it \
+                   exists, otherwise write new. Default is to overwrite.',
+                   dest='feature', action='store_true')
 GROUP.set_defaults(feature=True)
 #plot the pairwise SNP distance between the CRISPR seqs
 ARGS = PARSER.parse_args()
@@ -109,6 +122,7 @@ def main():
     #seqn = SeqIO.parse(open(ARGS.seq_infile, 'r'), 'genbank')
     seqs_in_file_revcomp_str = [str(i.seq) for i in in_file_recs]
     #Create a super-contig of forward and reverse
+    #Need to circularise the contigs or not depending on ARGS
     all_gb_records_seq = 'N'.join(seqs_in_file_str).upper()
     all_gb_records_seq_rev = 'N'.join(seqs_in_file_revcomp_str).upper()
     updated_gb_records = []
