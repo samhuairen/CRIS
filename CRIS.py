@@ -37,8 +37,8 @@ PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
                     Case-sensitive, exact spelling required.',
                     default='gene', required=False)
 GROUP = PARSER.add_mutually_exclusive_group(required=False)
-GROUP.add_argument('-a', '--append', help='Append to output file (i.e., no overwrite).', dest='feature', action='store_false')
-GROUP.add_argument('-f', '--force', help='Overwrite output file if it exists, otherwise write new.', dest='feature', action='store_true')
+GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file if it exists.', dest='feature', action='store_false')
+GROUP.add_argument('-o', '--overwrite', help='Overwrite output file if it exists, otherwise write new.', dest='feature', action='store_true')
 GROUP.set_defaults(feature=True)
 #plot the pairwise SNP distance between the CRISPR seqs
 ARGS = PARSER.parse_args()
@@ -208,16 +208,16 @@ def main():
 
 if __name__ == '__main__':
     output_handle = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
-    print output_handle
-    if ARGS.feature:
+    print 'Overwrite', output_handle, ARGS.feature
+    if ARGS.feature == False:
         if os.path.exists(output_handle):
-            print 'Will overwrite', output_handle
-        
-    sys.exit()
+            print output_handle, 'already exists. Use \'overwrite\' or move', output_handle
+            sys.exit()
     gb_data_to_write = main()
-    outfile = seq_infile.replace('.gbk', '_CRISPRsites.gbk')
-    with open(+'_CRISPRsites.gbk', 'w') as outhandle:
-        SeqIO.write(gb_record, outhandle, 'genbank')
+    with open(output_handle, 'w') as outhandle:
+        for i in gb_data_to_write:
+            SeqIO.write(i, output_handle, 'genbank')
+    
 
     print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
-    print 'CRISPR target length is:', str(SITE_LENGTH)
+    print 'CRISPR target length was', str(SITE_LENGTH), 'nt'
