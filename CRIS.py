@@ -194,17 +194,6 @@ def main():
                                     #overlaps will store a value if site overlaps two genes
                                     #use list comprehension instead of nested dict loop
                                     overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
-    #                                 print k
-    #                                 for key, value in locus_locs.items():
-    #                                     if key == locus_name:
-    #                                         if len(value) > 1:
-    #                                             if not ARGS.suppress_screen_output:
-    #                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-    #                                     if key != locus_name:
-    #                                         if value[0][0] <= strt <= value[0][1]:
-    #                                             if not ARGS.suppress_screen_output:
-    #                                                 print 'This binding seq is in two genes. '
-    #                                                 overlaps.append(1)
                                     if len(overlaps) > 0:
                                         clamp_size += 1
                                         print clamp_size
@@ -222,16 +211,6 @@ def main():
                                     stp = gb_record_seq_len - pos[0][1]
                                     overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
 
-    #                                 for key, value in locus_locs.items():
-    #                                     if key == locus_name:
-    #                                         if len(value) > 1:
-    #                                             if not ARGS.suppress_screen_output:
-    #                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-    #                                     if key != locus_name:
-    #                                         if value[0][0] <= strt <= value[0][1]:
-    #                                             if not ARGS.suppress_screen_output:
-    #                                                 print 'This binding seq is in two genes. '
-    #                                             overlaps.append(1)
                                     if len(overlaps) > 0:
                                         print clamp_size
                                         clamp_size += 1
