@@ -107,7 +107,6 @@ def loci_locations(gb_record):
         loc_end = feature.location.end.position
         loc_strnd = feature.location.strand
         locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
-    print locus_locations
     return locus_locations
 
 def define_hit(strand, x):
@@ -151,7 +150,7 @@ def main():
                     else:
                         locus_name = feature.qualifiers['locus_tag'][0]
                     if not ARGS.suppress_screen_output:
-                        print '\n', locus_name
+                        print '\n____\n----\n', locus_name
                     #Store the location of the locus
                     locus_location = feature.location
                     locus_start = locus_location.start
@@ -170,40 +169,44 @@ def main():
                     if not ARGS.suppress_screen_output:
                         if len(potential_CRISPR_seqs) == 0:
                             print 'No CRISPR hits.'
-                    finalists = []
-                    for potential_CRISPR_seq in potential_CRISPR_seqs:
-                        clamp_size = ARGS.three_prime_clamp
-                        while clamp_size <= SITE_LENGTH:
+                    print 'There are', str(len(potential_CRISPR_seqs)), 'potential sites in', locus_name
+                    print potential_CRISPR_seqs
+                    clamp_size = ARGS.three_prime_clamp
+                    n_hit = 0
+                    while clamp_size <= SITE_LENGTH:
+                        print str(clamp_size), 'bp matches with 3\' clamp of CRISPR seq:'
+                        for potential_CRISPR_seq in potential_CRISPR_seqs:
                             CRISPR = potential_CRISPR_seq[-clamp_size:]
-                            print clamp_size <= SITE_LENGTH
-                            #check firstly for matches at the 12 bases at 3' end
+#                             print clamp_size <= SITE_LENGTH
+                            #check firstly for matches at the 3' end
                             whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
                             whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
                             fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
                             rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
-                            print locus_name
-                            print fwd_hits, rev_hits
+#                             print fwd_hits, rev_hits
                             if not ARGS.suppress_screen_output:
                                 print 'Sequence', CRISPR, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
-                            print 'n genome-wide hits:', len(fwd_hits) + len(rev_hits)
                             if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
                                 if locus_strand > 0:
+                                    #Use finditer to find its position
                                     CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
                                     pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
                                     strt = pos[0][0]
                                     stp = pos[0][1]
-                                    #overlaps will store a value if site overlaps two genes
+                                    #overlaps will store a value if start is bounded by two features
                                     #use list comprehension instead of nested dict loop
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 0:
-                                        clamp_size += 1
-                                        break
+                                        print 'hit overlaps other features.'
+#                                         clamp_size += 1
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
                                         gb_record.features.append(recrd)
                                         #got the feature, now break for next one
                                         clamp_size += SITE_LENGTH
-                                        print 'clamp_size after hit', clamp_size
+                                        print 'Site found'
+                                        n_hit += 1
+                                        break
 
                                 if locus_strand < 0:
                                     CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
@@ -212,15 +215,22 @@ def main():
                                     stp = gb_record_seq_len - pos[0][1]
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 1:
-                                        clamp_size += 1
-                                        break
+                                        print 'hit overlaps other features.'
+#                                         clamp_size += 1
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
                                         gb_record.features.append(recrd)
                                         clamp_size += SITE_LENGTH
+                                        print 'Site found'
+                                        n_hit += 1
                                         #got the feature, now break for next one
-                            clamp_size += SITE_LENGTH
-                        break
+                                        break
+                            # print 
+                        print 'Increasing size of 3\' clamp by 1 bp\n'
+                        clamp_size += 1
+                    print 'Finished searching for this feature.'
+                    if n_hit == 0:
+                        print str(n_hit), 'hits found in', locus_name
         updated_gb_records.append(gb_record)
 #         print locus_locs
         #Tell the user how many features were processed
