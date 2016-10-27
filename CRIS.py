@@ -109,6 +109,8 @@ def loci_locations(gb_record):
         locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
     return locus_locations
 
+def define_hit(strand, x):
+    pass
 
 def main():
     '''
@@ -169,69 +171,75 @@ def main():
                             print 'No CRISPR hits.'
                     finalists = []
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
-                        print potential_CRISPR_seq
-                        #check firstly for matches at the 12 bases at 3' end
-                        whole_gb_forward_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq))
-                        whole_gb_rev_CRISPR_hits = re.findall(potential_CRISPR_seq[-ARGS.three_prime_clamp:], str(all_gb_records_seq_rev))
-                        fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
-                        rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
-                        print fwd_hits, rev_hits
-                        if not ARGS.suppress_screen_output:
-                            print 'Sequence', potential_CRISPR_seq, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
-                        print len(fwd_hits) + len(rev_hits)
-                        if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
-                            if locus_strand > 0:
-                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
-                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
-                                strt = pos[0][0]
-                                stp = pos[0][1]
-                                #overlaps will store a value if site overlaps two genes
-                                overlaps = []
-                                #use list comprehension instead of nested dict loop
-                                k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
-#                                 print k
-#                                 for key, value in locus_locs.items():
-#                                     if key == locus_name:
-#                                         if len(value) > 1:
-#                                             if not ARGS.suppress_screen_output:
-#                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-#                                     if key != locus_name:
-#                                         if value[0][0] <= strt <= value[0][1]:
-#                                             if not ARGS.suppress_screen_output:
-#                                                 print 'This binding seq is in two genes. '
-#                                                 overlaps.append(1)
-                                if len(k) > 0:
-                                    break
-                                else:
-                                    recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
-                                    gb_record.features.append(recrd)
-                                    #got the feature, now break for next gene
-                                    break
-                            if locus_strand < 0:
-                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
-                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
-                                strt = gb_record_seq_len - pos[0][0]
-                                stp = gb_record_seq_len - pos[0][1]
-                                overlaps = []
-                                k=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+                        clamp_size = ARGS.three_prime_clamp
+                        CRISPR = potential_CRISPR_seq[-clamp_size:]
+                        while clamp_size <= SITE_LENGTH:
+                            print clamp_size <= SITE_LENGTH
+                            #check firstly for matches at the 12 bases at 3' end
+                            whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
+                            whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
+                            fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
+                            rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
+                            print locus_name
+                            print fwd_hits, rev_hits
+                            if not ARGS.suppress_screen_output:
+                                print 'Sequence', CRISPR, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
+                            print 'n genome-wide hits:', len(fwd_hits) + len(rev_hits)
+                            if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
+                                if locus_strand > 0:
+                                    CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
+                                    pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                    strt = pos[0][0]
+                                    stp = pos[0][1]
+                                    #overlaps will store a value if site overlaps two genes
+                                    #use list comprehension instead of nested dict loop
+                                    overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+    #                                 print k
+    #                                 for key, value in locus_locs.items():
+    #                                     if key == locus_name:
+    #                                         if len(value) > 1:
+    #                                             if not ARGS.suppress_screen_output:
+    #                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+    #                                     if key != locus_name:
+    #                                         if value[0][0] <= strt <= value[0][1]:
+    #                                             if not ARGS.suppress_screen_output:
+    #                                                 print 'This binding seq is in two genes. '
+    #                                                 overlaps.append(1)
+                                    if len(overlaps) > 0:
+                                        clamp_size += 1
+                                        print clamp_size
+                                    else:
+                                        recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
+                                        gb_record.features.append(recrd)
+                                        #got the feature, now break for next one
+                                        clamp_size += SITE_LENGTH
+                                        print 'clamp_size after hit', clamp_size
 
-#                                 for key, value in locus_locs.items():
-#                                     if key == locus_name:
-#                                         if len(value) > 1:
-#                                             if not ARGS.suppress_screen_output:
-#                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
-#                                     if key != locus_name:
-#                                         if value[0][0] <= strt <= value[0][1]:
-#                                             if not ARGS.suppress_screen_output:
-#                                                 print 'This binding seq is in two genes. '
-#                                             overlaps.append(1)
-                                if len(k) > 0:
-                                    break
-                                else:
-                                    recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
-                                    gb_record.features.append(recrd)
-                                    #got the feature, now break for next gene
-                                    break
+                                if locus_strand < 0:
+                                    CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
+                                    pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                    strt = gb_record_seq_len - pos[0][0]
+                                    stp = gb_record_seq_len - pos[0][1]
+                                    overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+
+    #                                 for key, value in locus_locs.items():
+    #                                     if key == locus_name:
+    #                                         if len(value) > 1:
+    #                                             if not ARGS.suppress_screen_output:
+    #                                                 print 'Note: '+locus_name+' present in '+str(len(value))+' copies.'
+    #                                     if key != locus_name:
+    #                                         if value[0][0] <= strt <= value[0][1]:
+    #                                             if not ARGS.suppress_screen_output:
+    #                                                 print 'This binding seq is in two genes. '
+    #                                             overlaps.append(1)
+                                    if len(overlaps) > 0:
+                                        print clamp_size
+                                        clamp_size += 1
+                                    else:
+                                        recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
+                                        gb_record.features.append(recrd)
+                                        clamp_size += SITE_LENGTH
+                                        #got the feature, now break for next one
         updated_gb_records.append(gb_record)
         #Tell the user how many features were processed
         if len(n_qualifiers_found) == 0:
