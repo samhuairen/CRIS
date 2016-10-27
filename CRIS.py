@@ -107,6 +107,7 @@ def loci_locations(gb_record):
         loc_end = feature.location.end.position
         loc_strnd = feature.location.strand
         locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
+    print locus_locations
     return locus_locations
 
 def define_hit(strand, x):
@@ -193,7 +194,7 @@ def main():
                                     stp = pos[0][1]
                                     #overlaps will store a value if site overlaps two genes
                                     #use list comprehension instead of nested dict loop
-                                    overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
+                                    overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 0:
                                         clamp_size += 1
                                         break
@@ -209,9 +210,8 @@ def main():
                                     pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
                                     strt = gb_record_seq_len - pos[0][0]
                                     stp = gb_record_seq_len - pos[0][1]
-                                    overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
-
-                                    if len(overlaps) > 0:
+                                    overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
+                                    if len(overlaps) > 1:
                                         clamp_size += 1
                                         break
                                     else:
@@ -222,6 +222,7 @@ def main():
                             clamp_size += SITE_LENGTH
                         break
         updated_gb_records.append(gb_record)
+#         print locus_locs
         #Tell the user how many features were processed
         if len(n_qualifiers_found) == 0:
             print '\nNo', ARGS.feature_qualifier, 'feature found in genbank record.'
