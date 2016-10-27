@@ -175,6 +175,7 @@ def main():
                     n_hit = 0
                     while clamp_size <= SITE_LENGTH:
                         print str(clamp_size), 'bp matches with 3\' clamp of CRISPR seq:'
+                        feature_overlaps = 0
                         for potential_CRISPR_seq in potential_CRISPR_seqs:
                             CRISPR = potential_CRISPR_seq[-clamp_size:]
 #                             print clamp_size <= SITE_LENGTH
@@ -198,6 +199,7 @@ def main():
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 0:
                                         print 'hit overlaps other features.'
+                                        feature_overlaps += 1
 #                                         clamp_size += 1
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
@@ -216,6 +218,8 @@ def main():
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 1:
                                         print 'hit overlaps other features.'
+                                        feature_overlaps += 1
+                                    
 #                                         clamp_size += 1
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
@@ -225,7 +229,13 @@ def main():
                                         n_hit += 1
                                         #got the feature, now break for next one
                                         break
-                            # print 
+                        if feature_overlaps == len(potential_CRISPR_seqs):
+                            print 'XXXXXXXXX'
+                            print 'The 3\' clamp of all potential CRISPR seqs overlapped with other features.'
+                            clamp_size += SITE_LENGTH
+                            break
+                                
+                                # print 
                         print 'Increasing size of 3\' clamp by 1 bp\n'
                         clamp_size += 1
                     print 'Finished searching for this feature.'
