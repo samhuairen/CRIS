@@ -172,8 +172,8 @@ def main():
                     finalists = []
                     for potential_CRISPR_seq in potential_CRISPR_seqs:
                         clamp_size = ARGS.three_prime_clamp
-                        CRISPR = potential_CRISPR_seq[-clamp_size:]
                         while clamp_size <= SITE_LENGTH:
+                            CRISPR = potential_CRISPR_seq[-clamp_size:]
                             print clamp_size <= SITE_LENGTH
                             #check firstly for matches at the 12 bases at 3' end
                             whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
@@ -196,7 +196,7 @@ def main():
                                     overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
                                     if len(overlaps) > 0:
                                         clamp_size += 1
-                                        print clamp_size
+                                        break
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
                                         gb_record.features.append(recrd)
@@ -212,13 +212,15 @@ def main():
                                     overlaps=[True for i in locus_locs.values() if i[0] <= strt <=i[1]]
 
                                     if len(overlaps) > 0:
-                                        print clamp_size
                                         clamp_size += 1
+                                        break
                                     else:
                                         recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
                                         gb_record.features.append(recrd)
                                         clamp_size += SITE_LENGTH
                                         #got the feature, now break for next one
+                            clamp_size += SITE_LENGTH
+                        break
         updated_gb_records.append(gb_record)
         #Tell the user how many features were processed
         if len(n_qualifiers_found) == 0:
