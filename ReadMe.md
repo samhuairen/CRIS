@@ -40,7 +40,7 @@ optional arguments:
 
 Example usage:
 ```
-python CRIS.py -s test_multigbk
+python CRIS.py -s test_multigbk.gbk
 ```
 
 ##Explanation of CRIS.py
