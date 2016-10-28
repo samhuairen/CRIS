@@ -1,3 +1,8 @@
+![alt text][logo]
+
+[logo]: http://i1.wp.com/www.artofthecell.com/wp-content/uploads/2014/06/Art-of-the-Cell-CRISPR-Cas9-in-Complex-with-Guide-RNA-and-target-DNA.jpg "CRISPR/Cas9"
+
+
 # Find CRISPR/Cas9 binding sites in a genbank file. 
 To get help:
 ```
