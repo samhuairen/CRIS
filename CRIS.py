@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Search for CRISPR binding sites in an annotated genbank sequence.
+Search for CRISPR/Cas9 target sites in an annotated genbank sequence.
 email dr.mark.schultz@gmail.com
 20161026_YYYYMMDD
 '''
@@ -19,7 +19,7 @@ import sys
 import os
 
 #set up the arguments parser to deal with the command line input
-PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites \
+PARSER = argparse.ArgumentParser(description='Find CRISPR/Cas9 target sites \
                                  in a genbank file.  Accepts files with \
                                  multiple genbank records per file.  \
                                  Author: dr.mark.schultz@gmail.com.  \
@@ -27,8 +27,8 @@ PARSER = argparse.ArgumentParser(description='Find CRISPR binding sites \
                                  Timothy P. Stinear.')
 PARSER.add_argument('-s', '--seq_infile', help='DNA seqs (contigs) to scan \
                     (Genbank format)', required=True)
-PARSER.add_argument('-l', '--length_CRISPR_seq', help='Set total length \
-                    of CRISPR binding site sequence NOT including the PAM \
+PARSER.add_argument('-l', '--length_target_seq', help='Set total length \
+                    of target sequence NOT including the PAM \
                     sequence. Default=20.', default=20, type=int,
                     required=False)
 PARSER.add_argument('-t', '--three_prime_clamp', help='At the 3\' end, how \
@@ -38,7 +38,7 @@ PARSER.add_argument('-p', '--PAM_seq', help='Protospacer Adjacent Motif \
                     (PAM).  Depends on Cas9 species. Default=\'NGG\'.',
                     default='NGG', required=False)
 PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
-                    qualifier in which to find binding sites. Could be \
+                    qualifier in which to find target sites. Could be \
                     \'gene\', \'CDS\', \'mRNA\' etc.  Case-sensitive, exact \
                     spelling required.  Default=\'gene\'.',
                     default='gene', required=False)
@@ -64,12 +64,12 @@ GROUP.add_argument('-o', '--overwrite', help='Overwrite output file if it \
                    exists, otherwise write new. Default is to overwrite.',
                    dest='feature', action='store_true')
 GROUP.set_defaults(feature=True)
-#plot the pairwise SNP distance between the CRISPR seqs
+#to do: plot the pairwise SNP distance between the target seqs
 ARGS = PARSER.parse_args()
 
 VERSION = '0.1.1'
 
-#The CRISPR binding site rule, define it as a regex
+#The target site rule, define it as a regex
 PAM = list(ARGS.PAM_seq.upper())
 IUPAC_DICT = {'A':'A',
               'C':'C',
@@ -88,8 +88,8 @@ IUPAC_DICT = {'A':'A',
               'N':'[ACGT]{1}'}
 for i in range(0,len(PAM)):
     PAM[i] = IUPAC_DICT[PAM[i]]
-SEQS = '[ATGC]{'+str(ARGS.length_CRISPR_seq)+'}'+''.join(PAM)
-SITE_LENGTH = ARGS.length_CRISPR_seq+len(PAM)
+SEQS = '[ATGC]{'+str(ARGS.length_target_seq)+'}'+''.join(PAM)
+SITE_LENGTH = ARGS.length_target_seq+len(PAM)
 
 def loci_locations(gb_record):
     '''
@@ -156,28 +156,28 @@ def main():
                         print locus_location #, locus_strand
                     #Store the DNA sequence of the feature
                     gene_seq = gb_feature.extract(gb_record.seq).upper()
-                    #Find the possible CRISPR sites in the feature, store as a list
-                    #SEQS is the regular expression to define the CRISPR rule
-                    potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
+                    #Find the possible target sites in the feature, store as a list
+                    #SEQS is the regular expression to define the target rule
+                    potential_target_seqs = re.findall(SEQS, str(gene_seq))
                     if ARGS.verbose:
-                        if len(potential_CRISPR_seqs) == 0:
-                            print 'No CRISPR hits.'
+                        if len(potential_target_seqs) == 0:
+                            print 'No target hits.'
                     if ARGS.verbose:
-                        print potential_CRISPR_seqs
+                        print potential_target_seqs
                     finalist_SeqFeatureObj = []
-                    for potential_CRISPR_seq in potential_CRISPR_seqs:
-                        CRISPR = potential_CRISPR_seq[-ARGS.three_prime_clamp:]
-                        whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
-                        whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
-                        fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
-                        rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
+                    for potential_target_seq in potential_target_seqs:
+                        target = potential_target_seq[-ARGS.three_prime_clamp:]
+                        whole_gb_forward_target_hits = re.findall(target, str(all_gb_records_seq))
+                        whole_gb_rev_target_hits = re.findall(target, str(all_gb_records_seq_rev))
+                        fwd_hits = [i for i in whole_gb_forward_target_hits]
+                        rev_hits = [i for i in whole_gb_rev_target_hits]
                         if ARGS.verbose:
-                            print 'Sequence', CRISPR, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
+                            print 'Sequence', target, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
                         if (len(fwd_hits) + len(rev_hits)) == 1:
                             if locus_strand > 0:
                                 #Use finditer to find its position
-                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
-                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                target_pos_iterobj = re.finditer(potential_target_seq, str(gb_record_seq))
+                                pos = [(i.start(), i.end()) for i in target_pos_iterobj]
                                 strt = pos[0][0]
                                 stp = pos[0][1]
                                 #overlaps will store a value if start is bounded by two features
@@ -187,10 +187,10 @@ def main():
                                     if ARGS.verbose:
                                         print 'Within target-feature, hit overlaps off-target features.'
                                 else:
-                                    finalist_SeqFeatureObj.append((potential_CRISPR_seq, SeqFeature(FeatureLocation(strt, stp), strand=locus_strand, type='misc_binding')))
+                                    finalist_SeqFeatureObj.append((potential_target_seq, SeqFeature(FeatureLocation(strt, stp), strand=locus_strand, type='misc_binding')))
                             if locus_strand < 0:
-                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
-                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                target_pos_iterobj = re.finditer(potential_target_seq, str(gb_record_seq_rev))
+                                pos = [(i.start(), i.end()) for i in target_pos_iterobj]
                                 strt = gb_record_seq_len - pos[0][0]
                                 stp = gb_record_seq_len - pos[0][1]
                                 overlaps=[True for i in locus_locs.values() if (i[0][0] <= (strt-1) <=i[0][1]) or (i[0][0] <= (stp+1) <=i[0][1])]
@@ -198,15 +198,14 @@ def main():
                                     if ARGS.verbose:
                                         print 'Within target-feature, hit overlaps off-target features.'
                                 else:
-                                    finalist_SeqFeatureObj.append((potential_CRISPR_seq, SeqFeature(FeatureLocation(strt-1, stp+1), strand=locus_strand, type='misc_binding')))
-                                    #got the feature, now break for next one
+                                    finalist_SeqFeatureObj.append((potential_target_seq, SeqFeature(FeatureLocation(strt-1, stp+1), strand=locus_strand, type='misc_binding')))
                     if ARGS.verbose:
                         print 'Candidate search complete.'
                         print 'There are', str(len(finalist_SeqFeatureObj)), 'potential sites in', locus_name
                     if len(finalist_SeqFeatureObj) == 0:
                         did_not_hit.append(locus_name)
                     else:
-                        #each SeqFeatureObj is a tuple containing the CRISPR seq, and the SeqFeature
+                        #each SeqFeatureObj is a tuple containing the target seq, and the SeqFeature
                         maxGC = max([GC(i[0]) for i in finalist_SeqFeatureObj])
                         highestGC_SeqFeatureObjs = [i for i in finalist_SeqFeatureObj if GC(i[0]) == maxGC]
                         upstream_most_highestGC_SeqFeatureObjs = min([i[1].location.start for i in highestGC_SeqFeatureObjs])
@@ -229,7 +228,7 @@ def main():
 
 
 if __name__ == '__main__':
-    outfile = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
+    outfile = os.path.splitext(ARGS.seq_infile)[0]+'_Cas9targetsites.gbk'
     #Print whether overwrite is True or False
     print '\nOverwrite', outfile, '==', ARGS.feature, '\n'
     if ARGS.verbose:
@@ -245,7 +244,8 @@ if __name__ == '__main__':
         for i in gb_data_to_write:
             SeqIO.write(i, output_handle, 'genbank')
     print '\nWritten data to', outfile
-    print '\nCRISPR binding seq searched for as regex: '+SEQS+'.'
-    print 'CRISPR target length was', str(SITE_LENGTH), 'nt'
+    print '\ntarget seq searched for as regex: '+SEQS+'.'
+    print 'target target length was', str(SITE_LENGTH), 'nt'
     print 'Thank you for using CRIS.py version', VERSION
     print 'email: dr.mark.schultz@gmail.com; github: \'schultzm\'.\n'
+
