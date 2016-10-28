@@ -6,7 +6,7 @@ email dr.mark.schultz@gmail.com
 20161028_YYYYMMDD
 
 To do: fix layout of script, move code from main() into 
-functions, parallelise searching, pylint.
+functions, parallelise searching, pylint, remove redundancy in code
 '''
 
 import time
