@@ -230,7 +230,7 @@ def main():
 
 if __name__ == '__main__':
     outfile = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRsites.gbk'
-    #Is overwrite True or False? Print the ARGS.feature answer here
+    #Print whether overwrite is True or False
     print '\nOverwrite', outfile, '==', ARGS.feature, '\n'
     if ARGS.verbose:
         print '\nSuppress screen printout ==', ARGS.verbose
