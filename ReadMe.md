@@ -39,9 +39,9 @@ python CRIS.py -s test_multigbk
 ```
 
 ##Explanation of CRIS.py
-Reads in multi-record genbank file. 
-User sets up the PAM sequence, target length and 3'-clamp length and/or accepts the defaults. 
-For each record, searches through the features of type requested on command line (e.g., gene, CDS or mRNA).
-Within the feature, CRIS.py searches for seqs matching the 3'-clamp sequence (defined by regex rule).
-After finding matches, CRIS.py assesses whether each of the full length CRISPR/Cas9 target sequences is unique to the feature and that it does not overlap with other features of the requested type.  If a sequence is unique and does not overlap other features, it is stored in the candidate list.  Within the candidate list, the GC content of each CRISPR/Cas9 target sequence is calculated.  Sequences with max GC content are retained.  Of those retained, the CRISPR/Cas9 target sequence closest to the 5' end of the gene is selected as the 'best' match.  The best match is reported.  A summary is printed now and at the end of the run.  In verbose mode, lots of statements are printed as the run progresses.  
+Reads in multi-record genbank file. <br><br>
+User sets up the PAM sequence, target length and 3'-clamp length and/or accepts the defaults. <br><br>
+For each record, searches through the features of type requested on command line (e.g., gene, CDS or mRNA).<br><br>
+Within the feature, CRIS.py searches for seqs matching the 3'-clamp sequence (defined by regex rule).<br><br>
+After finding matches, CRIS.py assesses whether each of the full length CRISPR/Cas9 target sequences is unique to the feature and that it does not overlap with other features of the requested type.  If a sequence is unique and does not overlap other features, it is stored in the candidate list.  Within the candidate list, the GC content of each CRISPR/Cas9 target sequence is calculated.  Sequences with max GC content are retained.  Of those retained, the CRISPR/Cas9 target sequence closest to the 5' end of the gene is selected as the 'best' match.  The best match is reported.  A summary is printed now and at the end of the run.  In verbose mode, lots of statements are printed as the run progresses.  <br><br>
 The output of the run is a copy of the input genbank file with all the best hits marked up in the file.  This annotated genbank can be viewed in Artemis etc.  
