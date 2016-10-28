@@ -46,16 +46,16 @@ PARSER.add_argument('-v', '--verbose', help='Verbose on.  \
                     Default=False', default=False, action='store_true',
                     required=False)
 #need to implement this feature
-PARSER.add_argument('-c', '--circularise_off', help='CRIS.py assumes that \
-                    the genbank file contains complete circular contigs from \
-                    chromosomes and/or plasmids, with the start of the \
-                    contig not artificially duplicated at the end of the \
-                    contig (as sometimes happens with assembly of PacBio \
-                    seqs).  If the genbank file contains only a draft \
-                    assembly, it probably does not make sense to treat each \
-                    contig as circular.  For draft assemblies, use this \
-                    switch.  Default=\'False\'.', default=False,
-                    action='store_true', required=False)
+# PARSER.add_argument('-c', '--circularise_off', help='CRIS.py assumes that \
+#                     the genbank file contains complete circular contigs from \
+#                     chromosomes and/or plasmids, with the start of the \
+#                     contig not artificially duplicated at the end of the \
+#                     contig (as sometimes happens with assembly of PacBio \
+#                     seqs).  If the genbank file contains only a draft \
+#                     assembly, it probably does not make sense to treat each \
+#                     contig as circular.  For draft assemblies, use this \
+#                     switch.  Default=\'False\'.', default=False,
+#                     action='store_true', required=False)
 
 GROUP = PARSER.add_mutually_exclusive_group(required=False)
 GROUP.add_argument('-n', '--no_overwrite', help='Do not overwrite output file \
@@ -124,9 +124,10 @@ def main():
     all_gb_records_seq = 'N'.join(seqs_infile_str).upper()
     all_gb_records_seq_rev = 'N'.join(seqs_infile_revcomp_str).upper()
     updated_gb_records = []
-    did_not_hit = []
-    total_hits = []
+    print 'Searching for CRISPR/Cas9 target seqs...\n'
     for gb_record in infile_recs:
+        did_not_hit = []
+        total_hits = []
         if ARGS.verbose:
             print gb_record
         locus_locs = loci_locations(gb_record)
@@ -223,7 +224,7 @@ def main():
             print '\nFound hits for', str(len(total_hits)), 'of', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features:'
             if ARGS.verbose:
                 print ', '.join(total_hits)
-            print '\nDid not find hits for:', ', '.join(did_not_hit)
+            print '\nDid not find hits for:', ', '.join(did_not_hit),'\n'
     return updated_gb_records
 
 
@@ -245,7 +246,8 @@ if __name__ == '__main__':
             SeqIO.write(i, output_handle, 'genbank')
     print '\nWritten data to', outfile
     print '\ntarget seq searched for as regex: '+SEQS+'.'
-    print 'target target length was', str(SITE_LENGTH), 'nt'
+    print 'target length was', str(SITE_LENGTH), 'bp'
+    print '3\' clamp length was', ARGS.three_prime_clamp, 'bp'
     print 'Thank you for using CRIS.py version', VERSION
     print 'email: dr.mark.schultz@gmail.com; github: \'schultzm\'.\n'
 
