@@ -45,6 +45,7 @@ PARSER.add_argument('-q', '--feature_qualifier', help='Genbank feature \
 PARSER.add_argument('-x', '--suppress_screen_output', help='Verbose off.  \
                     Default=False', default=False, action='store_true',
                     required=False)
+#need to implement this feature
 PARSER.add_argument('-c', '--circularise_off', help='CRIS.py assumes that \
                     the genbank file contains complete circular contigs from \
                     chromosomes and/or plasmids, with the start of the \
@@ -123,16 +124,13 @@ def main():
     all_gb_records_seq = 'N'.join(seqs_infile_str).upper()
     all_gb_records_seq_rev = 'N'.join(seqs_infile_revcomp_str).upper()
     updated_gb_records = []
-    total_hits = []
     did_not_hit = []
+    total_hits = []
     for gb_record in infile_recs:
         if not ARGS.suppress_screen_output:
             print gb_record
-#         sys.exit()
         locus_locs = loci_locations(gb_record)
-#         print locus_locs
         gb_record_seq = gb_record.seq
-#         print gb_record_seq
         gb_record_seq_len = len(gb_record_seq)
         gb_record_seq_rev = gb_record.seq.reverse_complement()
         n_qualifiers_found = []
@@ -140,10 +138,8 @@ def main():
             if hasattr(feature, 'type'):
                 if feature.type == ARGS.feature_qualifier:
                     n_qualifiers_found.append(1)
-#                     print n_qualifiers_found
                     #Capture the whole feature in gb_feature.
                     gb_feature = gb_record.features[index]
-#                     print gb_feature
                     #Store a name for the feature
                     if ARGS.feature_qualifier in feature.qualifiers:
                         locus_name = feature.qualifiers[ARGS.feature_qualifier][0]
@@ -160,113 +156,74 @@ def main():
                         print locus_location #, locus_strand
                     #Store the DNA sequence of the feature
                     gene_seq = gb_feature.extract(gb_record.seq).upper()
-                    gene_seq_rev = gb_feature.extract(gb_record.seq).upper().reverse_complement()
-                    #Find the possible CRISPR sites in the gene, stored as a list
-                    #SEQS is a regular expression to define the CRISPR rule
+                    #Find the possible CRISPR sites in the feature, store as a list
+                    #SEQS is the regular expression to define the CRISPR rule
                     potential_CRISPR_seqs = re.findall(SEQS, str(gene_seq))
-#                     print potential_CRISPR_seqs
-                    #Check if they hit elsewhere in the all_gb_records_seq or its revcomp
                     if not ARGS.suppress_screen_output:
                         if len(potential_CRISPR_seqs) == 0:
                             print 'No CRISPR hits.'
                     print 'There are', str(len(potential_CRISPR_seqs)), 'potential sites in', locus_name
                     print potential_CRISPR_seqs
-                    clamp_size = 3
-#                     finalist_seqs = []
                     finalist_SeqFeatureObj = []
-                    while clamp_size <= ARGS.three_prime_clamp:
-                        print locus_name, locus_location
-                        print 'Searching', str(clamp_size), 'bp matches with 3\' clamp of CRISPR seq:'
-                        for index, potential_CRISPR_seq in enumerate(potential_CRISPR_seqs):
-                            CRISPR = potential_CRISPR_seq[-clamp_size:]
-                            #check firstly for matches at the 3' end
-                            whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
-                            whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
-                            fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
-                            rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
-                            if not ARGS.suppress_screen_output:
-                                print 'Sequence', CRISPR, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
-                            if 0 < (len(fwd_hits) + len(rev_hits)) <= 1:
-                                if locus_strand > 0:
-                                    #Use finditer to find its position
-                                    CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
-                                    pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
-                                    strt = pos[0][0]
-                                    stp = pos[0][1]
-                                    #overlaps will store a value if start is bounded by two features
-                                    #use list comprehension instead of nested dict loop
-                                    overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
-                                    if len(overlaps) > 1:
-                                        print 'Within target feature, hit overlaps off-target features.'
-                                        print 'Removing', potential_CRISPR_seqs.pop(index), 'from search'
-                                    else:
-                                        finalist_SeqFeatureObj.append((Seq(potential_CRISPR_seqs.pop(index)), SeqFeature(FeatureLocation(strt+1, stp-1), strand=locus_strand, type='misc_binding')))
-#                                         gb_record.features.append(recrd)
-#                                         finalist_seqs.append(potential_CRISPR_seqs.pop(index))
-                                        #got the feature, now break for next one
-                                        clamp_size += 1
-                                        print 'Site found'
-                                        total_hits.append(locus_name)
-                                        break
-                                if locus_strand < 0:
-                                    CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
-                                    pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
-                                    print pos
-                                    strt = gb_record_seq_len - pos[0][0]
-                                    stp = gb_record_seq_len - pos[0][1]
-                                    overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
-                                    if len(overlaps) > 1:
-                                        print 'Within target feature, hit overlaps off-target features.'
-                                        print 'Removing', potential_CRISPR_seqs.pop(index), 'from search'
-                                    else:
-                                        finalist_SeqFeatureObj.append((Seq(potential_CRISPR_seqs.pop(index)), SeqFeature(FeatureLocation(strt-1, stp+1), strand=locus_strand, type='misc_binding')))
-#                                         gb_record.features.append(recrd)
-#                                         finalist_seqs.append(potential_CRISPR_seqs.pop(index))
-                                        clamp_size += 1
-                                        print 'Site found'
-                                        total_hits.append(locus_name)
-                                        #got the feature, now break for next one
-                                        break
-                        if len(potential_CRISPR_seqs) == 0:
-                            clamp_size += ARGS.three_prime_clamp
-                            break
-                        else:
-                            if clamp_size < ARGS.three_prime_clamp:
-                                print 'Increasing size of 3\' clamp by 1 bp\n'
-                            clamp_size += 1
+                    for potential_CRISPR_seq in potential_CRISPR_seqs:
+                        CRISPR = potential_CRISPR_seq[-ARGS.three_prime_clamp:]
+                        whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
+                        whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
+                        fwd_hits = [i for i in whole_gb_forward_CRISPR_hits]
+                        rev_hits = [i for i in whole_gb_rev_CRISPR_hits]
+                        if not ARGS.suppress_screen_output:
+                            print 'Sequence', CRISPR, 'had', str(len(fwd_hits)), 'forward and', str(len(rev_hits)), 'reverse hits'
+                        if (len(fwd_hits) + len(rev_hits)) == 1:
+                            if locus_strand > 0:
+                                #Use finditer to find its position
+                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq))
+                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                strt = pos[0][0]
+                                stp = pos[0][1]
+                                #overlaps will store a value if start is bounded by two features
+                                #use list comprehension instead of nested dict loop
+                                overlaps=[True for i in locus_locs.values() if (i[0][0] <= strt <=i[0][1]) or (i[0][0] <= stp <=i[0][1])]
+                                if len(overlaps) > 1:
+                                    print 'Within target feature, hit overlaps off-target features.'
+                                else:
+                                    finalist_SeqFeatureObj.append((potential_CRISPR_seq, SeqFeature(FeatureLocation(strt, stp), strand=locus_strand, type='misc_binding')))
+                            if locus_strand < 0:
+                                CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
+                                pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                strt = gb_record_seq_len - pos[0][0]
+                                stp = gb_record_seq_len - pos[0][1]
+                                overlaps=[True for i in locus_locs.values() if (i[0][0] <= (strt-1) <=i[0][1]) or (i[0][0] <= (stp+1) <=i[0][1])]
+                                if len(overlaps) > 1:
+                                    print 'Within target feature, hit overlaps off-target features.'
+                                else:
+                                    finalist_SeqFeatureObj.append((potential_CRISPR_seq, SeqFeature(FeatureLocation(strt-1, stp+1), strand=locus_strand, type='misc_binding')))
+                                    #got the feature, now break for next one
                     print 'Finished searching in this feature.'
                     if len(finalist_SeqFeatureObj) == 0:
-                        print 'No hits found in this feature.'
+                        print 'No hits found in this feature.\n'
                         did_not_hit.append(locus_name)
-
                     else:
                         #each SeqFeatureObj is a tuple containing the CRISPR seq, and the SeqFeature
                         maxGC = max([GC(i[0]) for i in finalist_SeqFeatureObj])
                         highestGC_SeqFeatureObjs = [i for i in finalist_SeqFeatureObj if GC(i[0]) == maxGC]
                         upstream_most_highestGC_SeqFeatureObjs = min([i[1].location.start for i in highestGC_SeqFeatureObjs])
                         #grab just the SeqFeature
-                        best_SeqFeatureObj = [i[1] for i in highestGC_SeqFeatureObjs if i[1].location.start == upstream_most_highestGC_SeqFeatureObjs][0]
-                        print type(best_SeqFeatureObj)
+                        best_SeqFeatureObj = [i for i in highestGC_SeqFeatureObjs if i[1].location.start == upstream_most_highestGC_SeqFeatureObjs][0]
+                        total_hits.append(locus_name)
                         #append the SeqFeature to the gb_record
-                        gb_record.features.append(best_SeqFeatureObj)
-#                         print len(highestGCs)
-#                         if len(highestGCs) == 2:
-#                             if locus_strand == -1:
-#                                 print highestGCs
-#                                 sys.exit()
-#                         print highestGCs
-#                         print 'length of maxGC', len(maxGC)
-#                         print 'Best hit based on GC and 5\'-most position in feature:', str(GC(maxGC[0][0])), '\n', maxGC
-#                         print set(total_hits)
+                        gb_record.features.append(best_SeqFeatureObj[1])
+                        if not ARGS.suppress_screen_output:
+                            print 'Best hit for', locus_name, 'was', best_SeqFeatureObj[0], 'at pos', str(best_SeqFeatureObj[1].location)
         updated_gb_records.append(gb_record)
-#         print locus_locs
         #Tell the user how many features were processed
         if len(n_qualifiers_found) == 0:
             print '\nNo', ARGS.feature_qualifier, 'feature found in genbank record.'
         else:
             print '\n', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features processed.\n'
-            print '\nFound hits for', str(len(total_hits)), 'of', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features'
-            print 'Did not find hits for:', ', '.join(did_not_hit)
+            print '\nFound hits for', str(len(total_hits)), 'of', str(len(n_qualifiers_found)), ARGS.feature_qualifier, 'features:'
+            if not ARGS.suppress_screen_output:
+                print ', '.join(total_hits)
+            print '\nDid not find hits for:', ', '.join(did_not_hit)
     return updated_gb_records
 
 
