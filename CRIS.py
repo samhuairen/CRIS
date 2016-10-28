@@ -3,9 +3,11 @@
 '''
 Search for CRISPR/Cas9 target sites in an annotated genbank sequence.
 email dr.mark.schultz@gmail.com
-20161026_YYYYMMDD
+20161028_YYYYMMDD
 '''
 
+import time
+start_time = time.time()
 import argparse
 from Bio import SeqIO
 from Bio.Seq import Seq
@@ -229,7 +231,7 @@ def main():
 
 
 if __name__ == '__main__':
-    outfile = os.path.splitext(ARGS.seq_infile)[0]+'_Cas9targetsites.gbk'
+    outfile = os.path.splitext(ARGS.seq_infile)[0]+'_CRISPRCas9targetsites.gbk'
     #Print whether overwrite is True or False
     print '\nOverwrite', outfile, '==', ARGS.feature, '\n'
     if ARGS.verbose:
@@ -250,4 +252,6 @@ if __name__ == '__main__':
     print '3\' clamp length was', ARGS.three_prime_clamp, 'bp'
     print 'Thank you for using CRIS.py version', VERSION
     print 'email: dr.mark.schultz@gmail.com; github: \'schultzm\'.\n'
+    print '--- %s seconds ---' % (time.time() - start_time)
+
 
