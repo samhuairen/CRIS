@@ -235,7 +235,7 @@ def main():
                                 print 'Increasing size of 3\' clamp by 1 bp\n'
                             clamp_size += 1
                     print 'Finished searching in this feature.'
-                    if len(total_hits) == 0:
+                    if len(finalist_SeqFeatureObj) == 0:
                         print 'No hits found in this feature.'
                         did_not_hit.append(locus_name)
 
@@ -245,7 +245,8 @@ def main():
                         highestGC_SeqFeatureObjs = [i for i in finalist_SeqFeatureObj if GC(i[0]) == maxGC]
                         upstream_most_highestGC_SeqFeatureObjs = min([i[1].location.start for i in highestGC_SeqFeatureObjs])
                         #grab just the SeqFeature
-                        best_SeqFeatureObj = [i[1] for i in highestGC_SeqFeatureObjs if i[1].location.start == upstream_most_highestGC_SeqFeatureObjs]
+                        best_SeqFeatureObj = [i[1] for i in highestGC_SeqFeatureObjs if i[1].location.start == upstream_most_highestGC_SeqFeatureObjs][0]
+                        print type(best_SeqFeatureObj)
                         #append the SeqFeature to the gb_record
                         gb_record.features.append(best_SeqFeatureObj)
 #                         print len(highestGCs)
