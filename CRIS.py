@@ -109,9 +109,6 @@ def loci_locations(gb_record):
         locus_locations[locus_name].append([loc_strt, loc_end, loc_strnd])
     return locus_locations
 
-def define_hit(strand, x):
-    pass
-
 def main():
     '''
     Get sequence, extract genes and coordinates.
@@ -171,17 +168,13 @@ def main():
                             print 'No CRISPR hits.'
                     print 'There are', str(len(potential_CRISPR_seqs)), 'potential sites in', locus_name
                     print potential_CRISPR_seqs
-                    clamp_size = ARGS.three_prime_clamp
+                    clamp_size = 3
                     n_hit = 0
-                    while clamp_size <= SITE_LENGTH:
+                    while clamp_size <= ARGS.three_prime_clamp:
                         print str(clamp_size), 'bp matches with 3\' clamp of CRISPR seq:'
-#                        feature_overlaps = 0
                         for index, potential_CRISPR_seq in enumerate(potential_CRISPR_seqs):
-                            if len(potential_CRISPR_seqs) == 0:
-                                clamp_size += SITE_LENGTH
-                                break
                             CRISPR = potential_CRISPR_seq[-clamp_size:]
-#                             print clamp_size <= SITE_LENGTH
+#                             print clamp_size <= ARGS.three_prime_clamp
                             #check firstly for matches at the 3' end
                             whole_gb_forward_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq))
                             whole_gb_rev_CRISPR_hits = re.findall(CRISPR, str(all_gb_records_seq_rev))
@@ -200,15 +193,14 @@ def main():
                                     #overlaps will store a value if start is bounded by two features
                                     #use list comprehension instead of nested dict loop
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
-                                    if len(overlaps) > 0:
+                                    if len(overlaps) > 1:
                                         print 'Within target feature, hit overlaps off-target features.'
                                         print 'Removing', potential_CRISPR_seqs.pop(index), 'from search'
-#                                         clamp_size += 1
                                     else:
-                                        recrd = SeqFeature(FeatureLocation(strt, stp), strand=1, type='misc_binding')
+                                        recrd = SeqFeature(FeatureLocation(strt+1, stp-1), strand=locus_strand, type='misc_binding')
                                         gb_record.features.append(recrd)
                                         #got the feature, now break for next one
-                                        clamp_size += SITE_LENGTH
+                                        clamp_size += ARGS.three_prime_clamp
                                         print 'Site found'
                                         n_hit += 1
                                         break
@@ -216,32 +208,29 @@ def main():
                                 if locus_strand < 0:
                                     CRISPR_pos_iterobj = re.finditer(potential_CRISPR_seq, str(gb_record_seq_rev))
                                     pos = [(i.start(), i.end()) for i in CRISPR_pos_iterobj]
+                                    print pos
                                     strt = gb_record_seq_len - pos[0][0]
                                     stp = gb_record_seq_len - pos[0][1]
                                     overlaps=[True for i in locus_locs.values() if i[0][0] <= strt <=i[0][1]]
                                     if len(overlaps) > 1:
                                         print 'Within target feature, hit overlaps off-target features.'
                                         print 'Removing', potential_CRISPR_seqs.pop(index), 'from search'
-                                    
-#                                         clamp_size += 1
                                     else:
-                                        recrd = SeqFeature(FeatureLocation(strt, stp), strand=-1, type='misc_binding')
+                                        recrd = SeqFeature(FeatureLocation(strt-1, stp+1), strand=locus_strand, type='misc_binding')
                                         gb_record.features.append(recrd)
-                                        clamp_size += SITE_LENGTH
+                                        clamp_size += ARGS.three_prime_clamp
                                         print 'Site found'
                                         n_hit += 1
                                         #got the feature, now break for next one
                                         break
-#                         if feature_overlaps == len(potential_CRISPR_seqs):
-#                             print 'XXXXXXXXX'
-#                             print 'The 3\' clamp of all potential CRISPR seqs overlapped with other features.'
-#                             clamp_size += SITE_LENGTH
-#                             break
-                                
-                                # print 
-                        print 'Increasing size of 3\' clamp by 1 bp\n'
-                        clamp_size += 1
-                    print 'Finished searching for this feature.'
+                        if len(potential_CRISPR_seqs) == 0:
+                            clamp_size += ARGS.three_prime_clamp
+                            break
+                        else:
+                            if clamp_size < ARGS.three_prime_clamp:
+                                print 'Increasing size of 3\' clamp by 1 bp\n'
+                            clamp_size += 1
+                    print 'Finished searching in this feature.'
                     if n_hit == 0:
                         print str(n_hit), 'hits found in', locus_name
         updated_gb_records.append(gb_record)
