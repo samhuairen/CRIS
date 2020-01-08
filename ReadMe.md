@@ -14,6 +14,7 @@ usage: CRIS.py [-h] -s SEQ_INFILE [-l LENGTH_TARGET_SEQ]
 Find CRISPR/Cas9 target sites in a genbank file. Accepts files with multiple
 genbank records per file. Author: dr.mark.schultz@gmail.com. Acknowledgements:
 Torsten Seemann, Ian Monk, Timothy P. Stinear.
+#####################################################
 
 optional arguments:
   -h, --help            show this help message and exit
